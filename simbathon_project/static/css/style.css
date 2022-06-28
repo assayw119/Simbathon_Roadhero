@@ -58,7 +58,7 @@ a {
     list-style: none;
     display: flex;
     margin: 0;
-    padding-left: 0;
+    padding-left: 300px;
   }
   
 .navbar__menu li {
@@ -69,3 +69,17 @@ a {
     background-color: #D9D9D9;
     border-radius: 3px;
   }
+
+* {
+  font-family: "Stylish", sans-serif;
+}
+
+.wrap {
+    width: 900px;
+    margin: auto;
+}
+
+.comment {
+    color: blue;
+    font-weight: bold;
+}
