@@ -1,0 +1,68 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #FAD0C4 0%, #FAD0C4 1%, #FFD1FF 100%);
+    padding: 8px 12px;
+  }
+
+body { 
+    margin: 0;
+    background-color: whitesmoke;
+  }
+
+.navbar__name {
+    text-decoration: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    padding-left: 7.36%;
+    top: 31.84%;
+    
+  }
+
+
+a {
+    text-decoration: none;
+  }
+  
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap');
+
+.navbar__menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding-left: 0;
+    text-align: center;
+  }
+  
+.navbar__menu li {
+    padding: 10px 80px;
+  }
+
+
+.navbar__menu a{
+     font-family: 'Roboto';/*폰트*/
+     color: black;/*폰트컬러*/
+     font-weight: 800;/*폰트굵기*/
+     text-decoration: none;/*a href 밑줄 등 글자 꾸밈 없음*/
+     line-height: 40px;
+  }
+
+.navbar__menu a:after {/*after 가상요소*/
+     display:block;/*a요소를 블록 요소라고 선언*/
+     width:70px;/*카테고리 메뉴 밑줄의 크기를 동일하게 주기 위해 width 설정*/
+                /*혹시 a요소 크기만큼 생기길 바란다면 width 삭제*/
+     content: '';/*comtent안은 밑줄 디자인을 위해 비워두세요.*/
+     border-bottom: solid 2px #6A7BA2;
+     transform: scaleX(0);/*크기를 0으로 줌으로써 평상시엔 밑줄 없음*/
+     transition: transform 250ms ease-in-out; /*변형 방식*/
+  }
+
+  .navbar__menu a:hover:after {
+     transform: scaleX(1);/*a 속성에 hover시 after를 기존 크기로 변경*/
+  }
+    
+
+
