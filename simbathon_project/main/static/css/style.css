@@ -1,3 +1,4 @@
+@import "reset.css";
 .navbar {
     display: flex;
     justify-content: space-between;
