@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div calss="container">
+    <ul>
+        <li><a href="">수정하기</a></li>
+    </ul>
+    
+    <h1>{{user.username}}</h1>
+    <div>
+        <h3>이름 : </h3>
+        <h3>학교 : </h3>
+        <h3>학과 : </h3>
+        <h3>학점 : </h3>
+
+    </div>
+</div>
+
+{% endblock %}

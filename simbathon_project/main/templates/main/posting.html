@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<form action="{% url 'main:create' %}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <p>제목 : <input type="text" name="title"></p>
+    <p>카테고리 : 
+        <select name="category">
+            <option value="취업">취업</option>
+            <option value="창업">창업</option>
+            <option value="대학원">대학원</option>
+        </select>
+    </p>
+    <p>내용 : <textarea name="body" id="" cols="30" rows="10"></textarea></p>
+    <p>사진 : <input type="file" name="image"></p>
+    <button type="submit">제출</button>
+</form>
+
+{% endblock %}
