@@ -8,6 +8,3 @@ class Profile(models.Model):
     name = models.CharField(max_length=20, default='', null=True)
     university = models.CharField(max_length=20, default='', null=True)
     major = models.CharField(max_length=20, default='', null=True)
-
-    def __str__(self):
-        return self.user

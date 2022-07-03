@@ -50,11 +50,11 @@ def createInfo(request):
             profile = form.save(commit=False)
             profile.user = request.user
             profile.save()
-            return redirect('users:mypage', profile)
+            return redirect('accounts:mypage', profile)
     else:
         form = ProfileForm()
     context = {'form':form}
-    return render(request, 'users:mypage', context)
+    return render(request, 'accounts:mypage', context)
     # new_info = Profile()
     # new_info.user = request.user
     # new_info.name = request.POST['name']
@@ -62,3 +62,17 @@ def createInfo(request):
     # new_info.major = request.POST['major']
     # new_info.save()
     # return redirect('users:mypage', new_info.user)
+
+def editInfo(request):
+    user = request.user
+    edit_profile = Profile.objects.get(user=user)
+    return render(request, 'editinfo.html', {'profile':edit_profile})
+
+def updateInfo(request):
+    user = request.user
+    update_profile = Profile.objects.get(user=user)
+    update_profile.name = request.POST['name']
+    update_profile.university = request.POST['university']
+    update_profile.major = request.POST['major']
+    update_profile.save()
+    return redirect('accounts:mypage')

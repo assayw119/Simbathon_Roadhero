@@ -4,11 +4,11 @@
 
 <div calss="container">
     <ul>
-        <li><a href="">수정하기</a></li>
+        <li><a href="{% url 'accounts:editinfo' %}">수정하기</a></li>
     </ul>
     
-    <h1>{{user.username}}</h1>
-    <div>{{person}}
+    <h1>{{profile.user}}</h1>
+    <div>
         <h3>이름 : {{profile.name}}</h3>
         <h3>학교 : {{profile.university}}</h3>
         <h3>학과 : {{profile.major}}</h3>
