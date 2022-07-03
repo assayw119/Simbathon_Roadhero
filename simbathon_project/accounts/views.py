@@ -1,5 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import auth
+from django.contrib.auth import get_user_model
+from .models import Profile
+from .forms import ProfileForm
 
 # Create your views here.
 # def login(request):
@@ -31,3 +34,31 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('main:showmain')
+
+def mypage(request):
+    # person = get_object_or_404(get_user_model(), username=username)
+    user = request.user
+    # profile = Profile.objects.filter(user=str(username))
+    # profile = get_object_or_404(Profile, user=username)
+    profile = Profile.objects.get(user=user)
+    return render(request, 'mypage.html', {'profile':profile})
+
+def createInfo(request):
+    if request.method == 'POST':
+        form = ProfileForm(request.POST)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+            return redirect('users:mypage', profile)
+    else:
+        form = ProfileForm()
+    context = {'form':form}
+    return render(request, 'users:mypage', context)
+    # new_info = Profile()
+    # new_info.user = request.user
+    # new_info.name = request.POST['name']
+    # new_info.university = request.POST['university']
+    # new_info.major = request.POST['major']
+    # new_info.save()
+    # return redirect('users:mypage', new_info.user)

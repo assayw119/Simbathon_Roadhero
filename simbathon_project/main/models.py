@@ -3,13 +3,18 @@ from unicodedata import category
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
+category_choice = (
+    ('취업','취업'),
+    ('창업','창업'),
+    ('진학','진학'),
+    ('기타','기타'),
+)
 class Post(models.Model):
     title = models.CharField(max_length=100)
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
     pub_date = models.DateTimeField()
     body = models.TextField()
-    category = models.CharField(max_length=20, default='', null=True)
+    category = models.CharField(max_length=10, choices=category_choice, default='취업')
     image = models.ImageField(upload_to='post/', blank=True, null=True)
 
     def __str__(self):

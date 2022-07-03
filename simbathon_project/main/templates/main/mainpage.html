@@ -16,7 +16,7 @@
             <div class="card-body">
                 <a href="{% url 'main:detail' post.id %}" class="card-title">{{post.writer}}</a>
                 <p class="card-text">{{post.title}}</p>
-                <p class="card-text comment">국어국문문예창작 16</p>
+                <p class="card-text comment">{{post.writer}}</p>
             </div>
         </div>
         {% endfor %}

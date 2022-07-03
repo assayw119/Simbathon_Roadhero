@@ -19,6 +19,7 @@ def create(request):
     new_post.title = request.POST['title']
     new_post.writer = request.user
     new_post.pub_date = timezone.now()
+    new_post.category = request.POST['category']
     new_post.body = request.POST['body']
     new_post.image = request.FILES.get('image')
     new_post.save()
