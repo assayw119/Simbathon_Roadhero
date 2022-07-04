@@ -36,3 +36,13 @@ def community(request):
 def community_detail(request, id):
     community = get_object_or_404(Community, pk=id)
     return render(request, 'main/community_detail.html', {'community':community})
+
+def community_create(request):
+    new_community = Community()
+    new_community.title = request.POST['title']
+    new_community.writer = request.user
+    new_community.pub_date = timezone.now()
+    new_community.category = request.POST['category']
+    new_community.body = request.POST['body']
+    new_community.save()
+    return redirect('main:community_detail', new_community.id)
