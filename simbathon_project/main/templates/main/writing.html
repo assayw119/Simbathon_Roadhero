@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<form action="{% url 'main:community_create' %}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <p>제목 : <input type="text" name="title"></p>
+    <p>카테고리 : 
+        <select name="category">
+            <option value="질문">질문</option>
+            <option value="정보">정보</option>
+            <option value="생활">생활</option>
+            <option value="기타">기타</option>
+        </select>
+    </p>
+    <p>내용 : <textarea name="body" id="" cols="30" rows="10"></textarea></p>
+    <button type="submit">제출</button>
+</form>
+
+{% endblock %}

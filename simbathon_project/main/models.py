@@ -1,4 +1,5 @@
 from asyncore import write
+from calendar import prmonth
 from turtle import ondrag
 from unicodedata import category
 from django.db import models
@@ -39,6 +40,7 @@ class Comment(models.Model):
     update_at = models.DateTimeField(auto_now=True)
 
 class Community(models.Model):
+    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
     pub_date = models.DateTimeField()
