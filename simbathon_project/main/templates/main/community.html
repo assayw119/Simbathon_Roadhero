@@ -4,44 +4,45 @@
 {% block content %}
 <div id="background">
     <section class="title">
-        <p>MANHAECLUB</p>
+        <p>COMMUNITY</p>
     </section>
     <section class="button">
         <div class="btn">
             <div>전체</div>
         </div>
         <div class="btn">
-            <div>취업</div>
+            <div>질문</div>
         </div>
         <div class="btn">
-            <div>창업</div>
+            <div>정보</div>
         </div>
         <div class="btn">
-            <div>진학</div>
+            <div>생활</div>
         </div>
         <div class="btn">
             <div>기타</div>
         </div>
     </section>
     <section class="search">
-        <p><a href="{% url 'main:new' %}">글쓰기</a></p>
         <form action="">
             <input class="search_input" type="text">
             <i class="fa-solid fa-magnifying-glass"></i>
         </form>
     </section>
     <section class="posting">
-        {% for post in posts %}
+        {% for community in communities %}
         <div class="post_item">
-            <a href="{% url 'main:detail' post.id %}" class="post_itme_inner" style="text-decoration:none">
+            <a href="{% url 'main:community_detail' community.id %}" class="post_itme_inner" style="text-decoration:none">
                 <div class="post_itme_inner_s">
-                    <img class="post_item_img" src="{{post.image}}" alt="Card image cap">
                     <section class="post_item_title">
-                        <p class="post_item_title_title">{{post.title}}</p>
+                        <p class="post_item_title_title">{{community.title}}</p>
+                    </section>
+                    <section>
+                        <p>{{community.summary}}</p>
                     </section>
                     <section class="post_item_info">
-                        <p class="post_item_info_name">{{post.writer}}</p>
-                        <p class="post_item_info_major">{{user}}</p>
+                        <p class="post_item_info_name">{{community.writer}}</p>
+                        <p class="post_item_info_major">전공</p>
                         <!--전공 정보 필요!!-->
                     </section>
                 </div>
@@ -49,6 +50,7 @@
         </div>
         {% endfor %}
     </section>
+    <p><a href="">글쓰기</a></p>
 </div>
 
 {% endblock %}
