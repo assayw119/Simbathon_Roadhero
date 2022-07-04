@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@font-face {
+    font-family: 'KoPubDotumMedium';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/KoPubDotumMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#detail_background{
+    background-color: #514C48;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.detail_posting_s{
+    background-color: #2D2A2A;
+    margin: 50px 0px;
+    width:85%;
+    color:white;
+}
+.detail_posting{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.detail_posting_title{
+    margin-top: 3%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+}
+.detail_posting_info{
+    font-family: 'Roboto', sans-serif;
+    margin-top: 12px;
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+}
+.detail_posting_info_major{
+    font-weight: 700;
+    margin-right: 15px;
+}
+.detail_posting_img{
+    margin-top: 2%;
+    border-radius: 5%;
+    width: 80%;
+    height: 70vh;
+    object-fit: cover;
+}
+.detail_posting_body{
+    font-family: 'KoPubDotumMedium';
+    width: 80%;
+    margin-top: 5%;
+}
+.detail_posting_footer{
+    font-family: 'KoPubDotumMedium';
+    margin: 3%;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+.detail_posting_footer_category, .detail_posting_footer_date{
+    display: flex;
+    align-items: center;
+}
+
+.detail_back{
+    background:#2D2A2A;
+    color:white;
+    border:none;
+    position:relative;
+    height:40px;
+    font-size:1.6em;
+    padding:0 1em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    margin-bottom: 50px;
+    text-decoration:none;
+}
+
+.detail_back:hover{
+    text-decoration:none;
+        background:#514C48;
+        color: white;
+}
+.detail_back:before, .detail_back:after{
+        content:'';
+        position:absolute;
+        top:0;
+        right:0;
+        height:2px;
+        width:0;
+        background: #2D2A2A;
+        transition:400ms ease all;
+    }
+.detail_back:after{
+        right:inherit;
+        top:inherit;
+        left:0;
+        bottom:0;
+    }
+.detail_back:hover:before,.detail_back:hover:after{
+    text-decoration:none;
+        width:100%;
+        transition:800ms ease all;
+    }
