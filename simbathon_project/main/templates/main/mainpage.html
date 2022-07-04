@@ -1,74 +1,49 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-
-
 {% block content %}
-
-<h1 style="text-align: center;"> MANHAECLUB </h1>
-
-<div id="cards-box" class="card-columns">
-    <div style="align-items: center;">
+<div id="background">
+    <section class="title">
+        <p>MANHAECLUB</p>
+    </section>
+    <section class="button">
+        <div class="btn">
+            <div>취업</div>
+        </div>
+        <div class="btn">
+            <div>창업</div>
+        </div>
+        <div class="btn">
+            <div>진학</div>
+        </div>
+        <div class="btn">
+            <div>기타</div>
+        </div>
+    </section>
+    <section class="search">
+        <form action="">
+            <input class="search_input" type="text">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </form>
+    </section>
+    <section class="posting">
         {% for post in posts %}
-        <div class="card">
-            <img src="{{post.image}}" alt="Card image cap">
-            <div class="card-body">
-                <a href="{% url 'main:detail' post.id %}" class="card-title">{{post.writer}}</a>
-                <p class="card-text">{{post.title}}</p>
-                <p class="card-text comment">{{post.writer}}</p>
-            </div>
+        <div class="post_item">
+            <a href="{% url 'main:detail' post.id %}" class="post_itme_inner" style="text-decoration:none">
+                <div class="post_itme_inner_s">
+                    <img class="post_item_img" src="{{post.image}}" alt="Card image cap">
+                    <section class="post_item_title">
+                        <p class="post_item_title_title">내가 하고 싶은 일을 하기 위해 용기 내는 법</p>
+                    </section>
+                    <section class="post_item_info">
+                        <p class="post_item_info_name">{{post.writer}}</p>
+                        <p class="post_item_info_major">전공</p>
+                    </section>
+                </div>
+            </a>
         </div>
         {% endfor %}
-        <div class="card">
-            <img src="{% static 'images/images.jpeg' %}" alt="Card image cap">
-            <div class="card-body">
-                <a href="#" class="card-title">박0웅</a>
-                <p class="card-text">내가 하고 싶은 일을 하기 위해 용기 내는 법</p>
-                <p class="card-text comment">국어국문문예창작 16</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="{% static 'images/images.jpeg' %}" alt="Card image cap">
-            <div class="card-body">
-                <a href="#" class="card-title">박0웅</a>
-                <p class="card-text">내가 하고 싶은 일을 하기 위해 용기 내는 법</p>
-                <p class="card-text comment">국어국문문예창작 16</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="{% static 'images/images.jpeg' %}" alt="Card image cap">
-            <div class="card-body">
-                <a href="#" class="card-title">박0웅</a>
-                <p class="card-text">내가 하고 싶은 일을 하기 위해 용기 내는 법</p>
-                <p class="card-text comment">국어국문문예창작 16</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="{% static 'images/images.jpeg' %}" alt="Card image cap">
-            <div class="card-body">
-                <a target="_blank" href="#" class="card-title">박0웅</a>
-                <p class="card-text">내가 하고 싶은 일을 하기 위해 용기 내는 법</p>
-                <p class="card-text comment">국어국문문예창작 16</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="{% static 'images/images.jpeg' %}" alt="Card image cap">
-            <div class="card-body">
-                <a target="_blank" href="#" class="card-title">박0웅</a>
-                <p class="card-text">내가 하고 싶은 일을 하기 위해 용기 내는 법</p>
-                <p class="card-text comment">국어국문문예창작 16</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="{% static 'images/images.jpeg' %}" alt="Card image cap">
-            <div class="card-body">
-                <a target="_blank" href="#" class="card-title">박0웅</a>
-                <p class="card-text">내가 하고 싶은 일을 하기 위해 용기 내는 법</p>
-                <p class="card-text comment">국어국문문예창작 16</p>
-            </div>
-        </div>
-    </div>
+    </section>
 </div>
-{% endblock %}
 
+{% endblock %}
