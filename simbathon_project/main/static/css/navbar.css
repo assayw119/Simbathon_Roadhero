@@ -7,11 +7,6 @@
     padding: 8px 12px;
   }
 
-body { 
-    margin: 0;
-    background-color: whitesmoke;
-  }
-
 .navbar__name {
     
     padding-left: 0;
@@ -22,37 +17,12 @@ body {
     bottom: 60.53%;
   }
 
-.a1 {
-    color: #6A7BA2;
-    text-decoration: none;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 28px;
-  }
-
 .navbar__subname {
   position: absolute;
   left: 9.38%;
   right: 81.04%;
   top: 49.47%;
   bottom: 45.26%;
-  }
-
-.a2 {
-    text-decoration: none;
-    color: #6A7BA2;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-  }
-
-a {
-    text-decoration: none;
-    color: black;
   }
 
 .navbar__menu {
