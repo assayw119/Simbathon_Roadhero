@@ -6,6 +6,7 @@
     font-style: normal;
 }
 
+
 #detail_background{
     background-color: #514C48;
     width: 100%;
@@ -31,6 +32,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 45px;
+    width: 80%;
 }
 .detail_posting_info{
     font-family: 'Roboto', sans-serif;
@@ -103,7 +105,7 @@
         left:0;
         bottom:0;
     }
-.detail_back:hover:before,.detail_back:hover:after{
+.detail_back:hover:before, .detail_back:hover:after{
     text-decoration:none;
         width:100%;
         transition:800ms ease all;

@@ -24,7 +24,6 @@
         </div>
     </section>
     <section class="search">
-        <p><a href="{% url 'main:new' %}">글쓰기</a></p>
         <form action="">
             <input class="search_input" type="text">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -49,6 +48,9 @@
         </div>
         {% endfor %}
     </section>
+    <a href="{% url 'main:new' %}">
+        <img class="toWrite" src="{% static 'images/toWrite.png' %}" alt="">
+    </a>
 </div>
 
 {% endblock %}
