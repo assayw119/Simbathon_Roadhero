@@ -24,6 +24,11 @@
         </div>
     </section>
     <section class="search">
+        <p>
+            <a href="{% url 'main:community_new' %}">
+                글쓰기
+            </a>
+        </p>
         <form action="">
             <input class="search_input" type="text">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -50,7 +55,6 @@
         </div>
         {% endfor %}
     </section>
-    <p><a href="{% url 'main:community_new' %}">글쓰기</a></p>
 </div>
 
 {% endblock %}
