@@ -2,18 +2,57 @@
 {% load static %}
 {% block content %}
 
-<div calss="container">
-    <ul>
-        <li><a href="{% url 'accounts:editinfo' %}">수정하기</a></li>
-    </ul>
+<head>
     
-    <h1>{{profile.user}}</h1>
-    <div>
-        <h3>이름 : {{profile.name}}</h3>
-        <h3>학교 : {{profile.university}}</h3>
-        <h3>학과 : {{profile.major}}</h3>
+    <link href="{% static 'admin/css/mypage.css' %}" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <section>
+    
+        <div calss="container">
+        <h1>MANHAECLUB</h1>
+    
+        <article>
+
+        <div class="profilebox" >
+            <img class="profile_image" src="{% static 'images/person_icon.png'%}" alt="">
+            <p>닉네임 : {{profile.user}}</p>
+            <p>이름 : {{profile.name}}</p>
+            <p>학교 : {{profile.university}}</p>
+            <p>학과 : {{profile.major}}</p>
+
+            <a href="{% url 'accounts:editinfo' %}">수정하기</a>
+            
+
+        </div>
+        
+        <h2 style="position: absolute; width: 285px; height: 56px; left: 206px; top: 908px;">좋아요 한 글 목록</h2>    
+        
+        <div class="likebox">
+            
+        </div>
+
+        <h2 style ="position: absolute; width: 163px; height: 56px; left: 206px; top: 1491px;">내가 쓴 글</h2>
+        
+        <div class="myposting">
+            
+        </div>
+
+        <h2 style="position: absolute; width: 163px; height: 56px; left: 206px; top: 2074px;">댓글 단 글</h2>
+        
+        <div class="mycomment">
+            
+        </div>
+
+        </article>
 
     </div>
-</div>
+
+    </section>
+</body>
+
+
 
 {% endblock %}
