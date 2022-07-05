@@ -22,8 +22,10 @@ body{ background-color: #514C48;
     
 }
 
-
-
+.container{
+    margin: 0 auto;
+    width: 1080px;
+}
 
 .profilebox {
     background-color: #2D2A2A;
