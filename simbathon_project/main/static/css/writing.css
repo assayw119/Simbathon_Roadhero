@@ -1,0 +1,186 @@
+@import "reset.css";
+@font-face {
+    font-family: 'SUIT-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+.writing_background{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'SUIT-Medium';
+}
+.writing_head_title{
+    margin-top: 4%;
+    width: 80%;
+    color:white;
+    font-size: 48px;
+    font-weight: 800;
+}
+.writing{
+    width: 80%;
+    margin-top: 1%;
+}
+.writing_title{
+    margin-bottom: 10px;
+}
+.writing_titles{
+    color:white;
+    font-size: 26px;
+}
+.writing_title > input{
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+}
+select {
+    box-sizing: border-box;
+    width: 100px;
+    padding: 4px;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+  
+option {
+    padding: 4px;
+    font-size: 14px;
+    color: #fff;
+    background: #272822;
+}
+.writing_body > textarea{
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+}
+.writing_bottom{
+    margin-bottom: 20px;
+}
+
+.writing_submit{
+    background:#2D2A2A;
+    color:white;
+    border:none;
+    position:relative;
+    height:40px;
+    font-size:1.6em;
+    padding:0 1em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    margin-bottom: 50px;
+    text-decoration:none;
+}
+
+.writing_submit:hover{
+    text-decoration:none;
+    background:#514C48;
+    color: white;
+}
+.writing_submit:before, .writing_submit:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #2D2A2A;
+    transition:400ms ease all;
+}
+.writing_submit:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+.writing_submit:hover:before, .writing_submit:hover:after{
+    text-decoration:none;
+    width:100%;
+    transition:800ms ease all;
+}
+
+.filebox{
+    display: flex;
+    align-items: flex-start;
+}
+
+.upload-name{
+    margin-right: 10px;
+}
+
+.filebox input[type="file"] {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip:rect(0,0,0,0);
+	border: 0;
+}
+
+.filebox label {
+	display: inline-block;
+	padding: .5em .75em;
+	color: #999;
+	font-size: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #fdfdfd;
+	cursor: pointer;
+	border: 1px solid #ebebeb;
+	border-bottom-color: #e2e2e2;
+	border-radius: .25em;
+}
+
+/* named upload */
+.filebox .upload-name {
+	display: inline-block;
+	padding: .5em .75em;
+	font-size: inherit;
+	font-family: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #f5f5f5;
+  border: 1px solid #ebebeb;
+  border-bottom-color: #e2e2e2;
+  border-radius: .25em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.filebox .upload-display {
+	margin-bottom: 5px;
+}
+
+@media(min-width: 768px) {
+	.filebox .upload-display {
+		display: inline-block;
+		margin-right: 5px;
+		margin-bottom: 0;
+	}
+}
+
+.filebox .upload-thumb-wrap {
+	display: inline-block;
+	width: 54px;
+	padding: 2px;
+	vertical-align: middle;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	background-color: #fff;
+}
+
+.filebox .upload-display img {
+	display: block;
+	max-width: 100%;
+	width: 100%;
+	height: auto;
+}
+
+.filebox.bs3-primary label {
+  color: #fff;
+  background-color: #2D2A2A;
+	border-color: #2D2A2A;
+}
