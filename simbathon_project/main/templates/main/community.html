@@ -6,55 +6,81 @@
     <section class="title">
         <p>COMMUNITY</p>
     </section>
-    <section class="button">
-        <div class="btn">
-            <div>전체</div>
+    <section class="community_new_post">
+        <div class="community_new_post_title">
+            <p>금주의 따땃한 게시물</p>
         </div>
-        <div class="btn">
-            <div>질문</div>
-        </div>
-        <div class="btn">
-            <div>정보</div>
-        </div>
-        <div class="btn">
-            <div>생활</div>
-        </div>
-        <div class="btn">
-            <div>기타</div>
-        </div>
+        <a href="{% url 'main:community_detail' first.id %}" class="community_posting_body_post_itme_inner"
+            style="text-decoration:none">
+            <div class="community_new_post_posting">
+                <img class="community_new_post_posting_img"
+                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                    alt="">
+                <div class="community_new_post_posting_item">
+                    <div class="community_new_post_posting_item_title">{{first.title}}</div>
+                    <div class="community_new_post_posting_item_major">산업시스템공학과 {{first.writer}}</div>
+                    <div class="community_new_post_posting_item_summary">{{first.summary}}</div>
+                    <div class="community_new_post_posting_item_date">{{first.pub_date}}</div>
+                </div>
+            </div>
+        </a>
     </section>
-    <section class="search">
-        <p>
-            <a href="{% url 'main:community_new' %}">
-                글쓰기
-            </a>
-        </p>
-        <form action="">
-            <input class="search_input" type="text">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </form>
-    </section>
-    <section class="posting">
-        {% for community in communities %}
-        <div class="post_item">
-            <a href="{% url 'main:community_detail' community.id %}" class="post_itme_inner" style="text-decoration:none">
-                <div class="post_itme_inner_s">
-                    <section class="post_item_title">
-                        <p class="post_item_title_title">{{community.title}}</p>
-                    </section>
-                    <section>
-                        <p>{{community.summary}}</p>
-                    </section>
-                    <section class="post_item_info">
-                        <p class="post_item_info_name">{{community.writer}}</p>
-                        <p class="post_item_info_major">전공</p>
-                        <!--전공 정보 필요!!-->
-                    </section>
+    <section class="community_posting">
+        <div class="community_posting_head">
+            <div class="community_posting_head_title">
+                <p>게시물</p>
+            </div>
+            <section class="community_button">
+                <div class="btn">
+                    <div>전체</div>
+                </div>
+                <div class="btn">
+                    <div>질문</div>
+                </div>
+                <div class="btn">
+                    <div>정보</div>
+                </div>
+                <div class="btn">
+                    <div>생활</div>
+                </div>
+                <div class="btn">
+                    <div>기타</div>
+                </div>
+            </section>
+            <section class="community_search">
+                <form action="">
+                    <input class="search_input" type="text">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </form>
+            </section>
+        </div>
+        <div class="community_posting_body">
+            {% for community in communities %}
+            <a href="{% url 'main:community_detail' community.id %}" class="community_posting_body_post_itme_inner"
+                style="text-decoration:none">
+                <div class="community_posting_body_post_item">
+                    <div class="community_posting_body_post_item_head">
+                        <p>{{community.category}}</p>
+                        <p>{{community.pub_date}}</p>
+                    </div>
+                    <div class="community_posting_body_post_item_title">
+                        <p>{{community.title}}</p>
+                    </div>
+                    <div class="community_posting_body_post_item_summary">
+                        <p>{{community.summary}}...</p>
+                    </div>
+                    <div class="community_posting_body_post_item_footer">
+                        <p>{{community.writer}}</p>
+                        <p>산업시스템공학과</p>
+                    </div>
                 </div>
             </a>
+            {% endfor %}
         </div>
-        {% endfor %}
     </section>
+    <a href="{% url 'main:community_new' %}">
+        <img class="toWrite" src="{% static 'images/toWrite.png' %}" alt="">
+    </a>
 </div>
 
 {% endblock %}

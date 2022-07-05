@@ -2,17 +2,23 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post, Comment, Community
 from django.utils import timezone
 
-## 인트로 페이지
+# 인트로 페이지
+
+
 def intro(request):
     return render(request, 'main/intro.html')
 
-## 메인 페이지 (매거진 페이지)
+# 메인 페이지 (매거진 페이지)
+
+
 def showmain(request):
     posts = Post.objects.all()
-    return render(request, 'main/mainpage.html', {'posts':posts})
+    return render(request, 'main/mainpage.html', {'posts': posts})
+
 
 def new(request):
     return render(request, 'main/posting.html')
+
 
 def create(request):
     new_post = Post()
@@ -25,21 +31,28 @@ def create(request):
     new_post.save()
     return redirect('main:detail', new_post.id)
 
+
 def detail(request, id):
     post = get_object_or_404(Post, pk=id)
-    return render(request, 'main/detail.html', {'post':post})
+    return render(request, 'main/detail.html', {'post': post})
 
-## 커뮤니티 페이지
+# 커뮤니티 페이지
+
+
 def community(request):
+    first_community = Community.objects.first()
     communities = Community.objects.all()
-    return render(request, 'main/community.html', {'communities':communities})
+    return render(request, 'main/community.html', {'communities': communities, 'first': first_community})
+
 
 def community_detail(request, id):
     community = get_object_or_404(Community, pk=id)
-    return render(request, 'main/community_detail.html', {'community':community})
+    return render(request, 'main/community_detail.html', {'community': community})
+
 
 def community_new(request):
     return render(request, 'main/writing.html')
+
 
 def community_create(request):
     new_community = Community()
