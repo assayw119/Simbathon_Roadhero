@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div id="detail_background">
+<div id="background">
     <section class="detail_posting_s">
         <div class="detail_posting">
             <p class="detail_posting_title">{{post.title}}</p>
@@ -32,7 +32,7 @@
             </div>
         </div>
     </section>
-    
+
     <div class="detail_back">
         <a href="{% url 'main:showmain' %}">
             목록
