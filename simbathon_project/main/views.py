@@ -1,7 +1,11 @@
 from unicodedata import category
 from django.shortcuts import render, redirect, get_object_or_404
+
+from main.forms import PostSearchForm
 from .models import Post, Comment, Community
 from django.utils import timezone
+from django.db.models import Q
+from django.views.generic import FormView
 
 # 인트로 페이지
 
@@ -20,11 +24,22 @@ def showmain(request):
             posts = Post.objects.all()
         else:
             posts = Post.objects.filter(category=magazine_sort)
-            
-
-
+    
     return render(request, 'main/mainpage.html', {'posts': posts})
 
+class SearchFormView(FormView):
+    template_name = 'main/mainpage.html'
+    form_class = PostSearchForm
+    def form_valid(self, form):
+        searchWord = form.cleaned_data['search_word']
+        posts = Post.objects.filter(Q(title__icontains=searchWord) | Q(body__icontains=searchWord))
+
+        context = {}
+        context['form'] = form
+        context['search_term'] = searchWord
+        context['posts'] = posts
+
+        return render(self.request, self.template_name, context)
 
 def new(request):
     return render(request, 'main/posting.html')

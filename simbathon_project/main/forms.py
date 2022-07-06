@@ -10,3 +10,6 @@ class CommunityForm(forms.ModelForm):
     class Meta:
         model = Community
         fields = ['title','writer','pub_date','body', 'category']
+
+class PostSearchForm(forms.Form):
+    search_word = forms.CharField(label='Search Word')

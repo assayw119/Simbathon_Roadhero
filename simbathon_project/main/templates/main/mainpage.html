@@ -17,29 +17,34 @@
         </section>
     </form>
     <section class="search">
-        <form action="">
-            <input class="search_input" type="text">
+        <form id="search" method="post" action="{% url 'main:search' %}">
+            {% csrf_token %}
+            <input type="text" name="search_word" class="search_input" type="submit" label="Search Word">
             <i class="fa-solid fa-magnifying-glass"></i>
         </form>
     </section>
     <section class="posting">
-        {% for post in posts %}
-        <div class="post_item">
-            <a href="{% url 'main:detail' post.id %}" class="post_itme_inner" style="text-decoration:none">
-                <div class="post_itme_inner_s">
-                    <img class="post_item_img" src="{{post.image}}" alt="Card image cap">
-                    <section class="post_item_title">
-                        <p class="post_item_title_title">{{post.title}}</p>
-                    </section>
-                    <section class="post_item_info">
-                        <p class="post_item_info_name">{{post.writer}}</p>
-                        <p class="post_item_info_major">{{user}}</p>
-                        <!--전공 정보 필요!!-->
-                    </section>
-                </div>
-            </a>
-        </div>
-        {% endfor %}
+        {% if posts %}
+            {% for post in posts %}
+            <div class="post_item">
+                <a href="{% url 'main:detail' post.id %}" class="post_itme_inner" style="text-decoration:none">
+                    <div class="post_itme_inner_s">
+                        <img class="post_item_img" src="{{post.image}}" alt="Card image cap">
+                        <section class="post_item_title">
+                            <p class="post_item_title_title">{{post.title}}</p>
+                        </section>
+                        <section class="post_item_info">
+                            <p class="post_item_info_name">{{post.writer}}</p>
+                            <p class="post_item_info_major">{{user}}</p>
+                            <!--전공 정보 필요!!-->
+                        </section>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>not found</p>
+        {% endif %}
     </section>
     <a href="{% url 'main:new' %}">
         <img class="toWrite" src="{% static 'images/toWrite.png' %}" alt="">
