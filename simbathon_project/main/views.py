@@ -1,3 +1,4 @@
+from unicodedata import category
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post, Comment, Community
 from django.utils import timezone
@@ -12,7 +13,16 @@ def intro(request):
 
 
 def showmain(request):
-    posts = Post.objects.all()
+    
+    if request.method=='GET':
+        magazine_sort = request.GET.get('magazine')
+        if magazine_sort == 'all' or magazine_sort == None:
+            posts = Post.objects.all()
+        else:
+            posts = Post.objects.filter(category=magazine_sort)
+            
+
+
     return render(request, 'main/mainpage.html', {'posts': posts})
 
 

@@ -6,23 +6,16 @@
     <section class="title">
         <p>MANHAECLUB</p>
     </section>
-    <section class="button">
-        <div class="btn">
-            <div>전체</div>
-        </div>
-        <div class="btn">
-            <div>취업</div>
-        </div>
-        <div class="btn">
-            <div>창업</div>
-        </div>
-        <div class="btn">
-            <div>진학</div>
-        </div>
-        <div class="btn">
-            <div>기타</div>
-        </div>
-    </section>
+    <form id="magazine" method="get" action="{% url 'main:showmain' %}">
+        {% csrf_token %}
+        <section class="button">
+            <button type="submit" value="all" class="btn" name="magazine">전체</button>
+            <button type="submit" value="취업" class="btn" name="magazine">취업</button>
+            <button type="submit" value="창업" class="btn" name="magazine">창업</button>
+            <button type="submit" value="진학" class="btn" name="magazine">진학</button>
+            <button type="submit" value="기타" class="btn" name="magazine">기타</button>
+        </section>
+    </form>
     <section class="search">
         <form action="">
             <input class="search_input" type="text">
