@@ -6,7 +6,7 @@
     <section class="title">
         <p>MANHAECLUB</p>
     </section>
-    <form id="magazine" method="get" action="{% url 'main:showmain' %}">
+    <form class="button_form" id="magazine" method="get" action="{% url 'main:showmain' %}">
         {% csrf_token %}
         <section class="button">
             <button type="submit" value="all" class="btn" name="magazine">전체</button>

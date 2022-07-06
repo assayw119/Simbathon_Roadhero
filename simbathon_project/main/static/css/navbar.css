@@ -1,56 +1,55 @@
-@import "reset.css";
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #FAD0C4;
-    padding: 8px 12px;
-  }
-
-.navbar__name {
-    
-    padding-left: 0;
-    position: absolute;
-    left: 7.36%;
-    right: 81.46%;
-    top: 31.84%;
-    bottom: 60.53%;
-  }
-
-.navbar__subname {
-  position: absolute;
-  left: 9.38%;
-  right: 81.04%;
-  top: 49.47%;
-  bottom: 45.26%;
-  }
-
-.navbar__menu {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding-left: 300px;
-  }
-  
-.navbar__menu li {
-    padding: 8px 30px;
-  }
-
-.navbar__menu li:hover {
-    background-color: #D9D9D9;
-    border-radius: 3px;
-  }
-
-* {
-  font-family: "Stylish", sans-serif;
+@font-face {
+  font-family: 'SUIT-Medium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+.navbar{
+  width: 100vw;
+  height: 170px;
+  background-color: #6F816F;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.navbar_logo_a{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.navbar_logo_img{
+  width: 45%;
+}
+.navbar_logo_imgs{
+  width: 70%;
 }
 
-.wrap {
-    width: 900px;
-    margin: auto;
+.navbar_menu{
+  display: flex;
+  align-items: center;
+  width: 45%;
+  justify-content: space-between;
 }
 
-.comment {
-    color: blue;
-    font-weight: bold;
+.nabvar_menu_category_one{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  line-height: 15px;
+}
+
+.navbar_menu_title{
+  font-family: 'SUIT-Medium';
+  font-size: 20px;
+  text-decoration: none;
+  color:black;
+}
+
+.navbar_login{
+  display: flex;
+}
+
+.navbar_login i{
+  color: black;
+  margin-right: 20px;
 }
