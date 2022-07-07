@@ -6,8 +6,7 @@
 }
 .navbar{
   width: 100vw;
-  height: 170px;
-  background-color: #6F816F;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -50,6 +49,7 @@
 }
 
 .navbar_login i{
+  cursor: pointer;
   color: black;
   margin-right: 20px;
 }
