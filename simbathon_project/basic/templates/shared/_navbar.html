@@ -23,10 +23,15 @@
   <ul class="navbar_login">
     <i id="toggle_btn" style="cursor: pointer;" class="fa-solid fa-moon fa-2x"></i>
     {% if user.is_authenticated %}
-    <a href="{% url 'accounts:mypage' %}"><i class="fa-solid fa-circle-user fa-2x"></i></a>
-    <a href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
+      {% if not user.profile %}
+        <a href="{% url 'accounts:newinfo' %}"><i class="fa-solid fa-circle-user fa-2x"></i></a>
+        <a href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
+      {% else %}
+        <a href="{% url 'accounts:mypage' %}"><i class="fa-solid fa-circle-user fa-2x"></i></a>
+        <a href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
+      {% endif %}
     {% else %}
-    <a href="{% url 'accounts:login' %}"><i class="fa-solid fa-right-to-bracket fa-2x"></i> </a>
+      <a href="{% url 'accounts:login' %}"><i class="fa-solid fa-right-to-bracket fa-2x"></i> </a>
     {% endif %}
   </ul>
 </nav>

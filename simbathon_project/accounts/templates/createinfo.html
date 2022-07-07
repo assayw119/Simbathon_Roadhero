@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<form action="{% url 'accounts:createinfo' %}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    {{user.username}}
+    <p>이름 : <input type="text" name="name"></p>
+    <p>학교 : <input type="text" name="university"></p>
+    <p>전공 : <input type="text" name="major"></p>
+    <p>복수전공 : <input type="text" name="major2"></p>
+    <p>입학연도 : 
+        <select name="register">
+            <script>
+                for(i=2022; i>=1970; i--){
+                    document.write(
+                        "<option value=" +i+">"+i+"</option>"
+                    )
+                }
+            </script>
+        </select>
+    </p>
+    <button type="submit">제출</button>
+</form>
+
+{% endblock %}

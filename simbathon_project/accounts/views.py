@@ -45,25 +45,21 @@ def mypage(request):
     myposts = Post.objects.filter(writer=user)
     return render(request, 'mypage.html', {'profile':profile, 'myposts':myposts})
 
+
+def newinfo(request):
+    return render(request, 'createinfo.html')
+
 def createInfo(request):
-    if request.method == 'POST':
-        form = ProfileForm(request.POST)
-        if form.is_valid():
-            profile = form.save(commit=False)
-            profile.user = request.user
-            profile.save()
-            return redirect('accounts:mypage', profile)
-    else:
-        form = ProfileForm()
-    context = {'form':form}
-    return render(request, 'accounts:mypage', context)
-    # new_info = Profile()
-    # new_info.user = request.user
-    # new_info.name = request.POST['name']
-    # new_info.university = request.POST['university']
-    # new_info.major = request.POST['major']
-    # new_info.save()
-    # return redirect('users:mypage', new_info.user)
+    user = request.user
+    new_info = Profile()
+    new_info.user = request.user
+    new_info.name = request.POST['name']
+    new_info.university = request.POST['university']
+    new_info.major = request.POST['major']
+    new_info.major2 = request.POST['major2']
+    new_info.register = request.POST['register']
+    new_info.save()
+    return redirect('accounts:mypage')
 
 def editInfo(request):
     user = request.user
