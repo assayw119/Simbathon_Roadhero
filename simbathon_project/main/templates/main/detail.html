@@ -5,9 +5,11 @@
 <div id="background">
     <section class="detail_posting_s">
         <div class="detail_posting">
-            <p class="detail_posting_title">{{post.title}}</p>
+            <div class="detail_posting_category">{{post.category}}</div>
+            <div class="detail_posting_title">{{post.title}}</div>
             <div class="detail_posting_info">
-                <p class="detail_posting_info_major">{{post.writer.profile.major}}</p>
+                <p class="detail_posting_info_major">{{post.writer.profile.major}}
+                    {{post.writer.profile.student_number}}</p>
                 {% if post.writer %}
                 {% if 'user' in post.writer.username %}
                 <p class="detail_posting_info_writer">{{ post.writer.last_name }} {{ post.writer.first_name }}</p>
