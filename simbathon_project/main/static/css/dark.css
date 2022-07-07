@@ -9,6 +9,9 @@
     --detail-back-color : #2D2A2A;
     --detail-color : #FFFFFF;
     --search-color: #656260;
+    --detail-comment-back-color : #4E4E4E;
+    --detail-comment-submit-back-color: #D9D9D9;
+    --detail-comment-color : #FFFFFF;
 }
 
 .lightmode{
@@ -22,6 +25,9 @@
     --detail-back-color : #FFFFFF;
     --detail-color : #4C4B49;
     --search-color: #C8C8C8;
+    --detail-comment-back-color : rgb(237,237,237);
+    --detail-comment-submit-back-color: #D9D9D9;
+    --detail-comment-color : #4E4E4E;
 }
 
 /* Navbar 관련 */
@@ -64,6 +70,36 @@
 .detail_posting_s{
     background-color: var(--detail-back-color);
     color: var(--detail-color);
+}
+.detail_posting_comment_write_input{
+    background-color: var(--detail-comment-back-color);
+    color : var(--detail-comment-color);
+}
+.detail_posting_comment_write_submit{
+    background-color: var(--detail-comment-submit-back-color);
+}
+
+.detail_posting_comment_write_edit_input{
+    background-color: var(--detail-comment-back-color);
+    color : var(--detail-comment-color);
+}
+
+.detail_posting_comment_write_edit_submit{
+    background-color: var(--detail-comment-submit-back-color);
+}
+
+.detail_posting_comment_items_item{
+    background-color: var(--detail-comment-back-color);;
+    color: var(--detail-comment-color);;
+}
+
+.detail_posting_comment_items_x, .detail_posting_comment_items_x:hover{
+    color: var(--btn-color);
+}
+
+.detail_posting_comment_edit{
+    background-color: var(--detail-comment-back-color);
+    color: var(--detail-comment-color);;
 }
 
 

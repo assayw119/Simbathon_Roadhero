@@ -25,25 +25,25 @@
     </section>
     <section class="posting">
         {% if posts %}
-            {% for post in posts %}
-            <div class="post_item">
-                <a href="{% url 'main:detail' post.id %}" class="post_itme_inner" style="text-decoration:none">
-                    <div class="post_itme_inner_s">
-                        <img class="post_item_img" src="{{post.image}}" alt="Card image cap">
-                        <section class="post_item_title">
-                            <p class="post_item_title_title">{{post.title}}</p>
-                        </section>
-                        <section class="post_item_info">
-                            <p class="post_item_info_name">{{post.writer}}</p>
-                            <p class="post_item_info_major">{{user}}</p>
-                            <!--전공 정보 필요!!-->
-                        </section>
-                    </div>
-                </a>
-            </div>
-            {% endfor %}
+        {% for post in posts %}
+        <div class="post_item">
+            <a href="{% url 'main:detail' post.id %}" class="post_itme_inner" style="text-decoration:none">
+                <div class="post_itme_inner_s">
+                    <img class="post_item_img" src="{{post.image}}" alt="Card image cap">
+                    <section class="post_item_title">
+                        <p class="post_item_title_title">{{post.title}}</p>
+                    </section>
+                    <section class="post_item_info">
+                        <p class="post_item_info_name">{{post.writer}}</p>
+                        <p class="post_item_info_major">{{post.writer.profile.major}}</p>
+                        <!--전공 정보 필요!!-->
+                    </section>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
         {% else %}
-            <p>not found</p>
+        <p>not found</p>
         {% endif %}
     </section>
     <a href="{% url 'main:new' %}">
