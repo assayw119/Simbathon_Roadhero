@@ -5,8 +5,7 @@
 <div id="background">
     <section class="detail_posting_s">
         <div class="detail_posting">
-            <div class="detail_posting_category">{{post.category}}</div>
-            <div class="detail_posting_title">{{post.title}}</div>
+            <p class="detail_posting_title">{{post.title}}</p>
             <div class="detail_posting_info">
                 <p class="detail_posting_info_major">{{post.writer.profile.major}}</p>
                 {% if post.writer %}
@@ -32,6 +31,7 @@
                 <p class="detail_posting_footer_date">작성일자 : {{post.pub_date}}</p>
             </div>
             <!-- 좋아요 -->
+            {% if user.is_authenticated %}
             <form class="detail_posting_like_form" action="{% url 'main:likes' post.id %}" method="POST">
                 <div class="detail_posting_like">
                     {% csrf_token %}
@@ -43,12 +43,16 @@
                     {% endif %}
                 </div>
             </form>
+            {% else %}
+            <div class="detail_posting_comment_disable">좋아요는 로그인 후에!</div>
+            {% endif %}
         </div>
         <div class="detail_posting_comment">
+            {% if user.is_authenticated %}
             <div class="detail_posting_comment_write">
                 <div class="detail_posting_comment_write_info">
                     <div class="detail_posting_comment_write_info_name">{{user.username}}</div>
-                    <div class="detail_posting_comment_write_info_major">전자전기공학부 18</div>
+                    <div class="detail_posting_comment_write_info_major">{{user.profile.major}}</div>
                 </div>
                 <form class="detail_posting_comment_write_form" action="{%url 'main:comment_create' post.id%}"
                     method="POST">
@@ -57,6 +61,9 @@
                     <input class="detail_posting_comment_write_submit" type="submit" value="확인">
                 </form>
             </div>
+            {% else %}
+            <div class="detail_posting_comment_disable">댓글 입력은 로그인 이후에 이용하실 수 있습니다.</div>
+            {% endif %}
             <div class="detail_posting_divider"></div>
             <div class="detail_posting_comment_length">댓글 {{comments|length}}개</div>
             <div class="detail_posting_comment_items">
@@ -68,11 +75,13 @@
                             <div class="detail_posting_comment_items_item_info_first_name">{{ comment.writer.last_name
                                 }}
                                 {{ comment.writer.first_name }}</div>
-                            {% else %}
-                            <div class="detail_posting_comment_items_item_info_first_name">{{ comment.writer }}</div>
-                            {% endif %}
                             <div class="detail_posting_comment_items_item_info_first_major">
                                 {{comment.writer.profile.major}}</div>
+                            {% else %}
+                            <div class="detail_posting_comment_items_item_info_first_name">{{ comment.writer }}</div>
+                            <div class="detail_posting_comment_items_item_info_first_major">
+                                {{comment.writer.profile.major}}</div>
+                            {% endif %}
                         </div>
                         <div class="detail_posting_comment_items_item_info_second">
                             {% if user == comment.writer %}
@@ -108,31 +117,6 @@
         </div>
     </section>
     <!-- 댓글 -->
-    <div>
-        <form action="{%url 'main:comment_create' post.id%}" method="POST">
-            {%csrf_token%}
-            <textarea name="content" placeholder="댓글내용입력"></textarea>
-            <input type="submit" value="확인">
-        </form>
-    </div>
-    <div class="detail_comment">
-        {% for comment in comments %}
-        <div>
-            {% if 'user' in comment.writer.username %}
-            <h6>작성자 : {{ comment.writer.last_name }} {{ comment.writer.first_name }}</h6>
-            {% else %}
-            <h6>작성자 : {{ comment.writer }}</h6>
-            {% endif %}
-        {{comment.content}}<br>
-        {{comment.created_at}}<br>
-            {% if user == comment.writer %}
-            <a href="{% url 'main:comment_edit' comment.id %}">댓글 수정</a>
-            <a href="{% url 'main:comment_delete' comment.id %}">댓글 삭제</a>
-            {% endif %}
-        <hr>
-        </div>
-        {% endfor %}
-    </div>
 
     <div class="detail_back">
         <a href="{% url 'main:showmain' %}">

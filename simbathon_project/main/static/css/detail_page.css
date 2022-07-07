@@ -405,6 +405,11 @@
     font-family: 'KoPubDotumMedium';
     margin-bottom: 2%;
 }
+.detail_posting_comment_disable{
+  font-size: 24px;
+  text-align: center;
+  width: 100%;
+}
 
 .detail_posting_comment_items{
     font-family: 'KoPubDotumMedium';
@@ -499,6 +504,9 @@ top: 30%;
         animation: wobble-hor-top 0.8s both;
 }
 
+.hide{
+  visibility: hidden;
+}
 
 /* 목록 버튼 */
 .detail_back{
