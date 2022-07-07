@@ -9,7 +9,7 @@ urlpatterns = [
     path('new/', new, name='new'),
     path('create/', create, name='create'),
     path('<str:id>', detail, name='detail'),
-    path('/', SearchFormView.as_view(), name='search'),
+    path('media/', SearchFormView.as_view(), name='search'),
     path('<str:id>/likes/', likes, name='likes'),
 
     path('community/', community, name='community'),
@@ -23,4 +23,7 @@ urlpatterns = [
     path('<str:id>/comment_delete', comment_delete, name="comment_delete"),
     path('<str:id>/comment_edit', comment_edit, name="comment_edit"),
     path('<str:id>/comment_update', comment_update, name="comment_update"),
+
+    path('<str:id>/community_comment_create', community_comment_create, name="community_comment_create"),
+
 ]

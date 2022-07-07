@@ -1,0 +1,97 @@
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@700&display=swap');
+@font-face {
+    font-family: 'SUIT-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.login_background{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.login_title{
+    font-family: 'MuseoModerno', cursive;
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: 60px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.login_s{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 60%;
+    height: 60%;
+    background-color: #2D2A2A;
+    color: #FFFFFF;
+    border-radius: 15px;
+    margin-bottom: 5%;
+    margin-top: 4%;
+    text-align: center;
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+
+.id_all{
+    display: flex;
+}
+.id_all_ment{
+    width: 70px;
+}
+
+.id_all_blank {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    width : 250px;
+}
+.login_check_box{
+    margin-bottom: 2%;
+}
+
+.login_box{
+    width: 280px;
+    height: 40px;
+    background: #CACACA;
+    color: black;
+    justify-content: center;
+    border-radius: 50px;
+    padding-top: 6px;
+    margin-bottom: 2%;
+}
+
+.google_box{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    width: 280px;
+    height: 40px;
+    background: #CACACA;
+    border-radius: 50px;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+.google_image{
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+}
+
+.profile_image{
+    width: 5%;
+    height: 5%;
+}
+
+.login_box:hover{
+    color: #6F816F;
+}

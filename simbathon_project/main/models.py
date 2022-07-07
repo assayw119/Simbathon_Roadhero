@@ -27,7 +27,7 @@ class Post(models.Model):
     like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_posts')
     view_users = models.IntegerField(default=0)
     category = models.CharField(max_length=10, choices=post_choice, default='취업')
-    image = models.ImageField(upload_to='post/', blank=True, null=True)
+    image = models.ImageField(upload_to='media/post/', blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -54,6 +54,13 @@ class Community(models.Model):
     body = models.TextField()
     category = models.CharField(max_length=10, choices=write_choice, default='질문')
     image = models.ImageField(upload_to='community/', blank=True, null=True)
+
+class CommunityComment(models.Model):
+    content = models.TextField()
+    writer = models.ForeignKey(User, on_delete=models.CASCADE)
+    community = models.ForeignKey(Community ,on_delete=models.CASCADE, related_name ='communitycomments')
+    created_at = models.DateTimeField(auto_now=True)
+    update_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
