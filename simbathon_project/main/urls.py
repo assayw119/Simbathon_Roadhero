@@ -16,4 +16,9 @@ urlpatterns = [
     path('community/<str:id>/', community_detail, name='community_detail'),
     path('community_new/', community_new, name='community_new'),
     path('community_create/', community_create, name='community_create'),
+
+    path('<str:id>/comment_create', comment_create, name="comment_create"),
+    path('<str:id>/comment_delete', comment_delete, name="comment_delete"),
+    path('<str:id>/comment_edit', comment_edit, name="comment_edit"),
+    path('<str:id>/comment_update', comment_update, name="comment_update"),
 ]

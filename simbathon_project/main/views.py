@@ -70,7 +70,9 @@ def create(request):
 
 def detail(request, id):
     post = get_object_or_404(Post, pk=id)
-    return render(request, 'main/detail.html', {'post': post})
+    ##댓글을 최신순으로 정렬하는 코드(박영신 추가)
+    all_comments = post.comments.all().order_by('-created_at')
+    return render(request, 'main/detail.html', {'post':post, 'comments':all_comments})
 
 # 커뮤니티 페이지
 
@@ -99,3 +101,31 @@ def community_create(request):
     new_community.body = request.POST['body']
     new_community.save()
     return redirect('main:community_detail', new_community.id)
+
+## 댓글 페이지
+def comment_create(request, id):
+    if request.method == "POST":
+        post = get_object_or_404(Post, pk=id)
+        current_user = request.user
+        comment_content = request.POST.get("content")
+        Comment.objects.create(content=comment_content, writer=current_user, post=post)
+    return redirect("main:detail", id)
+
+def comment_edit(request, id):
+    comment = Comment.objects.get(id=id)
+    if request.user == comment.writer:
+        return render(request, "main/comment_edit.html", {"comment": comment})
+    else:
+        return redirect("main:detail", comment.post.id)
+
+def comment_delete(request, id):
+    comment = Comment.objects.get(id=id)
+    if request.user == comment.writer:
+        comment.delete()
+    return redirect("main:detail", comment.post.id)
+
+def comment_update(request, id):
+    comment = Comment.objects.get(id=id)
+    comment.content = request.POST.get("content")
+    comment.save()
+    return redirect("main:detail", comment.post.id)
