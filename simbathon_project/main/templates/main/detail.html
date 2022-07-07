@@ -34,6 +34,7 @@
             <form action="{% url 'main:likes' post.id %}" method="POST">
                 <div class="detail_posting_footer">
                     {% csrf_token %}
+                    <p>조회수 : {{post.view_users}}</p>
                     <p>좋아요 수 : {{post.like_users.count}}</p>
                     {% if user in post.like_users.all %}
                     <input type="submit" value='좋아요 취소'>
