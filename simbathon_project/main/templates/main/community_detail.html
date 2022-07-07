@@ -42,7 +42,7 @@
                     {% if community.image %}
                     <img class="detail_posting_img" src="{{community.image.url}}" alt="사진">
                     {% endif %}
-                    <div class="detail_posting_info_major">철학과 15</div>
+                    <div class="detail_posting_info_major">{{community.writer.profile.major}} {{community.writer.profile.student_number}}</div>
                 </div>
                 <div class="community_detail_posting_info_second">
                     <div class="detail_posting_footer_date">{{community.pub_date}}</div>

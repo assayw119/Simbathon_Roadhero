@@ -57,7 +57,7 @@
             <div class="detail_posting_comment_write">
                 <div class="detail_posting_comment_write_info">
                     <div class="detail_posting_comment_write_info_name">{{user.username}}</div>
-                    <div class="detail_posting_comment_write_info_major">{{user.profile.major}}</div>
+                    <div class="detail_posting_comment_write_info_major">{{user.profile.major}} {{user.profile.student_number}}</div>
                 </div>
                 <form class="detail_posting_comment_write_form" action="{%url 'main:comment_create' post.id%}"
                     method="POST">
@@ -81,11 +81,11 @@
                                 }}
                                 {{ comment.writer.first_name }}</div>
                             <div class="detail_posting_comment_items_item_info_first_major">
-                                {{comment.writer.profile.major}}</div>
+                                {{comment.writer.profile.major}} {{comment.writer.profile.student_number}}</div>
                             {% else %}
                             <div class="detail_posting_comment_items_item_info_first_name">{{ comment.writer }}</div>
                             <div class="detail_posting_comment_items_item_info_first_major">
-                                {{comment.writer.profile.major}}</div>
+                                {{comment.writer.profile.major}} {{comment.writer.profile.student_number}}</div>
                             {% endif %}
                         </div>
                         <div class="detail_posting_comment_items_item_info_second">
