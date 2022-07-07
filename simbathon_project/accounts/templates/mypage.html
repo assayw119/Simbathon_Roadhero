@@ -14,39 +14,31 @@
                 <img class="profile_image" src="{% static 'images/person_icon.png'%}" alt="">
                 <div class="profile_items">
                     <div class="profile_item">
-                        <div class="profile_user">닉네임</div>
-                        <div class="profile_user_box">{{profile.user}}</div>
-                    </div><br>
-    
-                    <div class="profile_item">
-                        <div class="profile_name">이름 </div>
-                        <div class="profile_name_box">{{profile.name}}</div>
-                    </div><br>
-                    
-    
-                    <div class="profile_item">
-                        <div class="profile_univ">학교</div>
-                        <div class="profile_univ_box">{{profile.university}}</div>
-                    </div><br>
-    
-                    <div class="profile_item">
-                        <div class="profile_major">전공</div>
-                        <div class="profile_major_box">{{profile.major}}</div>
+                        <div class="profile_item_item">
+                            <div class="profile_name">이름(닉네임)</div>
+                            <div class="profile_name_box">{{profile.name}} ({{profile.user}})</div>
+                        </div>
+                        <div class="profile_item_item">
+                            <div class="profile_univ">학교</div>
+                            <div class="profile_univ_box">{{profile.university}}</div>
+                        </div>
                     </div>
-                    <br>
-
                     <div class="profile_item">
-                        <div class="profile_major">복수전공</div>
-                        <div class="profile_major_box">{{profile.major2}}</div>
+                        <div class="profile_item_item">
+                            <div class="profile_major">전공</div>
+                            <div class="profile_major_box">{{profile.major}}</div>
+                        </div>
+    
+                        <div class="profile_item_item">
+                            <div class="profile_major2">복수전공</div>
+                            <div class="profile_major2_box">{{profile.major2}}</div>
+                        </div>
                     </div>
-                    <br>
-
-                    <div class="profile_item">
-                        <div class="profile_major">입학연도</div>
-                        <div class="profile_major_box">{{profile.register}}</div>
+                    <div class="profile_item_item">
+                        <div class="profile_register">입학연도</div>
+                        <div class="profile_register_box">{{profile.register}}</div>
                     </div>
-                    <br>
-                    <a style="text-decoration: none" class = "myp_edit" href="{% url 'accounts:editinfo' %}">수정</a>
+                    <div class="profile_item_edit"><a style="text-decoration: none" class = "myp_edit" href="{% url 'accounts:editinfo' %}">수정</a></div>
                 </div>
                 
             </div>
@@ -55,8 +47,9 @@
 
         <!--좋아요 한 글 목록 -->
         <section class="profile_other_s">
-            <div class="">좋아요 한 글 목록</div>
-            <div class="">
+            <div class="like_list">좋아요 한 글 목록</div>
+            <div class="like_box">
+                좋아요 한 글들 예시
 
             </div>
         </section>
@@ -64,13 +57,19 @@
          <!--내가 쓴 글 -->
          <section class="profile_other_s">
             <div class="myposting_list">내가 쓴 글</div>
-            <div class="myposting_box"></div>
+            <div class="myposting_box">
+                내가 쓴 글들 예시
+
+            </div>
         </section>
 
          <!--댓글 단 글  -->
          <section class="profile_other_s">
             <div class="mycomment_list">댓글 단 글</div>
-            <div class="mycomment_box"></div>
+            <div class="mycomment_box">
+                댓글 단 글들 예시
+
+            </div>
         </section>
 
     </div>

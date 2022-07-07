@@ -87,11 +87,6 @@
     width: 20px;
 }
 
-.profile_image{
-    width: 5%;
-    height: 5%;
-}
-
 .login_box:hover{
     color: #6F816F;
 }
