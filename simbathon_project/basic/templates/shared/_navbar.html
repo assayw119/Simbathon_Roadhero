@@ -21,7 +21,7 @@
     </a>
   </ul>
   <ul class="navbar_login">
-    <i class="fa-solid fa-moon fa-2x"></i>
+    <i id="toggle_btn" style="cursor: pointer;" class="fa-solid fa-moon fa-2x"></i>
     {% if user.is_authenticated %}
     <a href="{% url 'accounts:mypage' %}"><i class="fa-solid fa-circle-user fa-2x"></i></a>
     <a href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>

@@ -1,0 +1,79 @@
+:root{
+    --nav-color:#6F816F;
+    --back-color : #514C48;
+    --title-color: #FFFFFF;
+    --btn-color : #FFFFFF;
+    --btn-back-color : #3D3939;
+    --btn-hover-color : #3D3939;
+    --btn-hover-back-color : #FFFFFF;
+    --detail-back-color : #2D2A2A;
+    --detail-color : #FFFFFF;
+    --search-color: #656260;
+}
+
+.lightmode{
+    --nav-color: #EAE3DC;
+    --back-color: rgb(237,237,237);
+    --title-color: #4C4B49;
+    --btn-color : #4D4B49;
+    --btn-back-color : #D9D9D9;
+    --btn-hover-color : #EFEFEF;
+    --btn-hover-back-color : #4388A6;
+    --detail-back-color : #FFFFFF;
+    --detail-color : #4C4B49;
+    --search-color: #C8C8C8;
+}
+
+/* Navbar 관련 */
+.navbar{
+    background-color: var(--nav-color);
+}
+
+/* Mainpage 관련 */
+#background{
+    background-color: var(--back-color);
+}
+
+.title{
+    color: var(--title-color);
+}
+
+.button > .btn{
+    color: var(--btn-color);
+    background-color: var(--btn-back-color);
+    transition: all 0.5s;
+}
+
+.button > .btn:hover{
+    color: var(--btn-hover-color);
+    background-color: var(--btn-hover-back-color);
+    transition: all 0.5s;
+}
+
+.button > .btn:active{
+    color: var(--btn-hover-color);
+    background-color: var(--btn-hover-back-color);
+    transition: all 0.5s;
+}
+
+/* Community 관련 */
+/* 버튼 넣기!! */
+
+
+/* Detail 관련 */
+.detail_posting_s{
+    background-color: var(--detail-back-color);
+    color: var(--detail-color);
+}
+
+
+/* Search bar */
+.search > form > input{
+    border : 1px solid var(--search-color);
+    background-color: var(--search-color);
+}
+
+.community_search > form > input{
+    border : 1px solid var(--search-color);
+    background-color:var(--search-color);
+}
