@@ -3,30 +3,44 @@
 
 {% block content %}
 <div id="background">
-    <section class="detail_posting_s">
-        <div class="detail_posting">
-            <p class="detail_posting_title">{{community.title}}</p>
-            <div class="detail_posting_info">
-                <p class="detail_posting_info_major">철학과 15</p>
-                {% if community.writer %}
-                {% if 'user' in community.writer.username %}
-                <p class="detail_posting_info_writer">{{ community.writer.last_name }} {{ post.writer.first_name }}</p>
-                {% else %}
-                <p class="detail_posting_info_writer">{{ community.writer }}</p>
-                {% endif %}
-                {% else %}
-                <p class="detail_posting_info_writer">작성자 : 알 수 없음</p>
-                {% endif %}
-                <!--전공 정보 필요!!-->
+    <section class="detail_posting_s" style="border-radius: 15px">
+        <div class="community_detail_posting">
+            <div class="community_detail_category">{{community.category}}</div>
+            <p class="community_detail_posting_title">{{community.title}}</p>
+            <div class="community_detail_posting_info">
+                <div class="community_detail_posting_info_first">
+                    {% if community.writer %}
+                    {% if 'user' in community.writer.username %}
+                    <div class="detail_posting_info_writer">{{ community.writer.last_name }} {{ post.writer.first_name
+                        }}
+                    </div>
+                    {% else %}
+                    <div class="detail_posting_info_writer">{{ community.writer }}</div>
+                    {% endif %}
+                    {% else %}
+                    <div class="detail_posting_info_writer">작성자 : 알 수 없음</div>
+                    {% endif %}
+                    <!--전공 정보 필요!!-->
+                    <div class="detail_posting_info_major">철학과 15</div>
+                </div>
+                <div class="community_detail_posting_info_second">
+                    <div class="detail_posting_footer_date">{{community.pub_date}}</div>
+                    <div>
+                        <i class="fa-solid fa-eye"></i>
+                        <!--조회수 정보-->
+                        <div>2022</div>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-comment"></i>
+                        <!--댓글 갯수 정보-->
+                        <div>4</div>
+                    </div>
+                </div>
             </div>
-            <p class="detail_posting_body">
+            <p class="community_detail_posting_body">
                 {{community.body}}
             </p>
             <!--문단 구분 안감!!-->
-            <div class="detail_posting_footer">
-                <p class="detail_posting_footer_category">category : {{community.category}}</p>
-                <p class="detail_posting_footer_date">작성일자 : {{community.pub_date}}</p>
-            </div>
         </div>
     </section>
 
