@@ -3,7 +3,7 @@ from unicodedata import category
 from django.shortcuts import render, redirect, get_object_or_404
 
 from main.forms import PostSearchForm
-from .models import Post, Comment, Community
+from .models import Post, Comment, Community, CommunityComment
 from django.utils import timezone
 from django.db.models import Q
 from django.views.generic import FormView
@@ -132,7 +132,7 @@ def community_create(request):
     new_community.save()
     return redirect('main:community_detail', new_community.id)
 
-## 댓글 페이지
+## detail 댓글 페이지
 def comment_create(request, id):
     if request.method == "POST":
         post = get_object_or_404(Post, pk=id)
@@ -159,3 +159,17 @@ def comment_update(request, id):
     comment.content = request.POST.get("content")
     comment.save()
     return redirect("main:detail", comment.post.id)
+
+## 커뮤니티 댓글 페이지
+def community_comment_create(request, id):
+    if request.method == "POST":
+        community = get_object_or_404(Community, pk=id)
+        current_user = request.user
+        community_comment_content = request.POST.get("comment")
+        CommunityComment.objects.create(content=community_comment_content, writer=current_user, community=community)
+        # community_comment = CommunityComment()
+        # community_comment.content = community_comment_content
+        # community_comment.writer = current_user
+        # community_comment.community = community
+        # community_comment.save()
+    return redirect("main:community_detail", id)
