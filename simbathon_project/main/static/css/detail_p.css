@@ -29,7 +29,7 @@
     margin-top: 3%;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    font-size: 45px;
+    font-size: 40px;
     width: 80%;
 }
 .detail_posting_info{
@@ -54,6 +54,7 @@
     font-family: 'KoPubDotumMedium';
     width: 80%;
     margin-top: 5%;
+    font-size: 19px;
 }
 .detail_posting_footer{
     font-family: 'KoPubDotumMedium';
@@ -107,4 +108,4 @@
     text-decoration:none;
         width:100%;
         transition:800ms ease all;
-    }
+}
