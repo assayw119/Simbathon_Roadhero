@@ -21,6 +21,9 @@
                     <div class="detail_posting_info_writer">작성자 : 알 수 없음</div>
                     {% endif %}
                     <!--전공 정보 필요!!-->
+                    {% if community.image %}
+                    <img class="detail_posting_img" src="{{community.image.url}}" alt="사진">
+                    {% endif %}
                     <div class="detail_posting_info_major">철학과 15</div>
                 </div>
                 <div class="community_detail_posting_info_second">
