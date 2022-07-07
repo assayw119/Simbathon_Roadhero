@@ -1,0 +1,116 @@
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@700&display=swap');
+@font-face {
+    font-family: 'SUIT-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.myp_background{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.profile_box_s{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    background-color: #2D2A2A;
+    color: #FFFFFF;
+    border-radius: 15px;
+    margin-bottom: 5%;
+    margin-top: 4%;
+}
+
+.profile_items{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: 20%;
+    justify-content: flex-start;
+    
+}
+.profile_item{
+    display: flex;
+    align-items: center;
+    font-family: 'KoPubDotum Bold';
+    font-style: normal;
+    
+
+}
+
+.myp_title{
+    font-family: 'MuseoModerno', cursive;
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.profile_box{
+    display: flex;
+    align-items: center;
+    width: 90%;
+}
+
+.profile_image{
+    width: 30%;
+    height: 60%;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    margin-left: 100px;
+    border-radius: 100%;
+}
+
+.myp_edit{
+    width: 50px;
+    height: 30px;
+    background: #6F816F;
+    border-radius: 10px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.myp_edit:hover{
+    color: #FFFFFF;
+}
+
+.profile_user_box, .profile_name_box, .profile_univ_box, .profile_major_box {
+    text-align: center;
+    background-color: #4E4E4E;
+    color: #FFFFFF;
+    margin-left: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+   
+}
+
+.like_s {
+    margin-top: 10%;
+}
+
+.like_list, .myposting_list,.mycomment_list {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 80%;
+    /* or 56px */
+    color: #FFFFFF;
+}
+
+.like_box{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    background-color: #2D2A2A;
+    color: #FFFFFF;
+    border-radius: 15px;
+    margin-bottom: 5%;
+    padding-top: 10%;
+}
