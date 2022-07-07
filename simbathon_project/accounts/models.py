@@ -11,3 +11,6 @@ class Profile(models.Model):
     register = models.IntegerField(null=True)
     major = models.CharField(max_length=20, default='', null=True)
     major2 = models.CharField(max_length=20, default='', null=True)
+
+    def student_number(self):
+        return str(self.register)[-2:]

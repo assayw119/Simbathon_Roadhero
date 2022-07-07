@@ -76,5 +76,7 @@ def updateInfo(request):
     update_profile.name = request.POST['name']
     update_profile.university = request.POST['university']
     update_profile.major = request.POST['major']
+    update_profile.major2 = request.POST['major2']
+    update_profile.register = request.POST['register']
     update_profile.save()
     return redirect('accounts:mypage')

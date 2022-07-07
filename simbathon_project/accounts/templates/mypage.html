@@ -30,8 +30,20 @@
                     </div><br>
     
                     <div class="profile_item">
-                        <div class="profile_major">학과</div>
+                        <div class="profile_major">전공</div>
                         <div class="profile_major_box">{{profile.major}}</div>
+                    </div>
+                    <br>
+
+                    <div class="profile_item">
+                        <div class="profile_major">복수전공</div>
+                        <div class="profile_major_box">{{profile.major2}}</div>
+                    </div>
+                    <br>
+
+                    <div class="profile_item">
+                        <div class="profile_major">입학연도</div>
+                        <div class="profile_major_box">{{profile.register}}</div>
                     </div>
                     <br>
                     <a style="text-decoration: none" class = "myp_edit" href="{% url 'accounts:editinfo' %}">수정</a>
