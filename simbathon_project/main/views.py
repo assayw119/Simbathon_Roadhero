@@ -46,6 +46,8 @@ def likes(request, id):
         post = get_object_or_404(Post, pk=id)
 
         if post.like_users.filter(pk=request.user.pk).exists():
+            print(request.user.pk)
+            print(post.like_users.filter(pk=request.user.pk))
             post.like_users.remove(request.user)
         else:
             post.like_users.add(request.user)
@@ -70,7 +72,7 @@ def create(request):
 
 def detail(request, id):
     post = get_object_or_404(Post, pk=id)
-    ##댓글을 최신순으로 정렬하는 코드(박영신 추가)
+    ##댓글을 최신순으로 정렬하는 코드
     all_comments = post.comments.all().order_by('-created_at')
     return render(request, 'main/detail.html', {'post':post, 'comments':all_comments})
 

@@ -30,11 +30,12 @@
                 <p class="detail_posting_footer_category">category : {{post.category}}</p>
                 <p class="detail_posting_footer_date">작성일자 : {{post.pub_date}}</p>
             </div>
-            <form action="{% url 'main:likes' post.id %}" method="post">
-                {{post.like_users}}
+            <!-- 좋아요 -->
+            <form action="{% url 'main:likes' post.id %}" method="POST">
                 <div class="detail_posting_footer">
                     {% csrf_token %}
-                    {% if user in article.like_users.all %}
+                    <p>좋아요 수 : {{post.like_users.count}}</p>
+                    {% if user in post.like_users.all %}
                     <input type="submit" value='좋아요 취소'>
                     {% else %}
                     <input type="submit" value="좋아요">
@@ -58,8 +59,6 @@
             <h6>작성자 : {{ comment.writer.last_name }} {{ comment.writer.first_name }}</h6>
             {% else %}
             <h6>작성자 : {{ comment.writer }}</h6>
-            <!--로그인이 안 된 상태라면 댓글을 달지 못 하게 하거나 달 수 있게 하거나 하는 기능도 구현해야 할까요..?-->
-            <!--현재는 로그인이 안 된 상태면 그냥 오류만 뜸-->
             {% endif %}
         {{comment.content}}<br>
             {% if user == comment.writer %}
