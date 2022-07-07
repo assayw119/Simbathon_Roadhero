@@ -2,61 +2,69 @@
 {% load static %}
 {% block content %}
 
-<head>
+<div id="background">
+    <div class="myp_background">
+        <section>
+            <h1 class="myp_title">MANHAECLUB</h1>
+        </section>
+
+        <!--마이 페이지 프로필  -->
+        <section class="profile_box_s">
+            <div class="profile_box" >
+                <img class="profile_image" src="{% static 'images/person_icon.png'%}" alt="">
+                <div class="profile_items">
+                    <div class="profile_item">
+                        <div class="profile_user">닉네임</div>
+                        <div class="profile_user_box">{{profile.user}}</div>
+                    </div><br>
     
-    <link href="{% static 'admin/css/mypage.css' %}" rel="stylesheet" type="text/css">
-
-</head>
-
-<body>
-    <section>
+                    <div class="profile_item">
+                        <div class="profile_name">이름 </div>
+                        <div class="profile_name_box">{{profile.name}}</div>
+                    </div><br>
+                    
     
-        <div calss="container">
-        <h1>MANHAECLUB</h1>
+                    <div class="profile_item">
+                        <div class="profile_univ">학교</div>
+                        <div class="profile_univ_box">{{profile.university}}</div>
+                    </div><br>
     
-        <article>
+                    <div class="profile_item">
+                        <div class="profile_major">학과</div>
+                        <div class="profile_major_box">{{profile.major}}</div>
+                    </div>
+                    <br>
+                    <a style="text-decoration: none" class = "myp_edit" href="{% url 'accounts:editinfo' %}">수정</a>
+                </div>
+                
+            </div>
 
-        <div class="profilebox" >
-            <img class="profile_image" src="{% static 'images/person_icon.png'%}" alt="">
-            <p>닉네임 : {{profile.user}}</p>
-            <p>이름 : {{profile.name}}</p>
-            <p>학교 : {{profile.university}}</p>
-            <p>학과 : {{profile.major}}</p>
+        </section>
 
-            <a href="{% url 'accounts:editinfo' %}">수정하기</a>
-            
+        <!--좋아요 한 글 목록 -->
+        <section class="like_s">
+            <div class="like_list">좋아요 한 글 목록</div>
+            <div class="like_box"></div>
+        </section>
 
-        </div>
-        
-        <h2 style="position: absolute; width: 285px; height: 56px; left: 206px; top: 908px;">좋아요 한 글 목록</h2>    
-        
-        <div class="likebox">
-            
-        </div>
-
-        <h2 style ="position: absolute; width: 163px; height: 56px; left: 206px; top: 1491px;">내가 쓴 글</h2>
-        
-        <div class="myposting">
+         <!--내가 쓴 글 -->
+         <section class="myposting_s">
+            <div class="myposting_list">내가 쓴 글</div>
+            <div class="myposting_box">
             {% for mypost in myposts %}
             <a href="{% url 'main:detail' mypost.id %}">
                 {{mypost}}
             </a>
             {% endfor %}
-        </div>
+            </div>
+        </section>
 
-        <h2 style="position: absolute; width: 163px; height: 56px; left: 206px; top: 2074px;">댓글 단 글</h2>
-        
-        <div class="mycomment">
-            
-        </div>
-
-        </article>
+         <!--댓글 단 글  -->
+         <section class="mycomment_s">
+            <div class="mycomment_list">댓글 단 글</div>
+            <div class="mycomment_box"></div>
+        </section>
 
     </div>
-
-    </section>
-</body>
-
-
-
+<div>
 {% endblock %}
