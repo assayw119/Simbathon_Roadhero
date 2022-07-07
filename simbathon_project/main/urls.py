@@ -10,6 +10,7 @@ urlpatterns = [
     path('create/', create, name='create'),
     path('<str:id>', detail, name='detail'),
     path('search/', SearchFormView.as_view(), name='search'),
+    path('<str:id>/likes/', likes, name='likes'),
     
     path('community/', community, name='community'),
     path('community/<str:id>/', community_detail, name='community_detail'),

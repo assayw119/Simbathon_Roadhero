@@ -4,6 +4,7 @@ from turtle import ondrag
 from unicodedata import category
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 
 post_choice = (
     ('취업','취업'),
@@ -23,6 +24,7 @@ class Post(models.Model):
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
     pub_date = models.DateTimeField()
     body = models.TextField()
+    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_posts')
     category = models.CharField(max_length=10, choices=post_choice, default='취업')
     image = models.ImageField(upload_to='post/', blank=True, null=True)
 

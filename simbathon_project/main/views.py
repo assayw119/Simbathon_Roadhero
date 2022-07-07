@@ -41,6 +41,17 @@ class SearchFormView(FormView):
 
         return render(self.request, self.template_name, context)
 
+def likes(request, id):
+    if request.user.is_authenticated:
+        post = get_object_or_404(Post, pk=id)
+
+        if post.like_users.filter(pk=request.user.pk).exists():
+            post.like_users.remove(request.user)
+        else:
+            post.like_users.add(request.user)
+        return redirect('main:detail', post.id)
+    return redirect('accounts:login')
+
 def new(request):
     return render(request, 'main/posting.html')
 

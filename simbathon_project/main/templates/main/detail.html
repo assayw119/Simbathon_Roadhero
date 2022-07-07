@@ -30,6 +30,17 @@
                 <p class="detail_posting_footer_category">category : {{post.category}}</p>
                 <p class="detail_posting_footer_date">작성일자 : {{post.pub_date}}</p>
             </div>
+            <form action="{% url 'main:likes' post.id %}" method="post">
+                {{post.like_users}}
+                <div class="detail_posting_footer">
+                    {% csrf_token %}
+                    {% if user in article.like_users.all %}
+                    <input type="submit" value='좋아요 취소'>
+                    {% else %}
+                    <input type="submit" value="좋아요">
+                    {% endif %}
+                </div>
+            </form>
         </div>
     </section>
 
