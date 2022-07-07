@@ -127,8 +127,7 @@ table {
 input:focus {
   outline: none;
 }
-a:link, a:visited,
-a:hover, a{
-  text-decoration-line: none;
+a{
+  text-decoration: none;
   color: black;
 }

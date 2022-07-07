@@ -27,6 +27,11 @@
     font-weight: 700;
     color:#FFFFFF;
 }
+.button_form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
 .button{
     display: flex;
