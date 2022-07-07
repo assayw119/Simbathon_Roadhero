@@ -83,6 +83,10 @@
             {% endif %}
         {{communitycomment.content}}<br>
         {{communitycomment.created_at}}<br>
+            {% if user == communitycomment.writer %}
+            <a href="{% url 'main:community_comment_edit' communitycomment.id %}">댓글 수정</a>
+            <a href="{% url 'main:community_comment_delete' communitycomment.id %}">댓글 삭제</a>
+            {% endif %}
         <hr>
         </div>
         {% endfor %}
