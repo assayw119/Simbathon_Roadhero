@@ -19,7 +19,7 @@
     <section class="search">
         <form id="search" method="post" action="{% url 'main:search' %}">
             {% csrf_token %}
-            <input type="text" name="search_word" class="search_input" type="submit" label="Search Word">
+            <input type="text" name="search_word" class="search_input" type="submit" label="Search Word" value="{{search_term}}">
             <i class="fa-solid fa-magnifying-glass"></i>
         </form>
     </section>
