@@ -119,7 +119,7 @@ def community(request):
 
 def community_detail(request, id):
     community = get_object_or_404(Community, pk=id)
-    contents = community.communitycomments.all().order_by('created_at')
+    contents = community.communitycomments.all().order_by('-created_at')
     return render(request, 'main/community_detail.html', {'community': community, 'communitycomments':contents})
 
 
