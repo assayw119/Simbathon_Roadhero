@@ -29,7 +29,10 @@
             </p>
             <!--문단 구분 안감!!-->
             <div class="detail_posting_footer">
-                <p class="detail_posting_footer_category">category : {{post.category}}</p>
+                <div class="detail_posting_footer_category">
+                    <i class="fa-solid fa-eye detail_posting_footer_category_i"></i>
+                    <p>{{post.view_users}}</p>
+                </div>
                 <p class="detail_posting_footer_date">작성일자 : {{post.pub_date}}</p>
             </div>
             <!-- 좋아요 -->
@@ -120,7 +123,7 @@
     </section>
     <!-- 댓글 -->
 
-    <div class="detail_back">
+    <div style="margin-bottom: 50px;" class="detail_back">
         <a href="{% url 'main:showmain' %}">
             목록
         </a>
