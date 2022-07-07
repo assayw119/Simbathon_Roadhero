@@ -119,7 +119,8 @@ def community(request):
 
 def community_detail(request, id):
     community = get_object_or_404(Community, pk=id)
-    return render(request, 'main/community_detail.html', {'community': community})
+    contents = community.communitycomments.all().order_by('created_at')
+    return render(request, 'main/community_detail.html', {'community': community, 'communitycomments':contents})
 
 
 def community_new(request):
@@ -158,7 +159,7 @@ def comment_create(request, id):
         current_user = request.user
         comment_content = request.POST.get("content")
         Comment.objects.create(content=comment_content,
-                               writer=current_user, post=post)
+                                writer=current_user, post=post)
     return redirect("main:detail", id)
 
 
@@ -190,6 +191,7 @@ def community_comment_create(request, id):
         current_user = request.user
         community_comment_content = request.POST.get("comment")
         CommunityComment.objects.create(content=community_comment_content, writer=current_user, community=community)
+        print('!!')
         # community_comment = CommunityComment()
         # community_comment.content = community_comment_content
         # community_comment.writer = current_user

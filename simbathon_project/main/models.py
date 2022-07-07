@@ -64,8 +64,6 @@ class CommunityComment(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     update_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.title
 
     def summary(self):
         if len(self.body) >= 100:

@@ -10,6 +10,7 @@
         <div class="community_new_post_title">
             <p>금주의 따땃한 게시물</p>
         </div>
+        {% if communities %}
         <a href="{% url 'main:community_detail' first.id %}" class="community_posting_body_post_itme_inner"
             style="text-decoration:none">
             <div class="community_new_post_posting">
@@ -24,6 +25,7 @@
                 </div>
             </div>
         </a>
+        {% endif %}
     </section>
     <section class="community_posting">
         <div class="community_posting_head">
@@ -78,9 +80,15 @@
             {% endfor %}
         </div>
     </section>
+    {% if user.is_authenticated %}
     <a href="{% url 'main:community_new' %}">
         <img class="toWrite" src="{% static 'images/toWrite.png' %}" alt="">
     </a>
+    {% else %}
+    <a href="{% url 'accounts:login' %}">
+        <img class="toWrite" src="{% static 'images/toWrite.png' %}" alt="">
+    </a>
+    {% endif %}
 </div>
 
 {% endblock %}
