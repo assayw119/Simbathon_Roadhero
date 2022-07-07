@@ -13,10 +13,10 @@
     <a style="text-decoration: none" href="{% url 'main:community' %}">
       <div class="navbar_menu_title">COMMUNITY</div>
     </a>
-    <a style="text-decoration: none" href="#">
+    <a onclick="warning()" style="text-decoration: none" href="#">
       <div class="navbar_menu_title">ETC</div>
     </a>
-    <a style="text-decoration: none" href="#">
+    <a onclick="warning()" style="text-decoration: none" href="#">
       <div class="navbar_menu_title">ABOUT</div>
     </a>
   </ul>
@@ -30,3 +30,9 @@
     {% endif %}
   </ul>
 </nav>
+
+<script>
+  function warning() {
+    window.alert("준비 중입니다.")
+  }
+</script>

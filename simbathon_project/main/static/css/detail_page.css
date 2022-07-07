@@ -6,6 +6,12 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+  font-family: 'SUIT-Medium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* 포스팅 부분 */
 #detail_background{
@@ -29,11 +35,20 @@
     flex-direction: column;
     align-items: center;
 }
+.detail_posting_category{
+  margin-top: 2%;
+  width: 80%;
+  font-family: 'SUIT-Medium';
+    font-weight: 600;
+    color: #A05D5D;
+    font-size: 24px;
+}
 .detail_posting_title{
-    margin-top: 3%;
+    margin-top: 2px;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 40px;
+    text-align: center;
     width: 80%;
 }
 .detail_posting_info{
@@ -487,47 +502,38 @@ top: 30%;
 
 /* 목록 버튼 */
 .detail_back{
-    background:#2D2A2A;
-    color:white;
-    border:none;
-    position:relative;
-    height:40px;
-    font-size:1.6em;
-    padding:0 1em;
-    cursor:pointer;
-    transition:800ms ease all;
-    outline:none;
-    margin-bottom: 50px;
-    text-decoration:none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+    font-size: 26px;
+    width : 100px;
+    height: 60px;
 }
+
+@-webkit-keyframes shadow-drop-center {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+}
+@keyframes shadow-drop-center {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+}
+
 
 .detail_back:hover{
-    text-decoration:none;
-        background:#514C48;
-        color: white;
-}
-.detail_back:before, .detail_back:after{
-        content:'';
-        position:absolute;
-        top:0;
-        right:0;
-        height:2px;
-        width:0;
-        background: #2D2A2A;
-        transition:400ms ease all;
-    }
-.detail_back:after{
-        right:inherit;
-        top:inherit;
-        left:0;
-        bottom:0;
-    }
-.detail_back:hover:before, .detail_back:hover:after{
-    text-decoration:none;
-        width:100%;
-        transition:800ms ease all;
-}
-
-.hide{
-    visibility: hidden;
+  -webkit-animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }

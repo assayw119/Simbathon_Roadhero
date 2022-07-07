@@ -5,7 +5,25 @@
 <div id="background">
     <section class="detail_posting_s" style="border-radius: 15px">
         <div class="community_detail_posting">
-            <div class="community_detail_category">{{community.category}}</div>
+            <div class="community_detail_posting_category">
+                <div class="community_detail_category_category">
+                    {{community.category}}
+                </div>
+                <div class="community_detail_category_change">
+                    {% if user == community.writer %}
+                    <div class="community_detail_category_edit">
+                        <a style="text-decoration:none" href="{% url 'main:community' %}">
+                            수정
+                        </a>
+                    </div>
+                    <div class="community_detail_category_delete">
+                        <a style="text-decoration:none" href="{% url 'main:community_delete' community.id %}">
+                            삭제
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
             <p class="community_detail_posting_title">{{community.title}}</p>
             <div class="community_detail_posting_info">
                 <div class="community_detail_posting_info_first">
@@ -48,7 +66,7 @@
     </section>
 
     <div class="detail_back">
-        <a href="{% url 'main:community' %}">
+        <a style="text-decoration:none" href="{% url 'main:community' %}">
             목록
         </a>
     </div>
