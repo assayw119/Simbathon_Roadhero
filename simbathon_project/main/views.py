@@ -119,7 +119,7 @@ def community(request):
 
 def community_detail(request, id):
     community = get_object_or_404(Community, pk=id)
-    contents = community.communitycomments.all().order_by('created_at')
+    contents = community.communitycomments.all().order_by('-created_at')
     return render(request, 'main/community_detail.html', {'community': community, 'communitycomments':contents})
 
 
@@ -198,3 +198,22 @@ def community_comment_create(request, id):
         # community_comment.community = community
         # community_comment.save()
     return redirect("main:community_detail", id)
+
+def community_comment_edit(request, id):
+    communitycomment = CommunityComment.objects.get(id=id)
+    if request.user == communitycomment.writer:
+        return render(request, "main/community_comment_edit.html", {"communitycomment": communitycomment})
+    else:
+        return redirect("main:community_detail", communitycomment.community.id)
+
+def community_comment_update(request, id):
+    communitycomment = CommunityComment.objects.get(id=id)
+    communitycomment.content = request.POST.get("comment")
+    communitycomment.save()
+    return redirect("main:community_detail", communitycomment.community.id)
+
+def community_comment_delete(request, id):
+    communitycomment = CommunityComment.objects.get(id=id)
+    if request.user == communitycomment.writer:
+        communitycomment.delete()
+    return redirect("main:community_detail", communitycomment.community.id)
