@@ -105,6 +105,7 @@ def community_create(request):
     new_community.pub_date = timezone.now()
     new_community.category = request.POST['category']
     new_community.body = request.POST['body']
+    new_community.image = request.FILES.get('image')
     new_community.save()
     return redirect('main:community_detail', new_community.id)
 
