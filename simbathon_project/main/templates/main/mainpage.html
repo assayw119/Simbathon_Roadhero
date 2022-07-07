@@ -19,7 +19,7 @@
     <section class="search">
         <form id="search" method="post" action="{% url 'main:search' %}">
             {% csrf_token %}
-            <input type="text" name="search_word" class="search_input" type="submit" label="Search Word">
+            <input type="text" name="search_word" class="search_input" type="submit" label="Search Word" value="{{search_term}}">
             <i class="fa-solid fa-magnifying-glass"></i>
         </form>
     </section>
@@ -35,7 +35,7 @@
                         </section>
                         <section class="post_item_info">
                             <p class="post_item_info_name">{{post.writer}}</p>
-                            <p class="post_item_info_major">{{user}}</p>
+                            <p class="post_item_info_major">{{post.writer.profile.major}} {{post.writer.profile.student_number}}</p>
                             <!--전공 정보 필요!!-->
                         </section>
                     </div>
@@ -43,7 +43,7 @@
             </div>
             {% endfor %}
         {% else %}
-            <p>not found</p>
+        <p>not found</p>
         {% endif %}
     </section>
     <a href="{% url 'main:new' %}">

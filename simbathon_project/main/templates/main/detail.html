@@ -7,7 +7,7 @@
         <div class="detail_posting">
             <p class="detail_posting_title">{{post.title}}</p>
             <div class="detail_posting_info">
-                <p class="detail_posting_info_major">철학과 15</p>
+                <p class="detail_posting_info_major">{{post.writer.profile.major}}</p>
                 {% if post.writer %}
                 {% if 'user' in post.writer.username %}
                 <p class="detail_posting_info_writer">{{ post.writer.last_name }} {{ post.writer.first_name }}</p>
@@ -31,17 +31,79 @@
                 <p class="detail_posting_footer_date">작성일자 : {{post.pub_date}}</p>
             </div>
             <!-- 좋아요 -->
-            <form action="{% url 'main:likes' post.id %}" method="POST">
-                <div class="detail_posting_footer">
+            <form class="detail_posting_like_form" action="{% url 'main:likes' post.id %}" method="POST">
+                <div class="detail_posting_like">
                     {% csrf_token %}
-                    <p>좋아요 수 : {{post.like_users.count}}</p>
+                    <div class="detail_posting_like_count">{{post.like_users.count}}</div>
                     {% if user in post.like_users.all %}
-                    <input type="submit" value='좋아요 취소'>
+                    <i class="fa-solid fa-heart fa-4x detail_d_like"></i>
                     {% else %}
-                    <input type="submit" value="좋아요">
+                    <i class="fa-solid fa-heart fa-4x detail_like"></i>
                     {% endif %}
                 </div>
             </form>
+        </div>
+        <div class="detail_posting_comment">
+            <div class="detail_posting_comment_write">
+                <div class="detail_posting_comment_write_info">
+                    <div class="detail_posting_comment_write_info_name">{{user.username}}</div>
+                    <div class="detail_posting_comment_write_info_major">전자전기공학부 18</div>
+                </div>
+                <form class="detail_posting_comment_write_form" action="{%url 'main:comment_create' post.id%}"
+                    method="POST">
+                    {%csrf_token%}
+                    <textarea class="detail_posting_comment_write_input" name="content" placeholder="댓글내용입력"></textarea>
+                    <input class="detail_posting_comment_write_submit" type="submit" value="확인">
+                </form>
+            </div>
+            <div class="detail_posting_divider"></div>
+            <div class="detail_posting_comment_length">댓글 {{comments|length}}개</div>
+            <div class="detail_posting_comment_items">
+                {% for comment in comments %}
+                <div class="detail_posting_comment_items_item">
+                    <section class="detail_posting_comment_items_item_info">
+                        <div class="detail_posting_comment_items_item_info_first">
+                            {% if 'user' in comment.writer.username %}
+                            <div class="detail_posting_comment_items_item_info_first_name">{{ comment.writer.last_name
+                                }}
+                                {{ comment.writer.first_name }}</div>
+                            {% else %}
+                            <div class="detail_posting_comment_items_item_info_first_name">{{ comment.writer }}</div>
+                            {% endif %}
+                            <div class="detail_posting_comment_items_item_info_first_major">
+                                {{comment.writer.profile.major}}</div>
+                        </div>
+                        <div class="detail_posting_comment_items_item_info_second">
+                            {% if user == comment.writer %}
+                            <i onclick="showValue(this)" class="fa-solid fa-pen-to-square"
+                                id="detail_comment_{{comment.id}}" value="
+                                d"></i>
+                            <a class="detail_posting_comment_items_x"
+                                href="{% url 'main:comment_delete' comment.id %}"><i class="fa-solid fa-x"></i></a>
+                            {% endif %}
+                        </div>
+                    </section>
+                    <section class="detail_posting_comment_items_item_content">
+                        <p>{{comment.content}}</p>
+                    </section>
+                    <section class="detail_posting_comment_items_item_date">
+                        <p>{{comment.created_at}}</p>
+                    </section>
+                    <div class="hide detail_posting_comment_edit detail_comment_{{comment.id}}">
+                        <i
+                            class="fa-solid fa-x detail_comment_{{comment.id}}_x detail_posting_comment_write_edit_x"></i>
+                        <form o class="detail_posting_comment_write_edit_form"
+                            action="{%url 'main:comment_update' comment.id%}" method="POST">
+                            {%csrf_token%}
+                            <textarea class="detail_posting_comment_write_edit_input"
+                                name="content">{{comment.content}}</textarea>
+                            <input onsubmit="submmitFunction()" class="detail_posting_comment_write_edit_submit"
+                                type="submit" value="수정">
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </section>
     <!-- 댓글 -->
@@ -78,5 +140,32 @@
     </div>
     </a>
 </div>
+
+<script>
+    // 좋아요 전송 효과
+    const like = document.querySelector(".fa-heart")
+    const like_form = document.querySelector(".detail_posting_like_form")
+    like.addEventListener("click", function () {
+        like_form.submit();
+    })
+
+    const showValue = (target) => {
+        console.log(target.id);
+        const haha_delete = document.querySelector(`.${target.id}_x`)
+        const haha = document.querySelector(`.${target.id}`);
+        console.log(haha);
+        haha.classList.remove("hide");
+        haha_delete.addEventListener("click", function () {
+            haha.classList.add("hide");
+        })
+    }
+
+    function submmitFunction(event) {
+        event.preventDefault();
+
+    }
+
+
+</script>
 
 {% endblock %}
