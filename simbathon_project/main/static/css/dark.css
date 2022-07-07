@@ -12,6 +12,7 @@
     --detail-comment-back-color : #4E4E4E;
     --detail-comment-submit-back-color: #D9D9D9;
     --detail-comment-color : #FFFFFF;
+    --detail-back-color : #2D2A2A;
 }
 
 .lightmode{
@@ -28,6 +29,7 @@
     --detail-comment-back-color : rgb(237,237,237);
     --detail-comment-submit-back-color: #D9D9D9;
     --detail-comment-color : #4E4E4E;
+    --detail-back-color :#D9D9D9;
 }
 
 /* Navbar 관련 */
@@ -100,6 +102,17 @@
 .detail_posting_comment_edit{
     background-color: var(--detail-comment-back-color);
     color: var(--detail-comment-color);;
+}
+
+/* 커뮤니티 디테일 */
+.community_detail_category_change div a{
+    color: var(--btn-color);
+}
+.detail_back{
+    background: var(--detail-back-color);
+}
+.detail_back > a,  .detail_back > a:hover{
+    color : var(--btn-color );
 }
 
 

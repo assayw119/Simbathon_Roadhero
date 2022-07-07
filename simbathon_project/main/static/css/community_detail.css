@@ -18,14 +18,29 @@
     flex-direction: column;
     align-items: center;
 }
-.community_detail_category{
+.community_detail_posting_category{
     margin-top: 1%;
     font-size: 24px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.community_detail_category_category{
     font-family: 'SUIT-Medium';
     font-weight: 600;
     color: #A05D5D;
-    width: 80%;
+    font-size: 24px;
 }
+.community_detail_category_change{
+    display: flex;
+    font-size: 14px;
+}
+
+.community_detail_category_change div a:last-child{
+    margin-left: 15px;
+}
+
 .community_detail_posting_title{
     margin-top: 1%;
     font-family: 'Roboto', sans-serif;

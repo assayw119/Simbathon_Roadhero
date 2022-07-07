@@ -18,22 +18,25 @@ def intro(request):
 
 
 def showmain(request):
-    
-    if request.method=='GET':
+
+    if request.method == 'GET':
         magazine_sort = request.GET.get('magazine')
         if magazine_sort == 'all' or magazine_sort == None:
             posts = Post.objects.all()
         else:
             posts = Post.objects.filter(category=magazine_sort)
-    
+
     return render(request, 'main/mainpage.html', {'posts': posts})
+
 
 class SearchFormView(FormView):
     template_name = 'main/mainpage.html'
     form_class = PostSearchForm
+
     def form_valid(self, form):
         searchWord = form.cleaned_data['search_word']
-        posts = Post.objects.filter(Q(title__icontains=searchWord) | Q(body__icontains=searchWord))
+        posts = Post.objects.filter(
+            Q(title__icontains=searchWord) | Q(body__icontains=searchWord))
 
         context = {}
         context['form'] = form
@@ -41,6 +44,7 @@ class SearchFormView(FormView):
         context['posts'] = posts
 
         return render(self.request, self.template_name, context)
+
 
 def likes(request, id):
     if request.user.is_authenticated:
@@ -54,6 +58,7 @@ def likes(request, id):
             post.like_users.add(request.user)
         return redirect('main:detail', post.id)
     return redirect('accounts:login')
+
 
 def new(request):
     return render(request, 'main/posting.html')
@@ -92,16 +97,16 @@ def detail(request, id):
     #         post.view_users += 1
     #         post.save()
     #         return response
-        
+
     #     else:
     #         response.set_cookie(cookie_name, id, expires=None)
     #         post.view_users += 1
     #         post.save()
     #         return response
     #     return render(request, 'main/detail.html', context)
-    ##댓글을 최신순으로 정렬하는 코드
+    # 댓글을 최신순으로 정렬하는 코드
     all_comments = post.comments.all().order_by('-created_at')
-    return render(request, 'main/detail.html', {'post':post, 'comments':all_comments})
+    return render(request, 'main/detail.html', {'post': post, 'comments': all_comments})
 
 # 커뮤니티 페이지
 
@@ -132,14 +137,30 @@ def community_create(request):
     new_community.save()
     return redirect('main:community_detail', new_community.id)
 
+
+def community_update(request, id):
+    update_community = Community.objects.get(id=id)
+    return render(request, 'main/community_update.html', community.id)
+
+
+def community_delete(request, id):
+    delete_community = Community.objects.get(id=id)
+    if request.user == delete_community.writer:
+        delete_community.delete()
+    return redirect("main:community")
+    
+    
 ## detail 댓글 페이지
+
 def comment_create(request, id):
     if request.method == "POST":
         post = get_object_or_404(Post, pk=id)
         current_user = request.user
         comment_content = request.POST.get("content")
-        Comment.objects.create(content=comment_content, writer=current_user, post=post)
+        Comment.objects.create(content=comment_content,
+                               writer=current_user, post=post)
     return redirect("main:detail", id)
+
 
 def comment_edit(request, id):
     comment = Comment.objects.get(id=id)
@@ -148,11 +169,13 @@ def comment_edit(request, id):
     else:
         return redirect("main:detail", comment.post.id)
 
+
 def comment_delete(request, id):
     comment = Comment.objects.get(id=id)
     if request.user == comment.writer:
         comment.delete()
     return redirect("main:detail", comment.post.id)
+
 
 def comment_update(request, id):
     comment = Comment.objects.get(id=id)
