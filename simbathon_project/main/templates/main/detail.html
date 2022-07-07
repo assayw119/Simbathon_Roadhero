@@ -107,6 +107,31 @@
         </div>
     </section>
     <!-- 댓글 -->
+    <div>
+        <form action="{%url 'main:comment_create' post.id%}" method="POST">
+            {%csrf_token%}
+            <textarea name="content" placeholder="댓글내용입력"></textarea>
+            <input type="submit" value="확인">
+        </form>
+    </div>
+    <div class="detail_comment">
+        {% for comment in comments %}
+        <div>
+            {% if 'user' in comment.writer.username %}
+            <h6>작성자 : {{ comment.writer.last_name }} {{ comment.writer.first_name }}</h6>
+            {% else %}
+            <h6>작성자 : {{ comment.writer }}</h6>
+            {% endif %}
+        {{comment.content}}<br>
+        {{comment.created_at}}<br>
+            {% if user == comment.writer %}
+            <a href="{% url 'main:comment_edit' comment.id %}">댓글 수정</a>
+            <a href="{% url 'main:comment_delete' comment.id %}">댓글 삭제</a>
+            {% endif %}
+        <hr>
+        </div>
+        {% endfor %}
+    </div>
 
     <div class="detail_back">
         <a href="{% url 'main:showmain' %}">
