@@ -1,3 +1,4 @@
+from tkinter.messagebox import NO
 from unicodedata import category
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -76,6 +77,28 @@ def detail(request, id):
     post.view_users = int(post.view_users)+1
     print(post.view_users)
     post.save()
+    # session_cookie = request.user.id
+    # cookie_name = f'post_viewer:{session_cookie}'
+    # context = {
+    #     'post':post,
+    # }
+    # response = render(request, 'main/detail.html', context)
+
+    # if request.COOKIES.get(cookie_name) is not None:
+    #     cookies = request.COOKIES.get(cookie_name)
+    #     cookies_list = cookies.splot('|')
+    #     if str(id) not in cookies_list:
+    #         response.set_cookie(cookie_name, cookies + f'|{id}', expires=None)
+    #         post.view_users += 1
+    #         post.save()
+    #         return response
+        
+    #     else:
+    #         response.set_cookie(cookie_name, id, expires=None)
+    #         post.view_users += 1
+    #         post.save()
+    #         return response
+    #     return render(request, 'main/detail.html', context)
     ##댓글을 최신순으로 정렬하는 코드
     all_comments = post.comments.all().order_by('-created_at')
     return render(request, 'main/detail.html', {'post':post, 'comments':all_comments})

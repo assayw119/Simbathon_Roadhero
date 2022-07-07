@@ -7,7 +7,7 @@
         <div class="detail_posting">
             <p class="detail_posting_title">{{post.title}}</p>
             <div class="detail_posting_info">
-                <p class="detail_posting_info_major">철학과 15</p>
+                <p class="detail_posting_info_major">{{post.writer.profile.major}}</p>
                 {% if post.writer %}
                 {% if 'user' in post.writer.username %}
                 <p class="detail_posting_info_writer">{{ post.writer.last_name }} {{ post.writer.first_name }}</p>

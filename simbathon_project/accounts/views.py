@@ -3,6 +3,7 @@ from django.contrib import auth
 from django.contrib.auth import get_user_model
 from .models import Profile
 from .forms import ProfileForm
+from main.models import Post
 
 # Create your views here.
 # def login(request):
@@ -41,7 +42,8 @@ def mypage(request):
     # profile = Profile.objects.filter(user=str(username))
     # profile = get_object_or_404(Profile, user=username)
     profile = Profile.objects.get(user=user)
-    return render(request, 'mypage.html', {'profile':profile})
+    myposts = Post.objects.filter(writer=user)
+    return render(request, 'mypage.html', {'profile':profile, 'myposts':myposts})
 
 def createInfo(request):
     if request.method == 'POST':

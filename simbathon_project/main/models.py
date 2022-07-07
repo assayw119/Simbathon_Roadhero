@@ -35,6 +35,10 @@ class Post(models.Model):
     def summary(self):
         return self.body[:20]
 
+    def viewPlus(self):
+        self.view_users += 1
+        self.save()
+
 class Comment(models.Model):
     content = models.TextField()
     writer = models.ForeignKey(User, on_delete=models.CASCADE)

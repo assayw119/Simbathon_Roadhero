@@ -37,7 +37,11 @@
         <h2 style ="position: absolute; width: 163px; height: 56px; left: 206px; top: 1491px;">내가 쓴 글</h2>
         
         <div class="myposting">
-            
+            {% for mypost in myposts %}
+            <a href="{% url 'main:detail' mypost.id %}">
+                {{mypost}}
+            </a>
+            {% endfor %}
         </div>
 
         <h2 style="position: absolute; width: 163px; height: 56px; left: 206px; top: 2074px;">댓글 단 글</h2>
