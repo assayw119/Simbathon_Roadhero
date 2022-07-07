@@ -44,6 +44,29 @@
         </div>
     </section>
 
+    <!-- 댓글 -->
+    <div>
+        <form action="{%url 'main:community_comment_create' community.id%}" method="POST">
+            {%csrf_token%}
+            <textarea name="comment" placeholder="댓글내용입력"></textarea>
+            <input type="submit" value="확인">
+        </form>
+    </div>
+    <div class="detail_comment">
+        {% for communitycomment in communitycomments %}
+        <div>
+            {% if 'user' in communitycomment.writer.username %}
+            <h6>작성자 : {{ communitycomment.writer.last_name }} {{ communitycomment.writer.first_name }}</h6>
+            {% else %}
+            <h6>작성자 : {{ communitycomment.writer }}</h6>
+            {% endif %}
+        {{communitycomment.content}}<br>
+        {{communitycomment.created_at}}<br>
+        <hr>
+        </div>
+        {% endfor %}
+    </div>
+
     <div class="detail_back">
         <a href="{% url 'main:community' %}">
             목록

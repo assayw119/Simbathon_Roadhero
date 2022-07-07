@@ -61,6 +61,7 @@
             <h6>작성자 : {{ comment.writer }}</h6>
             {% endif %}
         {{comment.content}}<br>
+        {{comment.created_at}}<br>
             {% if user == comment.writer %}
             <a href="{% url 'main:comment_edit' comment.id %}">댓글 수정</a>
             <a href="{% url 'main:comment_delete' comment.id %}">댓글 삭제</a>

@@ -49,6 +49,13 @@ class Community(models.Model):
     body = models.TextField()
     category = models.CharField(max_length=10, choices=write_choice, default='질문')
 
+class CommunityComment(models.Model):
+    content = models.TextField()
+    writer = models.ForeignKey(User, on_delete=models.CASCADE)
+    community = models.ForeignKey(Community ,on_delete=models.CASCADE, related_name ='communitycomments')
+    created_at = models.DateTimeField(auto_now=True)
+    update_at = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return self.title
 
