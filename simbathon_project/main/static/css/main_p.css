@@ -135,6 +135,18 @@
     display: flex;
     justify-content: space-between;
 }
+.post_item_info_user{
+    margin-left: 10px;
+    display: flex;
+}
+.post_item_info_users{
+    display: flex;
+    opacity: 0.7;
+}
+.post_item_info_user > i{
+    margin-top: 4px;
+    margin-right: 5px;
+}
 
 .post_item_info_major{
     font-weight: 600;

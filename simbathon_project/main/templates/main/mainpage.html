@@ -35,7 +35,17 @@
                         <p class="post_item_title_title">{{post.title}}</p>
                     </section>
                     <section class="post_item_info">
-                        <p class="post_item_info_name">{{post.category}}</p>
+                        <div class="post_item_info_users">
+                            <div class="post_item_info_name">{{post.category}}</div>
+                            <div class="post_item_info_user">
+                                <i class="fa-solid fa-eye"></i>
+                                <p>{{post.view_users}}</p>
+                            </div>
+                            <div class="post_item_info_user">
+                                <i class="fa-solid fa-heart"></i>
+                                <p>{{post.like_users.count}}</p>
+                            </div>
+                        </div>
                         <p class="post_item_info_major">{{post.writer.profile.major}}
                             {{post.writer.profile.student_number}}</p>
                         <!--전공 정보 필요!!-->

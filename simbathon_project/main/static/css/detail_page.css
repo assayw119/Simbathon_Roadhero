@@ -82,7 +82,14 @@
     justify-content: space-between;
     width: 80%;
 }
-.detail_posting_footer_category, .detail_posting_footer_date{
+.detail_posting_footer_category{
+  display: flex;
+}
+.detail_posting_footer_category_i{
+  margin-top: 3px;
+  margin-right : 10px;
+}
+.detail_posting_footer_date{
     display: flex;
     align-items: center;
 }
