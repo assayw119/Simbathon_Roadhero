@@ -55,6 +55,8 @@ class Community(models.Model):
     category = models.CharField(max_length=10, choices=write_choice, default='질문')
     image = models.ImageField(upload_to='community/', blank=True, null=True)
 
+    def summary(self):
+        return self.body[:50]
 class CommunityComment(models.Model):
     content = models.TextField()
     writer = models.ForeignKey(User, on_delete=models.CASCADE)

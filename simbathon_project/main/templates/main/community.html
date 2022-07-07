@@ -18,7 +18,7 @@
                     alt="">
                 <div class="community_new_post_posting_item">
                     <div class="community_new_post_posting_item_title">{{first.title}}</div>
-                    <div class="community_new_post_posting_item_major">산업시스템공학과 {{first.writer}}</div>
+                    <div class="community_new_post_posting_item_major">{{first.writer.profile.major}} {{first.writer.profile.student_number}}</div>
                     <div class="community_new_post_posting_item_summary">{{first.summary}}</div>
                     <div class="community_new_post_posting_item_date">{{first.pub_date}}</div>
                 </div>
@@ -71,7 +71,7 @@
                     </div>
                     <div class="community_posting_body_post_item_footer">
                         <p>{{community.writer}}</p>
-                        <p>산업시스템공학과</p>
+                        <p>{{community.writer.profile.major}} {{community.writer.profile.student_number}}</p>
                     </div>
                 </div>
             </a>
