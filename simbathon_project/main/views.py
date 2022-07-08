@@ -78,9 +78,9 @@ def create(request):
 
 def detail(request, id):
     post = get_object_or_404(Post, pk=id)
-    print(post.view_users)
+    # print(post.view_users)
     post.view_users = int(post.view_users)+1
-    print(post.view_users)
+    # print(post.view_users)
     post.save()
     # session_cookie = request.user.id
     # cookie_name = f'post_viewer:{session_cookie}'
@@ -119,6 +119,9 @@ def community(request):
 
 def community_detail(request, id):
     community = get_object_or_404(Community, pk=id)
+    community.view_users = int(community.view_users)+1
+    community.save()
+
     contents = community.communitycomments.all().order_by('-created_at')
     return render(request, 'main/community_detail.html', {'community': community, 'communitycomments':contents})
 
@@ -150,7 +153,21 @@ def community_delete(request, id):
         delete_community.delete()
     return redirect("main:community")
     
-    
+
+def community_likes(request, id):
+    if request.user.is_authenticated:
+        community = get_object_or_404(Community, pk=id)
+
+        if community.like_users.filter(pk=request.user.pk).exists():
+            # print(request.user.pk)
+            # print(community.like_users.filter(pk=request.user.pk))
+            community.like_users.remove(request.user)
+        else:
+            community.like_users.add(request.user)
+        return redirect('main:community_detail', community.id)
+    return redirect('accounts:login')
+
+
 ## detail 댓글 페이지
 
 def comment_create(request, id):

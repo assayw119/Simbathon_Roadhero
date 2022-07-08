@@ -56,6 +56,15 @@
                 </a>
             </div>
             {% endfor %}
+
+            {% for likecommunity in likecommunities %}
+            <div class="like_box">
+                <p>매거진</p>
+                <a href="{% url 'main:community_detail' likecommunity.id %}">
+                    {{likecommunity.category}} / {{likecommunity.title}}
+                </a>
+            </div>
+            {% endfor %}
         </section>
 
         <!--내가 쓴 글 -->

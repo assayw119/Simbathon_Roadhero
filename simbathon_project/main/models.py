@@ -52,6 +52,8 @@ class Community(models.Model):
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
     pub_date = models.DateTimeField()
     body = models.TextField()
+    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='community_like_posts')
+    view_users = models.IntegerField(default=0)
     category = models.CharField(max_length=10, choices=write_choice, default='질문')
     image = models.ImageField(upload_to='community/', blank=True, null=True)
 

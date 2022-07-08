@@ -45,6 +45,7 @@ def mypage(request):
     mycomments = Comment.objects.filter(writer=user)
     mycommunitycomments = CommunityComment.objects.filter(writer=user)
     likeposts = Post.objects.filter(like_users = user)
+    likecommunities = Community.objects.filter(like_users = user)
 
     context = {
         'profile':profile,
@@ -52,7 +53,8 @@ def mypage(request):
         'mycommunities': mycommunities,
         'mycomments':mycomments,
         'mycommunitycomments':mycommunitycomments,
-        'likeposts':likeposts
+        'likeposts':likeposts,
+        'likecommunities':likecommunities,
     }
     return render(request, 'mypage.html', context)
 

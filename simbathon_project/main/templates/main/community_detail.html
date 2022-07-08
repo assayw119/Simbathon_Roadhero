@@ -62,7 +62,30 @@
             <p class="community_detail_posting_body">
                 {{community.body}}
             </p>
-            <!--문단 구분 안감!!-->
+            <!--문단 구분 안감!! post css를 community로 수정해야 함!!--> 
+            <div class="detail_posting_footer">
+                <div class="detail_posting_footer_category">
+                    <i class="fa-solid fa-eye detail_posting_footer_category_i"></i>
+                    <p>{{community.view_users}}</p>
+                </div>
+                <p class="detail_posting_footer_date">작성일자 : {{community.pub_date}}</p>
+            </div>
+            <!-- 좋아요 -->
+            {% if user.is_authenticated %}
+            <form class="detail_posting_like_form" action="{% url 'main:community_likes' community.id %}" method="POST">
+                <div class="detail_posting_like">
+                    {% csrf_token %}
+                    <div class="detail_posting_like_count">{{community.like_users.count}}</div>
+                    {% if user in community.like_users.all %}
+                    <i class="fa-solid fa-heart fa-4x detail_d_like"></i>
+                    {% else %}
+                    <i class="fa-solid fa-heart fa-4x detail_like"></i>
+                    {% endif %}
+                </div>
+            </form>
+            {% else %}
+            <div class="detail_posting_comment_disable">좋아요는 로그인 후에!</div>
+            {% endif %}
         </div>
     </section>
 
