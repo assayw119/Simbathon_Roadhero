@@ -39,10 +39,8 @@
                     <div class="detail_posting_info_writer">작성자 : 알 수 없음</div>
                     {% endif %}
                     <!--전공 정보 필요!!-->
-                    {% if community.image %}
-                    <img class="detail_posting_img" src="{{community.image.url}}" alt="사진">
-                    {% endif %}
-                    <div class="detail_posting_info_major">{{community.writer.profile.major}} {{community.writer.profile.student_number}}</div>
+                    <div class="detail_posting_info_major">{{community.writer.profile.major}}
+                        {{community.writer.profile.student_number}}</div>
                 </div>
                 <div class="community_detail_posting_info_second">
                     <div class="detail_posting_footer_date">{{community.pub_date}}</div>
@@ -58,6 +56,9 @@
                     </div>
                 </div>
             </div>
+            {% if community.image %}
+            <img class="detail_posting_img" src="{{community.image.url}}" alt="사진">
+            {% endif %}
             <p class="community_detail_posting_body">
                 {{community.body}}
             </p>
@@ -81,23 +82,22 @@
             {% else %}
             <h6>작성자 : {{ communitycomment.writer }}</h6>
             {% endif %}
-        {{communitycomment.content}}<br>
-        {{communitycomment.created_at}}<br>
+            {{communitycomment.content}}<br>
+            {{communitycomment.created_at}}<br>
             {% if user == communitycomment.writer %}
             <a href="{% url 'main:community_comment_edit' communitycomment.id %}">댓글 수정</a>
             <a href="{% url 'main:community_comment_delete' communitycomment.id %}">댓글 삭제</a>
             {% endif %}
-        <hr>
+            <hr>
         </div>
         {% endfor %}
     </div>
 
-    <div class="detail_back">
-        <a style="text-decoration:none" href="{% url 'main:community' %}">
+    <div style=" margin-bottom: 50px;" class="detail_back">
+        <a style="text-decoration:none;" href="{% url 'main:community' %}">
             목록
         </a>
     </div>
-    </a>
 </div>
 
 {% endblock %}
