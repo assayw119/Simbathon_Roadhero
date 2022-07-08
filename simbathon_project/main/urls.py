@@ -28,4 +28,6 @@ urlpatterns = [
     path('<str:id>/community_comment_edit', community_comment_edit, name="community_comment_edit"),
     path('<str:id>/community_comment_update', community_comment_update, name="community_comment_update"),
     path('<str:id>/community_comment_delete', community_comment_delete, name="community_comment_delete"),
+
+    path('about/', about, name='about'),
 ]

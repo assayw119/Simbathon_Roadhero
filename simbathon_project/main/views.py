@@ -217,3 +217,7 @@ def community_comment_delete(request, id):
     if request.user == communitycomment.writer:
         communitycomment.delete()
     return redirect("main:community_detail", communitycomment.community.id)
+
+
+def about(request):
+    return render(request, 'main/about.html')
