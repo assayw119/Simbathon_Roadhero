@@ -48,27 +48,58 @@
         <!--좋아요 한 글 목록 -->
         <section class="profile_other_s">
             <div class="like_list">좋아요 한 글 목록</div>
+            {% for likepost in likeposts %}
             <div class="like_box">
-                좋아요 한 글들 예시
-
+                <p>매거진</p>
+                <a href="{% url 'main:detail' likepost.id %}">
+                    {{likepost.category}} / {{likepost.title}}
+                </a>
             </div>
+            {% endfor %}
         </section>
 
         <!--내가 쓴 글 -->
         <section class="profile_other_s">
             <div class="myposting_list">내가 쓴 글</div>
+            {% for mypost in myposts %}
             <div class="myposting_box">
-                내가 쓴 글들 예시
-
+                <p>매거진</p>
+                <a href="{% url 'main:detail' mypost.id %}">
+                    {{mypost.category}} / {{mypost.title}}
+                </a>
             </div>
+            {% endfor %}
+
+            {% for mycommunity in mycommunities %}
+            <div class="myposting_box">
+                <p>커뮤니티</p>
+                <a href="{% url 'main:community_detail' mycommunity.id %}">
+                    {{mycommunity.category}} / {{mycommunity.title}}
+                </a>
+            </div>
+            {% endfor %}
         </section>
 
         <!--댓글 단 글  -->
         <section class="profile_other_s">
             <div class="mycomment_list">댓글 단 글</div>
-            <div class="mycomment_box">
-                댓글 단 글들 예시
-
+                {% for mycomment in mycomments %}
+                    <div class="mycomment_box">
+                        <p>매거진</p>
+                        <a href="{% url 'main:detail' mycomment.id %}">
+                            {{mycomment.post.category}} / {{mycomment.post.title}}
+                        </a>
+                    </div>
+                {% endfor %}
+                
+                {% for mycommunitycomment in mycommunitycomments %}
+                    <div class="mycomment_box">
+                        <p>커뮤니티</p>
+                        <a href="{% url 'main:community_detail' mycommunitycomment.id %}">
+                            {{mycommunitycomment.community.category}} / {{mycommunitycomment.community.title}}
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
         </section>
 

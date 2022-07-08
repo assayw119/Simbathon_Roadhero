@@ -3,7 +3,7 @@ from django.contrib import auth
 from django.contrib.auth import get_user_model
 from .models import Profile
 from .forms import ProfileForm
-from main.models import Post
+from main.models import Post, Community, Comment, CommunityComment
 
 # Create your views here.
 # def login(request):
@@ -37,13 +37,24 @@ def logout(request):
     return redirect('main:showmain')
 
 def mypage(request):
-    # person = get_object_or_404(get_user_model(), username=username)
     user = request.user
-    # profile = Profile.objects.filter(user=str(username))
-    # profile = get_object_or_404(Profile, user=username)
+
     profile = Profile.objects.get(user=user)
     myposts = Post.objects.filter(writer=user)
-    return render(request, 'mypage.html', {'profile':profile, 'myposts':myposts})
+    mycommunities = Community.objects.filter(writer=user)
+    mycomments = Comment.objects.filter(writer=user)
+    mycommunitycomments = CommunityComment.objects.filter(writer=user)
+    likeposts = Post.objects.filter(like_users = user)
+
+    context = {
+        'profile':profile,
+        'myposts':myposts,
+        'mycommunities': mycommunities,
+        'mycomments':mycomments,
+        'mycommunitycomments':mycommunitycomments,
+        'likeposts':likeposts
+    }
+    return render(request, 'mypage.html', context)
 
 
 def newinfo(request):
