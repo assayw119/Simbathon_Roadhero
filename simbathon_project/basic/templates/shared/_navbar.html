@@ -16,22 +16,22 @@
     <a onclick="warning()" style="text-decoration: none" href="#">
       <div class="navbar_menu_title">ETC</div>
     </a>
-    <a onclick="warning()" style="text-decoration: none" href="{% url 'main:about' %}">
+    <a style="text-decoration: none" href="{% url 'main:about' %}">
       <div class="navbar_menu_title">ABOUT</div>
     </a>
   </ul>
   <ul class="navbar_login">
     <i id="toggle_btn" style="cursor: pointer;" class="fa-solid fa-moon fa-2x"></i>
     {% if user.is_authenticated %}
-      {% if not user.profile %}
-        <a href="{% url 'accounts:newinfo' %}"><i class="fa-solid fa-circle-user fa-2x"></i></a>
-        <a href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
-      {% else %}
-        <a href="{% url 'accounts:mypage' %}"><i class="fa-solid fa-circle-user fa-2x"></i></a>
-        <a href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
-      {% endif %}
+    {% if not user.profile %}
+    <a href="{% url 'accounts:newinfo' %}"><i class="fa-solid fa-circle-user fa-2x"></i></a>
+    <a href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
     {% else %}
-      <a href="{% url 'accounts:login' %}"><i class="fa-solid fa-right-to-bracket fa-2x"></i> </a>
+    <a href="{% url 'accounts:mypage' %}"><i class="fa-solid fa-circle-user fa-2x"></i></a>
+    <a href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
+    {% endif %}
+    {% else %}
+    <a href="{% url 'accounts:login' %}"><i class="fa-solid fa-right-to-bracket fa-2x"></i> </a>
     {% endif %}
   </ul>
 </nav>
