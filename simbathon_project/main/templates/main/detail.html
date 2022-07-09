@@ -27,6 +27,13 @@
             <p class="detail_posting_body">
                 {{post.body}}
             </p>
+
+            <!--수정 삭제(박영신)-->
+            {% if user == post.writer %}
+                <a href="{% url 'main:detail_edit' post.id%}">글 수정</a>
+                <a href="{% url 'main:detail_delete' post.id%}">글 삭제</a>
+            {% endif %}
+            
             <!--문단 구분 안감!!-->
             <div class="detail_posting_footer">
                 <div class="detail_posting_footer_category">

@@ -11,6 +11,11 @@ urlpatterns = [
     path('<str:id>', detail, name='detail'),
     path('media/', SearchFormView.as_view(), name='search'),
     path('<str:id>/likes/', likes, name='likes'),
+    
+    # detail 수정 삭제(박영신)
+    path('detail_update/<int:id>', detail_update, name='detail_update'),
+    path('detail_delete/<int:id>', detail_delete, name='detail_delete'),
+    path('detail_edit/<int:id>', detail_edit, name='detail_edit'),
 
     path('community/', community, name='community'),
     path('community/<str:id>/', community_detail, name='community_detail'),
