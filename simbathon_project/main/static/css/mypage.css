@@ -108,7 +108,7 @@
    
 }
 
-.like_list, .myposting_list,.mycomment_list {
+.myp_list {
     font-weight: 400;
     font-size: 30px;
     line-height: 80%;
@@ -116,16 +116,51 @@
     color: #FFFFFF;
     font-family: 'KoPubDotum Bold';
     font-style: normal;
+    font-weight: 550;
+    margin-left: 7%;
+    margin-bottom: 2%;
 }
 
-.like_box, .myposting_box, .mycomment_box {
+.myp_all_box {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content:center;
     width: 100%;
-    height: 60%;
     background-color: #2D2A2A;
     color: #FFFFFF;
     border-radius: 15px;
-    margin-bottom: 5%;
-    margin-top: 4%;
+    margin-bottom: 0.2%;
+    margin-top: 0.2%;
+    align-content: center;
+    padding: 0.5% 0;
+
+}
+
+.myp_set{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    margin-left: 7%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.mpy_type{
+    display: flex;
+    width: 100%;
+    margin-right: 3px;
+    align-items: center;
+}
+
+.myp_category{
+    display: flex;
+    width: 100%
+}
+
+.profile_other_s{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 60%;
+    margin-top: 5%;
+    margin-bottom: 4%;
 }

@@ -42,6 +42,11 @@
   font-size: 20px;
   text-decoration: none;
   color:black;
+  transition: color 0.7s;
+}
+.navbar_menu_title:hover{
+  color: white;
+  transition: color 0.7s;
 }
 
 .navbar_login{
@@ -52,4 +57,9 @@
   cursor: pointer;
   color: black;
   margin-right: 20px;
+  transition: color 0.7s;
+}
+.navbar_login i:hover{
+  color:white;
+  transition: color 0.7s;
 }
