@@ -120,13 +120,14 @@ def detail_update(request, id):
     update_post.pub_date = timezone.now()
     update_post.body = request.POST['body']
     if request.FILES.get("image"):
-            update_post.image = request.FILES.get("image")
+        update_post.image = request.FILES.get("image")
     update_post.save()
     return redirect('main:detail', update_post.id)
 
 def detail_delete(request, id):
     delete_post = Post.objects.get(id=id)
-    delete_post.delete()
+    if request.user == delete_post.writer:
+        delete_post.delete()
     return redirect('main:showmain')
 
 # 커뮤니티 페이지
@@ -178,11 +179,22 @@ def community_create(request):
     new_community.save()
     return redirect('main:community_detail', new_community.id)
 
+##community 게시글 수정 기능 수정(삭제는 이미 구현 완료되어 있었네요!)
 
 def community_update(request, id):
     update_community = Community.objects.get(id=id)
-    return render(request, 'main/community_update.html', community.id)
+    update_community.title = request.POST['title']
+    update_community.writer = request.user
+    update_community.pub_date = timezone.now()
+    update_community.body = request.POST['body']
+    if request.FILES.get("image"):
+        update_community.image = request.FILES.get("image")
+    update_community.save()
+    return redirect('main:community_detail', update_community.id)
 
+def community_edit(request, id):
+    edit_community = Community.objects.get(id=id)
+    return render(request, 'main/community_edit.html', {'community':edit_community})
 
 def community_delete(request, id):
     delete_community = Community.objects.get(id=id)

@@ -12,7 +12,7 @@
                 <div class="community_detail_category_change">
                     {% if user == community.writer %}
                     <div class="community_detail_category_edit">
-                        <a style="text-decoration:none" href="{% url 'main:community' %}">
+                        <a style="text-decoration:none" href="{% url 'main:community_edit' community.id %}">
                             수정
                         </a>
                     </div>

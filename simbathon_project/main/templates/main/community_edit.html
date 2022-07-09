@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>EDIT MY COMMUNITY POST</h1>
+    <form action="{% url 'main:community_update' community.id%}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        <p>제목 : <input type="text" name="title" value="{{community.title}}"></p>
+        <p>사진 : <input type="file" name="image"></p>
+        <p>내용 : <textarea name="body" id="" cols="30" rows="10" >{{community.body}}</textarea></p>
+        <input type="submit" value="확인">
+    </form>
+
+{% endblock %}
