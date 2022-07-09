@@ -57,7 +57,8 @@
             <div class="detail_posting_comment_write">
                 <div class="detail_posting_comment_write_info">
                     <div class="detail_posting_comment_write_info_name">{{user.username}}</div>
-                    <div class="detail_posting_comment_write_info_major">{{user.profile.major}} {{user.profile.student_number}}</div>
+                    <div class="detail_posting_comment_write_info_major">{{user.profile.major}}
+                        {{user.profile.student_number}}</div>
                 </div>
                 <form class="detail_posting_comment_write_form" action="{%url 'main:comment_create' post.id%}"
                     method="POST">
@@ -107,13 +108,12 @@
                     <div class="hide detail_posting_comment_edit detail_comment_{{comment.id}}">
                         <i
                             class="fa-solid fa-x detail_comment_{{comment.id}}_x detail_posting_comment_write_edit_x"></i>
-                        <form o class="detail_posting_comment_write_edit_form"
+                        <form class="detail_posting_comment_write_edit_form"
                             action="{%url 'main:comment_update' comment.id%}" method="POST">
                             {%csrf_token%}
                             <textarea class="detail_posting_comment_write_edit_input"
                                 name="content">{{comment.content}}</textarea>
-                            <input onsubmit="submmitFunction()" class="detail_posting_comment_write_edit_submit"
-                                type="submit" value="수정">
+                            <input class="detail_posting_comment_write_edit_submit" type="submit" value="수정">
                         </form>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
     // 좋아요 전송 효과
     const like = document.querySelector(".fa-heart")
     const like_form = document.querySelector(".detail_posting_like_form")
-    like.addEventListener("click", function () {
+    like.addEventListener("click", function (event) {
         like_form.submit();
     })
 
@@ -148,11 +148,6 @@
         haha_delete.addEventListener("click", function () {
             haha.classList.add("hide");
         })
-    }
-
-    function submmitFunction(event) {
-        event.preventDefault();
-
     }
 
 
