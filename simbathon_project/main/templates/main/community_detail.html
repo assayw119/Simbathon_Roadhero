@@ -47,29 +47,22 @@
                     <div>
                         <i class="fa-solid fa-eye"></i>
                         <!--조회수 정보-->
-                        <div>2022</div>
+                        <div>{{community.view_users}}</div>
                     </div>
                     <div>
                         <i class="fa-solid fa-comment"></i>
                         <!--댓글 갯수 정보-->
-                        <div>4</div>
+                        <div>{{communitycomments |length}}</div>
                     </div>
                 </div>
             </div>
             {% if community.image %}
             <img class="detail_posting_img" src="{{community.image.url}}" alt="사진">
             {% endif %}
-            <p class="community_detail_posting_body">
+            <div style="margin-bottom: 50px;" class="community_detail_posting_body">
                 {{community.body}}
-            </p>
-            <!--문단 구분 안감!! post css를 community로 수정해야 함!!--> 
-            <div class="detail_posting_footer">
-                <div class="detail_posting_footer_category">
-                    <i class="fa-solid fa-eye detail_posting_footer_category_i"></i>
-                    <p>{{community.view_users}}</p>
-                </div>
-                <p class="detail_posting_footer_date">작성일자 : {{community.pub_date}}</p>
             </div>
+            <!--문단 구분 안감!! post css를 community로 수정해야 함!!-->
             <!-- 좋아요 -->
             {% if user.is_authenticated %}
             <form class="detail_posting_like_form" action="{% url 'main:community_likes' community.id %}" method="POST">
@@ -86,35 +79,86 @@
             {% else %}
             <div class="detail_posting_comment_disable">좋아요는 로그인 후에!</div>
             {% endif %}
+
+            <!-- 댓글 -->
+            <div class="detail_posting_comment">
+                {% if user.is_authenticated %}
+                <div class="detail_posting_comment_write">
+                    <div class="detail_posting_comment_write_info">
+                        <div class="detail_posting_comment_write_info_name">{{user.username}}</div>
+                        <div class="detail_posting_comment_write_info_major">{{user.profile.major}}
+                            {{user.profile.student_number}}</div>
+                    </div>
+                    <form class="detail_posting_comment_write_form"
+                        action="{%url 'main:community_comment_create' community.id%}" method="POST">
+                        {%csrf_token%}
+                        <textarea class="detail_posting_comment_write_input" name="comment"
+                            placeholder="댓글내용입력"></textarea>
+                        <input class="detail_posting_comment_write_submit" type="submit" value="확인">
+                    </form>
+                </div>
+                {% else %}
+                <div class="detail_posting_comment_disable">댓글 입력은 로그인 이후에 이용하실 수 있습니다.</div>
+                {% endif %}
+                <div class="detail_posting_divider"></div>
+                <div class="detail_posting_comment_length">댓글 {{communitycomments |length}}개</div>
+                <div class="detail_posting_comment_items">
+                    {% for communitycomment in communitycomments %}
+                    <div class="detail_posting_comment_items_item">
+                        <section class="detail_posting_comment_items_item_info">
+                            <div class="detail_posting_comment_items_item_info_first">
+                                {% if 'user' in communitycomment.writer.username %}
+                                <div class="detail_posting_comment_items_item_info_first_name">{{
+                                    communitycomment.writer.last_name }} {{ communitycomment.writer.first_name }}</div>
+                                <div class="detail_posting_comment_items_item_info_first_major">
+                                    {{communitycomment.writer.profile.major}}
+                                    {{communitycomment.writer.profile.student_number}}
+                                </div>
+                                {% else %}
+                                <div class="detail_posting_comment_items_item_info_first_name">
+                                    {{ communitycomment.writer }}
+                                </div>
+                                <div class="detail_posting_comment_items_item_info_first_major">
+                                    {{communitycomment.writer.profile.major}}
+                                    {{communitycomment.writer.profile.student_number}}
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="detail_posting_comment_items_item_info_second">
+                                {% if user == communitycomment.writer %}
+                                <i onclick="showValue(this)" class="fa-solid fa-pen-to-square"
+                                    id="detail_communitycomment_{{communitycomment.id}}" value="
+                                d"></i>
+                                <a class="detail_posting_comment_items_x"
+                                    href="{% url 'main:community_comment_delete' communitycomment.id %}"><i
+                                        class="fa-solid fa-x"></i></a>
+                                {% endif %}
+                            </div>
+                        </section>
+                        <section class="detail_posting_comment_items_item_content">
+                            <p>{{communitycomment.content}}</p>
+                        </section>
+                        <section class="detail_posting_comment_items_item_date">
+                            <p>{{communitycomment.created_at}}</p>
+                        </section>
+                        <div class="hide detail_posting_comment_edit detail_communitycomment_{{communitycomment.id}}">
+                            <i
+                                class="fa-solid fa-x detail_communitycomment_{{communitycomment.id}}_x detail_posting_comment_write_edit_x"></i>
+                            <form class="detail_posting_comment_write_edit_form"
+                                action="{%url 'main:community_comment_update' communitycomment.id%}" method="POST">
+                                {%csrf_token%}
+                                <textarea class="detail_posting_comment_write_edit_input"
+                                    name="comment">{{communitycomment.content}}</textarea>
+                                <input onsubmit="submmitFunction()" class="detail_posting_comment_write_edit_submit"
+                                    type="submit" value="수정">
+                            </form>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </section>
-
-    <!-- 댓글 -->
-    <div>
-        <form action="{%url 'main:community_comment_create' community.id%}" method="POST">
-            {%csrf_token%}
-            <textarea name="comment" placeholder="댓글내용입력"></textarea>
-            <input type="submit" value="확인">
-        </form>
-    </div>
-    <div class="detail_comment">
-        {% for communitycomment in communitycomments %}
-        <div>
-            {% if 'user' in communitycomment.writer.username %}
-            <h6>작성자 : {{ communitycomment.writer.last_name }} {{ communitycomment.writer.first_name }}</h6>
-            {% else %}
-            <h6>작성자 : {{ communitycomment.writer }}</h6>
-            {% endif %}
-            {{communitycomment.content}}<br>
-            {{communitycomment.created_at}}<br>
-            {% if user == communitycomment.writer %}
-            <a href="{% url 'main:community_comment_edit' communitycomment.id %}">댓글 수정</a>
-            <a href="{% url 'main:community_comment_delete' communitycomment.id %}">댓글 삭제</a>
-            {% endif %}
-            <hr>
-        </div>
-        {% endfor %}
-    </div>
 
     <div style=" margin-bottom: 50px;" class="detail_back">
         <a style="text-decoration:none;" href="{% url 'main:community' %}">
@@ -122,5 +166,32 @@
         </a>
     </div>
 </div>
+
+<script>
+    // 좋아요 전송 효과
+    const like = document.querySelector(".fa-heart")
+    const like_form = document.querySelector(".detail_posting_like_form")
+    like.addEventListener("click", function () {
+        like_form.submit();
+    })
+
+    const showValue = (target) => {
+        console.log(target.id);
+        const haha_delete = document.querySelector(`.${target.id}_x`)
+        const haha = document.querySelector(`.${target.id}`);
+        console.log(haha);
+        haha.classList.remove("hide");
+        haha_delete.addEventListener("click", function () {
+            haha.classList.add("hide");
+        })
+    }
+
+    function submmitFunction(event) {
+        event.preventDefault();
+
+    }
+
+
+</script>
 
 {% endblock %}

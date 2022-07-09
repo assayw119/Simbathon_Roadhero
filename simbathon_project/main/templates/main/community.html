@@ -19,7 +19,8 @@
                     alt="">
                 <div class="community_new_post_posting_item">
                     <div class="community_new_post_posting_item_title">{{first.title}}</div>
-                    <div class="community_new_post_posting_item_major">{{first.writer.profile.major}} {{first.writer.profile.student_number}}</div>
+                    <div class="community_new_post_posting_item_major">{{first.writer.profile.major}}
+                        {{first.writer.profile.student_number}}</div>
                     <div class="community_new_post_posting_item_summary">{{first.summary}}</div>
                     <div class="community_new_post_posting_item_date">{{first.pub_date}}</div>
                 </div>
@@ -72,8 +73,20 @@
                         <p>{{community.summary}}...</p>
                     </div>
                     <div class="community_posting_body_post_item_footer">
-                        <p>{{community.writer}}</p>
-                        <p>{{community.writer.profile.major}} {{community.writer.profile.student_number}}</p>
+                        <div class="community_posting_body_post_item_footer_item">
+                            <p>{{community.writer}}</p>
+                            <p>{{community.writer.profile.major}} {{community.writer.profile.student_number}}</p>
+                        </div>
+                        <div class="community_posting_body_post_item_footer_item">
+                            <div class="community_post_item_info_user">
+                                <i class="fa-solid fa-eye"></i>
+                                <p>{{community.view_users}}</p>
+                            </div>
+                            <div class="community_post_item_info_user">
+                                <i class="fa-solid fa-heart"></i>
+                                <p>{{community.like_users.count}}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </a>
@@ -85,10 +98,16 @@
         <img class="toWrite" src="{% static 'images/toWrite.png' %}" alt="">
     </a>
     {% else %}
-    <a href="{% url 'accounts:login' %}">
+    <a onclick="warning()" href="{% url 'accounts:login' %}">
         <img class="toWrite" src="{% static 'images/toWrite.png' %}" alt="">
     </a>
     {% endif %}
 </div>
+
+<script>
+    function warning() {
+        window.alert("로그인 이후에 사용가능하십니다!")
+    }
+</script>
 
 {% endblock %}
