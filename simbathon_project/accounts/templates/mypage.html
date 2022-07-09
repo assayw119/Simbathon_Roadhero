@@ -92,7 +92,7 @@
                 <div class="myp_set">
                     <div class="myp_type" style="padding-right: 5px; margin-right: 10px; border-right: 2px solid #5c5c5c; width: 10%;">커뮤니티</div>
                     <div class="myp_category">
-                            <a href="{% url 'main:community_detail' mycommunity.id %" style="text-decoration: none; color :#989898;">
+                            <a href="{% url 'main:community_detail' mycommunity.id %}" style="text-decoration: none; color :#989898;">
                                 [{{mycommunity.category}}] {{mycommunity.title}}</a>
                     </div>
                 </div>
@@ -103,27 +103,27 @@
         <!--댓글 단 글  -->
         <section class="profile_other_s">
             <div class="myp_list">댓글 단 글</div>
-                {% for mycomment in mycomments %}
-                <div class="myp_all_box">
-                    <div class="myp_set">
-                        <div class="myp_type" style="padding-right: 5px; margin-right: 10px; border-right: 2px solid #5c5c5c; width: 10%;">매거진</div>
-                        <div class="myp_category">
-                            <a href="{% url 'main:detail' mycomment.id %}" style="text-decoration: none; color :#989898;">
-                                    [{{mycomment.post.category}}] {{mycomment.post.title}}</a>
-                        </div>
-                    </div>
-                {% endfor %}
-                
-                {% for mycommunitycomment in mycommunitycomments %}
-                    <div class="myp_set">
-                        <div class="myp_type" style="padding-right: 5px; margin-right: 10px; border-right: 2px solid #5c5c5c; width: 10%;">커뮤니티</div>
-                        <div class="myp_category">
-                            <a href="{% url 'main:community_detail' mycommunitycomment.id %}" style="text-decoration: none; color :#989898;">
-                                [{{mycommunitycomment.community.category}}] {{mycommunitycomment.community.title}}</a>
-                        </div>
+            {% for mycomment in mycomments %}
+            <div class="myp_all_box">
+                <div class="myp_set">
+                    <div class="myp_type" style="padding-right: 5px; margin-right: 10px; border-right: 2px solid #5c5c5c; width: 10%;">매거진</div>
+                    <div class="myp_category">
+                        <a href="{% url 'main:detail' mycomment.post.id %}" style="text-decoration: none; color :#989898;">
+                                [{{mycomment.post.category}}] {{mycomment.post.title}}</a>
                     </div>
                 </div>
-                {% endfor %}
+            {% endfor %}
+            
+            {% for mycommunitycomment in mycommunitycomments %}
+                <div class="myp_set">
+                    <div class="myp_type" style="padding-right: 5px; margin-right: 10px; border-right: 2px solid #5c5c5c; width: 10%;">커뮤니티</div>
+                    <div class="myp_category">
+                        <a href="{% url 'main:community_detail' mycommunitycomment.community.id %}" style="text-decoration: none; color :#989898;">
+                            [{{mycommunitycomment.community.category}}] {{mycommunitycomment.community.title}}</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </section>
 
     </div>
