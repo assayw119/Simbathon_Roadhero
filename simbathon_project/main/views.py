@@ -191,8 +191,9 @@ def comment_create(request, id):
         post = get_object_or_404(Post, pk=id)
         current_user = request.user
         comment_content = request.POST.get("content")
-        Comment.objects.create(content=comment_content,
-                                writer=current_user, post=post)
+        if len(comment_content.strip()) != 0:
+            Comment.objects.create(content=comment_content,
+                                    writer=current_user, post=post)
     return redirect("main:detail", id)
 
 
@@ -223,13 +224,8 @@ def community_comment_create(request, id):
         community = get_object_or_404(Community, pk=id)
         current_user = request.user
         community_comment_content = request.POST.get("comment")
-        CommunityComment.objects.create(content=community_comment_content, writer=current_user, community=community)
-        print('!!')
-        # community_comment = CommunityComment()
-        # community_comment.content = community_comment_content
-        # community_comment.writer = current_user
-        # community_comment.community = community
-        # community_comment.save()
+        if len(community_comment_content.strip() == 0):
+            CommunityComment.objects.create(content=community_comment_content, writer=current_user, community=community)
     return redirect("main:community_detail", id)
 
 def community_comment_edit(request, id):
