@@ -57,7 +57,7 @@
                 </div>
             </div>
             {% if community.image %}
-            <img class="detail_posting_img" src="{{community.image.url}}" alt="사진">
+            <img class="community_detail_posting_img" src="{{community.image.url}}" alt="사진">
             {% endif %}
             <div style="margin-bottom: 50px;" class="community_detail_posting_body">
                 {{community.body}}
@@ -77,7 +77,7 @@
                 </div>
             </form>
             {% else %}
-            <div class="detail_posting_comment_disable">좋아요는 로그인 후에!</div>
+            <div style="margin-bottom: 25px" class="detail_posting_comment_disable">좋아요는 로그인 후에!</div>
             {% endif %}
 
             <!-- 댓글 -->
@@ -92,7 +92,7 @@
                     <form class="detail_posting_comment_write_form"
                         action="{%url 'main:community_comment_create' community.id%}" method="POST">
                         {%csrf_token%}
-                        <textarea class="detail_posting_comment_write_input" name="comment"
+                        <textarea required class="detail_posting_comment_write_input" name="comment"
                             placeholder="댓글내용입력"></textarea>
                         <input class="detail_posting_comment_write_submit" type="submit" value="확인">
                     </form>
@@ -147,7 +147,7 @@
                             <form class="detail_posting_comment_write_edit_form"
                                 action="{%url 'main:community_comment_update' communitycomment.id%}" method="POST">
                                 {%csrf_token%}
-                                <textarea class="detail_posting_comment_write_edit_input"
+                                <textarea required class="detail_posting_comment_write_edit_input"
                                     name="comment">{{communitycomment.content}}</textarea>
                                 <input onsubmit="submmitFunction()" class="detail_posting_comment_write_edit_submit"
                                     type="submit" value="수정">

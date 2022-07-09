@@ -4,7 +4,7 @@
 <div id="background">
     <div class="myp_background">
         <section>
-            <h1 class="createinfo_title">My Profile</h1>
+            <h1 class="title">My Profile</h1>
         </section>
 
         <section class="createinfo_s">
@@ -14,38 +14,38 @@
             <div class="createinfo_box">
                 <form action="{% url 'accounts:createinfo' %}" method="post" enctype="multipart/form-data">
                     {%csrf_token%}
-                    
+
                     <div class="ci_content">이름</div>
-                        <div class="ci_blank" ><input type="text" name="name" style="width: 55%;" ></div>
+                    <div class="ci_blank"><input required type="text" name="name" style="width: 55%;"></div>
 
                     <div class="ci_content">학교</div>
-                        <div class="ei_blank"><input type="text" name="university" style="width: 55%;"></div>
+                    <div class="ei_blank"><input required type="text" name="university" style="width: 55%;"></div>
 
                     <div class="ci_content">전공</div>
-                        <div class="ci_blank"><input type="text" name="major" style="width: 55%;"></div>
+                    <div class="ci_blank"><input required type="text" name="major" style="width: 55%;"></div>
 
                     <div class="ci_content">복수전공</div>
-                        <div class="ci_blank"><input type="text" name="major2" style="width: 55%;"></div>
+                    <div class="ci_blank"><input type="text" name="major2" style="width: 55%;"></div>
 
                     <div class="ci_content">입학연도
                         <select name="register" style="padding-left: 1%; margin-left: 2%;">
                             <script>
-                                for(i=2022; i>=1970; i--){
+                                for (i = 2022; i >= 1970; i--) {
                                     document.write(
-                                        "<option value=" +i+">"+i+"</option>"
+                                        "<option value=" + i + ">" + i + "</option>"
                                     )
                                 }
                             </script>
                         </select>
                     </div>
-                    
+
                     <div class="ci_bnt_s">
-                    <button class="ci_bnt" type="submit">확인</button>
+                        <button class="ci_bnt" type="submit">확인</button>
                     </div>
 
                 </form>
             </div>
         </section>
 
-</div>
-{% endblock %}
+    </div>
+    {% endblock %}

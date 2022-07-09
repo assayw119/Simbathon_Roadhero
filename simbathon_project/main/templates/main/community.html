@@ -22,7 +22,19 @@
                     <div class="community_new_post_posting_item_major">{{first.writer.profile.major}}
                         {{first.writer.profile.student_number}}</div>
                     <div class="community_new_post_posting_item_summary">{{first.summary}}</div>
-                    <div class="community_new_post_posting_item_date">{{first.pub_date}}</div>
+                    <div class="community_new_post_item_footer">
+                        <div class="community_new_post_posting_item_date">{{first.pub_date}}</div>
+                        <div class="community_posting_body_post_item_footer_item">
+                            <div class="community_post_item_info_user">
+                                <i class="fa-solid fa-eye"></i>
+                                <p>{{first.view_users}}</p>
+                            </div>
+                            <div class="community_post_item_info_user">
+                                <i class="fa-solid fa-heart"></i>
+                                <p>{{first.like_users.count}}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </a>
@@ -94,9 +106,9 @@
                 </div>
             </a>
             {% endfor %}
-        {% else %}
-        <p>not found</p>
-        {% endif %}
+            {% else %}
+            <p>not found</p>
+            {% endif %}
         </div>
     </section>
     {% if user.is_authenticated %}
