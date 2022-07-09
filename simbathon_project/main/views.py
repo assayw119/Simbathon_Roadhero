@@ -22,11 +22,12 @@ def showmain(request):
     if request.method == 'GET':
         magazine_sort = request.GET.get('magazine')
         if magazine_sort == 'all' or magazine_sort == None:
-            posts = Post.objects.all()
+            posts = Post.objects.all().order_by('-view_users')
         else:
-            posts = Post.objects.filter(category=magazine_sort)
-
-    return render(request, 'main/mainpage.html', {'posts': posts})
+            posts = Post.objects.filter(category=magazine_sort).order_by('-view_users')
+    managers = ['roadhero']
+    context = {'posts':posts, 'managers':managers}
+    return render(request, 'main/mainpage.html', context)
 
 
 class SearchFormView(FormView):
@@ -134,9 +135,19 @@ def detail_delete(request, id):
 
 
 def community(request):
-    communities = Community.objects.all()
-    first_community = communities.order_by('-view_users')[0]
-    return render(request, 'main/community.html', {'communities': communities, 'first': first_community})
+    
+    communities = Community.objects.all().order_by('-view_users')
+    first_community = communities[0]
+    if request.method == 'GET':
+        community_sort = request.GET.get('community')
+        if community_sort == 'all' or community_sort == None:
+            pass
+        else:
+            communities = Community.objects.filter(category=community_sort).order_by('-view_users')
+        
+    context = {'communities': communities, 'first': first_community}
+    return render(request, 'main/community.html', context)
+
 
 class CommunitySearchFormView(FormView):
     template_name = 'main/community.html'
