@@ -47,69 +47,83 @@
 
         <!--좋아요 한 글 목록 -->
         <section class="profile_other_s">
-            <div class="like_list">좋아요 한 글 목록</div>
+            <div class="myp_list">좋아요 한 글 목록</div>
             {% for likepost in likeposts %}
-            <div class="like_box">
-                <p>매거진</p>
-                <a href="{% url 'main:detail' likepost.id %}">
-                    {{likepost.category}} / {{likepost.title}}
-                </a>
+            <div class="myp_all_box">
+                <div class="myp_set">
+                    <div class="myp_type" style="padding-right: 5px; margin-right: 10px; border-right: 2px solid #5c5c5c; width: 10%;">매거진</div>
+                    <div class="myp_category">
+                        <a href="{% url 'main:detail' likepost.id %}" style="text-decoration: none; color :#989898;">
+                            [{{likepost.category}}] {{likepost.title}}</a>
+                    </div>
+                </div>
+               
+           
+            {% endfor %}
+
+            {% for likecommunity in likecommunities %}     
+                <div class="myp_set">
+                    <div class="myp_type" style="padding-right: 5px; margin-right: 10px; border-right: 2px solid #5c5c5c; width: 10%;">커뮤니티</div>
+                    <div class="myp_category">
+                        <a href="{% url 'main:community_detail' likecommunity.id %}" style="text-decoration: none; color :#989898;">
+                            [{{likecommunity.category}}] {{likecommunity.title}}</a>
+                    </div>
+                </div>
             </div>
             {% endfor %}
 
-            {% for likecommunity in likecommunities %}
-            <div class="like_box">
-                <p>매거진</p>
-                <a href="{% url 'main:community_detail' likecommunity.id %}">
-                    {{likecommunity.category}} / {{likecommunity.title}}
-                </a>
-            </div>
-            {% endfor %}
         </section>
 
         <!--내가 쓴 글 -->
         <section class="profile_other_s">
-            <div class="myposting_list">내가 쓴 글</div>
+            <div class="myp_list">내가 쓴 글</div>
             {% for mypost in myposts %}
-            <div class="myposting_box">
-                <p>매거진</p>
-                <a href="{% url 'main:detail' mypost.id %}">
-                    {{mypost.category}} / {{mypost.title}}
-                </a>
-            </div>
+            <div class="myp_all_box">
+                <div class="myp_set">
+                    <div class="myp_type" style="padding-right: 5px; margin-right: 10px; border-right: 2px solid #5c5c5c; width: 10%;">매거진</div>
+                    <div class="myp_category">
+                        <a href="{% url 'main:detail' mypost.id %}" style="text-decoration: none; color :#989898;">
+                            [{{mypost.category}}] {{mypost.title}}</a>
+                    </div>
+                </div>
             {% endfor %}
 
             {% for mycommunity in mycommunities %}
-            <div class="myposting_box">
-                <p>커뮤니티</p>
-                <a href="{% url 'main:community_detail' mycommunity.id %}">
-                    {{mycommunity.category}} / {{mycommunity.title}}
-                </a>
+                <div class="myp_set">
+                    <div class="myp_type" style="padding-right: 5px; margin-right: 10px; border-right: 2px solid #5c5c5c; width: 10%;">커뮤니티</div>
+                    <div class="myp_category">
+                            <a href="{% url 'main:community_detail' mycommunity.id %" style="text-decoration: none; color :#989898;">
+                                [{{mycommunity.category}}] {{mycommunity.title}}</a>
+                    </div>
+                </div>
             </div>
             {% endfor %}
         </section>
 
         <!--댓글 단 글  -->
         <section class="profile_other_s">
-            <div class="mycomment_list">댓글 단 글</div>
+            <div class="myp_list">댓글 단 글</div>
                 {% for mycomment in mycomments %}
-                    <div class="mycomment_box">
-                        <p>매거진</p>
-                        <a href="{% url 'main:detail' mycomment.id %}">
-                            {{mycomment.post.category}} / {{mycomment.post.title}}
-                        </a>
+                <div class="myp_all_box">
+                    <div class="myp_set">
+                        <div class="myp_type" style="padding-right: 5px; margin-right: 10px; border-right: 2px solid #5c5c5c; width: 10%;">매거진</div>
+                        <div class="myp_category">
+                            <a href="{% url 'main:detail' mycomment.id %}" style="text-decoration: none; color :#989898;">
+                                    [{{mycomment.post.category}}] {{mycomment.post.title}}</a>
+                        </div>
                     </div>
                 {% endfor %}
                 
                 {% for mycommunitycomment in mycommunitycomments %}
-                    <div class="mycomment_box">
-                        <p>커뮤니티</p>
-                        <a href="{% url 'main:community_detail' mycommunitycomment.id %}">
-                            {{mycommunitycomment.community.category}} / {{mycommunitycomment.community.title}}
-                        </a>
+                    <div class="myp_set">
+                        <div class="myp_type" style="padding-right: 5px; margin-right: 10px; border-right: 2px solid #5c5c5c; width: 10%;">커뮤니티</div>
+                        <div class="myp_category">
+                            <a href="{% url 'main:community_detail' mycommunitycomment.id %}" style="text-decoration: none; color :#989898;">
+                                [{{mycommunitycomment.community.category}}] {{mycommunitycomment.community.title}}</a>
+                        </div>
                     </div>
+                </div>
                 {% endfor %}
-            </div>
         </section>
 
     </div>
