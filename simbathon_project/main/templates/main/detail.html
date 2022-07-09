@@ -3,16 +3,30 @@
 
 {% block content %}
 <div id="background">
-    <section class="detail_posting_s">
+    <section class="detail_posting_s" style="border-radius: 15px">
         <div class="detail_posting">
-            <div class="detail_posting_category">{{post.category}}</div>
-            <!--수정 삭제-->
-            {% if user == post.writer %}
-                <a href="{% url 'main:detail_edit' post.id%}">수정</a>
-                <a href="{% url 'main:detail_delete' post.id%}">삭제</a>
-            {% endif %}
+            <div class="detail_posting_category">
+                <div class="detail_category_category">
+                    {{post.category}}
+                </div>
+                <!--수정 삭제-->
+                <div class="detail_category_change">
+                    {% if user == post.writer %}
+                    <div class="detail_category_edit">
+                        <a style="text-decoration: none" href="{% url 'main:detail_edit' post.id%}">
+                            수정
+                        </a>
+                    </div>
+                    <div class="detail_category_delete">
+                        <a style="text-decoration: none" href="{% url 'main:detail_delete' post.id%}">
+                            삭제
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
             <!--수정 삭제 끝-->
-            <div class="detail_posting_title">{{post.title}}</div>
+            <p class="detail_posting_title">{{post.title}}</p>
             <div class="detail_posting_info">
                 <p class="detail_posting_info_major">{{post.writer.profile.major}}
                     {{post.writer.profile.student_number}}</p>

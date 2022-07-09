@@ -134,8 +134,8 @@ def detail_delete(request, id):
 
 
 def community(request):
-    first_community = Community.objects.first()
     communities = Community.objects.all()
+    first_community = communities.order_by('-view_users')[0]
     return render(request, 'main/community.html', {'communities': communities, 'first': first_community})
 
 class CommunitySearchFormView(FormView):
