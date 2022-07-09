@@ -58,7 +58,10 @@ class Community(models.Model):
     image = models.ImageField(upload_to='community/', blank=True, null=True)
 
     def summary(self):
-        return self.body[:50]
+        if len(self.body) >= 50:
+            return self.body + '...'
+        else:
+            return self.body
 class CommunityComment(models.Model):
     content = models.TextField()
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
