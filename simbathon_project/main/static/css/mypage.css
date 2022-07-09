@@ -133,22 +133,30 @@
     margin-top: 0.2%;
     align-content: center;
     padding: 0.5% 0;
-
 }
+
 
 .myp_all_box::-webkit-scrollbar {
     width: 12px;
 }
+
 .myp_all_box::-webkit-scrollbar-thumb {
     background-color: darkgray;
     border-radius: 15px;
     background-clip: padding-box;
     border: 3px solid transparent;
+
 }
 .myp_all_box::-webkit-scrollbar-track {
     background-color: #e4e4e4;
     border-radius: 15px;
     
+}
+
+.myp_all_box::-webkit-scrollbar-thumb:hover {
+    background: gray;
+    background-clip: padding-box;
+    border: 3px solid transparent;
 }
 
 .myp_set{
