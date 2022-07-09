@@ -6,6 +6,12 @@
     <section class="detail_posting_s">
         <div class="detail_posting">
             <div class="detail_posting_category">{{post.category}}</div>
+            <!--수정 삭제-->
+            {% if user == post.writer %}
+                <a href="{% url 'main:detail_edit' post.id%}">수정</a>
+                <a href="{% url 'main:detail_delete' post.id%}">삭제</a>
+            {% endif %}
+            <!--수정 삭제 끝-->
             <div class="detail_posting_title">{{post.title}}</div>
             <div class="detail_posting_info">
                 <p class="detail_posting_info_major">{{post.writer.profile.major}}
@@ -27,12 +33,6 @@
             <p class="detail_posting_body">
                 {{post.body}}
             </p>
-
-            <!--수정 삭제(박영신)-->
-            {% if user == post.writer %}
-                <a href="{% url 'main:detail_edit' post.id%}">글 수정</a>
-                <a href="{% url 'main:detail_delete' post.id%}">글 삭제</a>
-            {% endif %}
             
             <!--문단 구분 안감!!-->
             <div class="detail_posting_footer">

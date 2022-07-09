@@ -12,7 +12,7 @@ urlpatterns = [
     path('media/', SearchFormView.as_view(), name='search'),
     path('<str:id>/likes/', likes, name='likes'),
     
-    # detail 수정 삭제(박영신)
+    # detail 수정 삭제 추가
     path('detail_update/<int:id>', detail_update, name='detail_update'),
     path('detail_delete/<int:id>', detail_delete, name='detail_delete'),
     path('detail_edit/<int:id>', detail_edit, name='detail_edit'),
@@ -21,8 +21,9 @@ urlpatterns = [
     path('community/<str:id>/', community_detail, name='community_detail'),
     path('community_new/', community_new, name='community_new'),
     path('community_create/', community_create, name='community_create'),
-    path('community_update/', community_update, name='community_update'),
-    path('<str:id>/community_delete', community_delete, name='community_delete'),
+    path('community_update/<int:id>', community_update, name='community_update'),
+    path('community_edit/<int:id>', community_edit, name='community_edit'),
+    path('community_delete/<int:id>', community_delete, name='community_delete'),
     path('<str:id>/communitylikes/', community_likes, name='community_likes'),
     path('search/', CommunitySearchFormView.as_view(), name='community_search'),
 
