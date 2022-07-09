@@ -2,7 +2,7 @@ from tkinter.messagebox import NO
 from unicodedata import category
 from django.shortcuts import render, redirect, get_object_or_404
 
-from main.forms import PostSearchForm
+from main.forms import PostSearchForm, CommunitySearchForm
 from .models import Post, Comment, Community, CommunityComment
 from django.utils import timezone
 from django.db.models import Q
@@ -116,6 +116,22 @@ def community(request):
     communities = Community.objects.all()
     return render(request, 'main/community.html', {'communities': communities, 'first': first_community})
 
+class CommunitySearchFormView(FormView):
+    template_name = 'main/community.html'
+    form_class = CommunitySearchForm
+
+    def form_valid(self, form):
+        searchWord = form.cleaned_data['search_word']
+        print(searchWord)
+        communities = Community.objects.filter(
+            Q(title__icontains=searchWord) | Q(body__icontains=searchWord))
+        print(communities)
+        context = {}
+        context['form'] = form
+        context['search_term'] = searchWord
+        context['communities'] = communities
+
+        return render(self.request, self.template_name, context)
 
 def community_detail(request, id):
     community = get_object_or_404(Community, pk=id)

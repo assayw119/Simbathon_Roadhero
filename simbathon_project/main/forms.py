@@ -13,3 +13,6 @@ class CommunityForm(forms.ModelForm):
 
 class PostSearchForm(forms.Form):
     search_word = forms.CharField(label='Search Word')
+
+class CommunitySearchForm(forms.Form):
+    search_word = forms.CharField(label='Search Word')
