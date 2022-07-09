@@ -1,26 +1,51 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<div id="background">
+    <div class="myp_background">
+        <section>
+            <h1 class="editinfo_title">My Profile</h1>
+        </section>
 
-<form action="{% url 'accounts:updateinfo' %}" method="post" enctype="multipart/form-data">
-    {%csrf_token%}
-    {{user.username}}
-    <p>이름 : <input type="text" name="name"></p>
-    <p>학교 : <input type="text" name="university"></p>
-    <p>전공 : <input type="text" name="major"></p>
-    <p>복수전공 : <input type="text" name="major2"></p>
-    <p>입학연도 : 
-        <select name="register">
-            <script>
-                for(i=2022; i>=1970; i--){
-                    document.write(
-                        "<option value=" +i+">"+i+"</option>"
-                    )
-                }
-            </script>
-        </select>
-    </p>
-    <button type="submit">제출</button>
-</form>
+        <section class="editinfo_s">
 
+            <div class="editinfo_subtitle">회원정보수정</div>
+
+            <div class="editinfo_box">
+                <form action="{% url 'accounts:updateinfo' %}" method="post" enctype="multipart/form-data">
+                    {%csrf_token%}
+                    
+                    <div class="ei_content">이름</div>
+                        <div class="ei_blank" ><input type="text" name="name" style="width: 55%;" ></div>
+
+                    <div class="ei_content">학교</div>
+                        <div class="ei_blank"><input type="text" name="university" style="width: 55%;"></div>
+
+                    <div class="ei_content">전공</div>
+                        <div class="ei_blank"><input type="text" name="major" style="width: 55%;"></div>
+
+                    <div class="ei_content">복수전공</div>
+                        <div class="ei_blank"><input type="text" name="major2" style="width: 55%;"></div>
+
+                    <div class="ei_content">입학연도
+                        <select name="register" style="padding-left: 1%; margin-left: 2%;">
+                            <script>
+                                for(i=2022; i>=1970; i--){
+                                    document.write(
+                                        "<option value=" +i+">"+i+"</option>"
+                                    )
+                                }
+                            </script>
+                        </select>
+                    </div>
+                    
+                    <div class="ei_bnt_s">
+                    <button class="ei_bnt" type="submit">적용</button>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+</div>
 {% endblock %}
