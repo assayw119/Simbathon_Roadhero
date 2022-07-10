@@ -136,8 +136,10 @@ def detail_delete(request, id):
 
 def community(request):
     
+    context = {}
     communities = Community.objects.all().order_by('-view_users')
-    first_community = communities[0]
+    if communities:
+        context['first'] = communities[0]
     if request.method == 'GET':
         community_sort = request.GET.get('community')
         if community_sort == 'all' or community_sort == None:
@@ -145,7 +147,8 @@ def community(request):
         else:
             communities = Community.objects.filter(category=community_sort).order_by('-view_users')
         
-    context = {'communities': communities, 'first': first_community}
+    context['communities'] = communities
+    print(context)
     return render(request, 'main/community.html', context)
 
 
