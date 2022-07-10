@@ -26,7 +26,7 @@ urlpatterns = [
     path('community_edit/<int:id>', community_edit, name='community_edit'),
     path('community_delete/<int:id>', community_delete, name='community_delete'),
     path('<str:id>/communitylikes/', community_likes, name='community_likes'),
-    path('search/', CommunitySearchFormView.as_view(), name='community_search'),
+    path('community_search/', CommunitySearchFormView.as_view(), name='community_search'),
 
     path('<str:id>/comment_create', comment_create, name="comment_create"),
     path('<str:id>/comment_delete', comment_delete, name="comment_delete"),

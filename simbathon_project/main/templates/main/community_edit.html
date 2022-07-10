@@ -2,21 +2,43 @@
 {% load static %}
 
 {% block content %}
-    <h1>EDIT MY COMMUNITY POST</h1>
-    <form action="{% url 'main:community_update' community.id%}" method="post" enctype="multipart/form-data">
+
+
+<div id="background" class="writing_background">
+    <section class="writing_head_title">
+        <h1>EDIT MY COMMUNITY POST</h1>
+    </section>
+    <form class="writing" action="{% url 'main:community_update' community.id %}" method="post" enctype="multipart/form-data">
         {%csrf_token%}
-        <p>제목 : <input type="text" name="title" value="{{community.title}}"></p>
-        <p>카테고리
-            <select name="category">
-                <option value="질문">질문</option>
-                <option value="정보">정보</option>
-                <option value="생활">생활</option>
-                <option value="기타">기타</option>
-            </select>
-        </p>
-        <p>내용 : <textarea name="body" id="" cols="30" rows="10" >{{community.body}}</textarea></p>
-        <p>사진 : <input type="file" name="image"></p>
-        <input type="submit" value="확인">
+        <section class="writing_title">
+            <div class="writing_titles">제목</div>
+            <input type="text" name="title" placeholder="제목을 입력해주세요" value="{{community.title}}">
+        </section>
+        <section class="writing_category">
+            <div class="writing_titles">카테고리</div>
+            <p>
+                <select name="category">
+                    <option value="질문">질문</option>
+                    <option value="정보">정보</option>
+                    <option value="생활">생활</option>
+                    <option value="기타">기타</option>
+                </select>
+            </p>
+        </section>
+        <section class="writing_body writing_bottom">
+            <div class="writing_titles">내용</div>
+            <textarea name="body" id="" cols="30" rows="10" placeholder="내용을 입력해주세요">{{community.body}}</textarea>
+        </section>
+        <section class="writing_img writing_bottom">
+            <div class="writing_titles">사진</div>
+            <div class="filebox bs3-primary preview-image">
+                <input class="upload-name" value="{{community.image}}" disabled="disabled" style="width: 200px;">
+                <label for="input_file">업로드</label>
+                <input type="file" name="image" id="input_file" class="upload-hidden">
+            </div>
+        </section>
+        <button class="writing_submit" type="submit">제출</button>
     </form>
+</div>
 
 {% endblock %}

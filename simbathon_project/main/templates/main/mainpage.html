@@ -20,7 +20,7 @@
         <form id="search" method="get" action="{% url 'main:search' %}">
             {% csrf_token %}
             <input type="text" name="search_word" class="search_input" type="submit" label="Search Word"
-                value="{{search_term}}">
+                value="{{search_keyword}}">
             <i class="fa-solid fa-magnifying-glass"></i>
         </form>
     </section>
