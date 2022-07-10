@@ -90,6 +90,8 @@
 .post_item{
     display: flex;
     justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .post_itme_inner{
