@@ -8,6 +8,7 @@ const seven = document.querySelector(".about_DD");
 const eight = document.querySelector(".about_FE");
 const nine = document.querySelector(".about_BE");
 const ten = document.querySelector(".about_divider");
+const a = document.querySelector(".about_github_page");
 
 
 
@@ -35,7 +36,7 @@ document.addEventListener('scroll', function(){
     }
     if (rate > 0.42) {
         five.classList.remove("hideen")
-        five.classList.add("about_slide_left")
+        five.classList.add("about_first_title_fade_in")
     }
     if (rate > 0.48) {
         ten.classList.remove("hideen")
@@ -56,6 +57,7 @@ document.addEventListener('scroll', function(){
     if(rate > 0.9){
         nine.classList.remove("hideen")
         nine.classList.add("about_slide_left")
+        a.classList.remove("hideen")
+        a.classList.add("about_first_title_fade_in")
     }
-
 })

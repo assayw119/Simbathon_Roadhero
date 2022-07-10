@@ -62,6 +62,13 @@
 .about_us_profile_item_footer > a:hover{
     color:var(--detail-back-color);
 }
+.about_github_page{
+    color:var(--btn-color);
+}
+.about_github_page_t_a, 
+.about_github_page_t_a:hover{
+    color:var(--btn-color);
+}
 
 /* Navbar 관련 */
 .navbar{
