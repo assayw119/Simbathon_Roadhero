@@ -58,12 +58,8 @@
         <p>not found</p>
         {% endif %}
     </section>
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and user.username in managers %}
     <a href="{% url 'main:new' %}">
-        <img class="toWrite" src="{% static 'images/toWrite.png' %}" alt="">
-    </a>
-    {% else %}
-    <a href="{% url 'accounts:login' %}">
         <img class="toWrite" src="{% static 'images/toWrite.png' %}" alt="">
     </a>
     {% endif %}
