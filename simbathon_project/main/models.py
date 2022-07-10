@@ -29,8 +29,7 @@ class Post(models.Model):
     like_users = models.ManyToManyField(
         settings.AUTH_USER_MODEL, related_name='like_posts')
     view_users = models.IntegerField(default=0)
-    category = models.CharField(
-        max_length=10, choices=post_choice, default='취업')
+    category = models.CharField(max_length=10, choices=post_choice, default='취업')
     image = models.ImageField(upload_to='post/', blank=True, null=True)
 
     def __str__(self):
