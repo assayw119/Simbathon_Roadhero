@@ -65,6 +65,7 @@
             </section>
         </div>
         <div class="community_posting_body">
+            {% if communities %}
             {% for community in communities %}
             <a href="{% url 'main:community_detail' community.id %}" class="community_posting_body_post_itme_inner"
                 style="text-decoration:none">
