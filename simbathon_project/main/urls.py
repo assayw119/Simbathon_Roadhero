@@ -9,7 +9,8 @@ urlpatterns = [
     path('new/', new, name='new'),
     path('create/', create, name='create'),
     path('<str:id>', detail, name='detail'),
-    path('media/', SearchFormView.as_view(), name='search'),
+    # path('/', SearchFormView.as_view(), name='search'),
+    path('search/', search, name='search'),
     path('<str:id>/likes/', likes, name='likes'),
     
     # detail 수정 삭제 추가

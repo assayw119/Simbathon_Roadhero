@@ -17,7 +17,7 @@
         </section>
     </form>
     <section class="search">
-        <form id="search" method="post" action="{% url 'main:search' %}">
+        <form id="search" method="get" action="{% url 'main:search' %}">
             {% csrf_token %}
             <input type="text" name="search_word" class="search_input" type="submit" label="Search Word"
                 value="{{search_term}}">
@@ -30,7 +30,7 @@
         <div class="post_item">
             <a href="{% url 'main:detail' post.id %}" class="post_itme_inner" style="text-decoration:none">
                 <div class="post_itme_inner_s">
-                    <img class="post_item_img" src="media/{{post.image}}" alt="Card image cap">
+                    <img class="post_item_img" src="../media/{{post.image}}" alt="Card image cap">
                     <section class="post_item_title">
                         <div class="post_item_title_title">{{post.title}}</div>
                     </section>

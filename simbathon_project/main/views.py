@@ -30,22 +30,35 @@ def showmain(request):
     return render(request, 'main/mainpage.html', context)
 
 
-class SearchFormView(FormView):
-    template_name = 'main/mainpage.html'
-    form_class = PostSearchForm
+# class SearchFormView(FormView):
+#     template_name = 'main/mainpage.html'
+#     form_class = PostSearchForm
 
-    def form_valid(self, form):
-        searchWord = form.cleaned_data['search_word']
-        posts = Post.objects.filter(
-            Q(title__icontains=searchWord) | Q(body__icontains=searchWord))
+#     def form_valid(self, form):
+#         searchWord = form.cleaned_data['search_word']
+#         posts = Post.objects.filter(
+#             Q(title__icontains=searchWord) | Q(body__icontains=searchWord))
 
-        context = {}
-        context['form'] = form
-        context['search_term'] = searchWord
-        context['posts'] = posts
+#         context = {}
+#         context['form'] = form
+#         context['search_term'] = searchWord
+#         context['posts'] = posts
 
-        return render(self.request, self.template_name, context)
+#         return render(self.request, self.template_name, context)
 
+def search(request):
+    search_keyword = request.GET.get('search_word','')
+    posts = Post.objects.order_by('-view_users')
+    context = {}
+    if search_keyword:
+        if len(search_keyword) > 1:
+            search_posts = posts.filter(
+                Q(title__icontains=search_keyword) | Q(body__icontains=search_keyword)
+            )
+    context['search_keyword'] = search_keyword
+    context['posts'] = search_posts
+
+    return render(request, 'main/mainpage.html', context)
 
 def likes(request, id):
     if request.user.is_authenticated:
@@ -152,7 +165,6 @@ def community(request):
             communities = Community.objects.filter(category=community_sort).order_by('-view_users')
         
     context['communities'] = communities
-    print(context)
     return render(request, 'main/community.html', context)
 
 
@@ -163,10 +175,8 @@ class CommunitySearchFormView(FormView):
 
     def form_valid(self, form):
         searchWord = form.cleaned_data['search_word']
-        print(searchWord)
         communities = Community.objects.filter(
             Q(title__icontains=searchWord) | Q(body__icontains=searchWord))
-        print(communities)
         context = {}
         context['form'] = form
         context['search_term'] = searchWord

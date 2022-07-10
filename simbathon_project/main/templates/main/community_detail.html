@@ -29,8 +29,8 @@
                 <div class="community_detail_posting_info_first">
                     {% if community.writer %}
                     {% if 'user' in community.writer.username %}
-                    <div class="detail_posting_info_writer">{{ community.writer.last_name }} {{ post.writer.first_name
-                        }}
+                    <div class="detail_posting_info_writer">
+                        {{ community.writer.last_name }} {{ community.writer.first_name}}
                     </div>
                     {% else %}
                     <div class="detail_posting_info_writer">{{ community.writer }}</div>
