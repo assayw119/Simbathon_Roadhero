@@ -14,6 +14,8 @@
     --detail-comment-color : #FFFFFF;
     --detail-back-color : #2D2A2A;
     --c-back-color : #EEEEEE;
+    --profile-color : #FEFEFE;
+    --profile-back-color : #d1d8e0;
 }
 
 .lightmode{
@@ -32,6 +34,33 @@
     --detail-comment-color : #4E4E4E;
     --detail-back-color :#D9D9D9;
     --c-back-color : #D9D9D9;
+    --profile-color : #2D2A2A;
+    --profile-back-color : #9f958e;
+}
+
+/* About 관련 */
+.about_back{
+    background-color: var(--detail-back-color);
+}
+.about_posting{
+    color:var(--btn-color);
+}
+.about_divider{
+    background-color:var(--btn-color);
+}
+.about_us{
+    color:var(--btn-color);
+}
+.about_us_profile_item{
+    background-color: var(--profile-color);
+    color :var(--detail-back-color);
+}
+.about_us_profile_item_img{
+    background-color: var(--profile-back-color);
+}
+.about_us_profile_item_footer > a,
+.about_us_profile_item_footer > a:hover{
+    color:var(--detail-back-color);
 }
 
 /* Navbar 관련 */
@@ -75,6 +104,18 @@
 }
 .community_new_post_posting_item{
     background-color: var(--c-back-color);
+}
+.community_button > .btn{
+    color: var(--btn-color);
+    background-color: var(--btn-back-color);
+}
+.community_button > .btn:hover{
+    color: var(--btn-hover-color);
+    background-color: var(--btn-hover-back-color);
+}
+.community_button > .btn:active{
+    color: var(--btn-hover-color);
+    background-color: var(--btn-hover-back-color);
 }
 
 /* 버튼 넣기!! */
@@ -163,4 +204,12 @@
 .login_structure_form_submit{
     color :var(--detail-back-color);
     background-color: var(--btn-color);
+}
+
+.myp_list {
+    color: var(--btn-color);
+}
+
+.editinfo_subtitle, .createinfo_subtitle{
+    color: var(--btn-color);
 }

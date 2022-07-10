@@ -109,10 +109,13 @@ def detail(request, id):
     all_comments = post.comments.all().order_by('-created_at')
     return render(request, 'main/detail.html', {'post': post, 'comments': all_comments})
 
-##detail 수정 삭제(박영신)
+# detail 수정 삭제(박영신)
+
+
 def detail_edit(request, id):
     edit_post = Post.objects.get(id=id)
-    return render(request, 'main/detail_edit.html', {'post':edit_post})
+    return render(request, 'main/detail_edit.html', {'post': edit_post})
+
 
 def detail_update(request, id):
     update_post = Post.objects.get(id=id)
@@ -124,6 +127,7 @@ def detail_update(request, id):
         update_post.image = request.FILES.get("image")
     update_post.save()
     return redirect('main:detail', update_post.id)
+
 
 def detail_delete(request, id):
     delete_post = Post.objects.get(id=id)
@@ -152,6 +156,7 @@ def community(request):
     return render(request, 'main/community.html', context)
 
 
+
 class CommunitySearchFormView(FormView):
     template_name = 'main/community.html'
     form_class = CommunitySearchForm
@@ -169,13 +174,14 @@ class CommunitySearchFormView(FormView):
 
         return render(self.request, self.template_name, context)
 
+
 def community_detail(request, id):
     community = get_object_or_404(Community, pk=id)
     community.view_users = int(community.view_users)+1
     community.save()
 
     contents = community.communitycomments.all().order_by('-created_at')
-    return render(request, 'main/community_detail.html', {'community': community, 'communitycomments':contents})
+    return render(request, 'main/community_detail.html', {'community': community, 'communitycomments': contents})
 
 
 def community_new(request):
@@ -193,7 +199,8 @@ def community_create(request):
     new_community.save()
     return redirect('main:community_detail', new_community.id)
 
-##community 게시글 수정 기능 수정(삭제는 이미 구현 완료되어 있었네요!)
+# community 게시글 수정 기능 수정(삭제는 이미 구현 완료되어 있었네요!)
+
 
 def community_update(request, id):
     update_community = Community.objects.get(id=id)
@@ -206,16 +213,18 @@ def community_update(request, id):
     update_community.save()
     return redirect('main:community_detail', update_community.id)
 
+
 def community_edit(request, id):
     edit_community = Community.objects.get(id=id)
-    return render(request, 'main/community_edit.html', {'community':edit_community})
+    return render(request, 'main/community_edit.html', {'community': edit_community})
+
 
 def community_delete(request, id):
     delete_community = Community.objects.get(id=id)
     if request.user == delete_community.writer:
         delete_community.delete()
     return redirect("main:community")
-    
+
 
 def community_likes(request, id):
     if request.user.is_authenticated:
@@ -231,7 +240,7 @@ def community_likes(request, id):
     return redirect('accounts:login')
 
 
-## detail 댓글 페이지
+# detail 댓글 페이지
 
 def comment_create(request, id):
     if request.method == "POST":
@@ -240,7 +249,7 @@ def comment_create(request, id):
         comment_content = request.POST.get("content")
         if len(comment_content.strip()) != 0:
             Comment.objects.create(content=comment_content,
-                                    writer=current_user, post=post)
+                                   writer=current_user, post=post)
     return redirect("main:detail", id)
 
 
@@ -265,15 +274,19 @@ def comment_update(request, id):
     comment.save()
     return redirect("main:detail", comment.post.id)
 
-## 커뮤니티 댓글 페이지
+# 커뮤니티 댓글 페이지
+
+
 def community_comment_create(request, id):
     if request.method == "POST":
         community = get_object_or_404(Community, pk=id)
         current_user = request.user
         community_comment_content = request.POST.get("comment")
         if len(community_comment_content.strip() == 0):
-            CommunityComment.objects.create(content=community_comment_content, writer=current_user, community=community)
+            CommunityComment.objects.create(
+                content=community_comment_content, writer=current_user, community=community)
     return redirect("main:community_detail", id)
+
 
 def community_comment_edit(request, id):
     communitycomment = CommunityComment.objects.get(id=id)
@@ -282,11 +295,13 @@ def community_comment_edit(request, id):
     else:
         return redirect("main:community_detail", communitycomment.community.id)
 
+
 def community_comment_update(request, id):
     communitycomment = CommunityComment.objects.get(id=id)
     communitycomment.content = request.POST.get("comment")
     communitycomment.save()
     return redirect("main:community_detail", communitycomment.community.id)
+
 
 def community_comment_delete(request, id):
     communitycomment = CommunityComment.objects.get(id=id)

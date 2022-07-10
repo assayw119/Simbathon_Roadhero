@@ -5,19 +5,19 @@
 <div id="background">
     <section class="detail_posting_s" style="border-radius: 15px">
         <div class="detail_posting">
-            <div class="detail_posting_category">
-                <div class="detail_category_category">
+            <div class="community_detail_posting_category">
+                <div class="community_detail_category_category">
                     {{post.category}}
                 </div>
                 <!--수정 삭제-->
-                <div class="detail_category_change">
+                <div class="community_detail_category_change">
                     {% if user == post.writer %}
-                    <div class="detail_category_edit">
+                    <div class="community_detail_category_edit">
                         <a style="text-decoration: none" href="{% url 'main:detail_edit' post.id%}">
                             수정
                         </a>
                     </div>
-                    <div class="detail_category_delete">
+                    <div class="community_detail_category_delete">
                         <a style="text-decoration: none" href="{% url 'main:detail_delete' post.id%}">
                             삭제
                         </a>
@@ -47,7 +47,7 @@
             <p class="detail_posting_body">
                 {{post.body}}
             </p>
-            
+
             <!--문단 구분 안감!!-->
             <div class="detail_posting_footer">
                 <div class="detail_posting_footer_category">
@@ -70,7 +70,7 @@
                 </div>
             </form>
             {% else %}
-            <div class="detail_posting_comment_disable">좋아요는 로그인 후에!</div>
+            <div style="margin-bottom: 25px" class="detail_posting_comment_disable">좋아요는 로그인 후에!</div>
             {% endif %}
         </div>
         <div class="detail_posting_comment">
@@ -84,7 +84,8 @@
                 <form class="detail_posting_comment_write_form" action="{%url 'main:comment_create' post.id%}"
                     method="POST">
                     {%csrf_token%}
-                    <textarea class="detail_posting_comment_write_input" name="content" placeholder="댓글내용입력"></textarea>
+                    <textarea required class="detail_posting_comment_write_input" name="content"
+                        placeholder="댓글내용입력"></textarea>
                     <input class="detail_posting_comment_write_submit" type="submit" value="확인">
                 </form>
             </div>
@@ -132,7 +133,7 @@
                         <form class="detail_posting_comment_write_edit_form"
                             action="{%url 'main:comment_update' comment.id%}" method="POST">
                             {%csrf_token%}
-                            <textarea class="detail_posting_comment_write_edit_input"
+                            <textarea required class="detail_posting_comment_write_edit_input"
                                 name="content">{{comment.content}}</textarea>
                             <input class="detail_posting_comment_write_edit_submit" type="submit" value="수정">
                         </form>

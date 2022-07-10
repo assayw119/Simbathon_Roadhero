@@ -20,7 +20,7 @@
     margin-bottom: 20px;
 }
 .community_detail_posting_category{
-    margin-top: 1%;
+    margin-top: 2%;
     font-size: 24px;
     width: 80%;
     display: flex;
@@ -78,6 +78,13 @@
 }
 .community_detail_posting_info_second div div {
     margin-left:5px;
+}
+.community_detail_posting_img{
+    margin-top: 2%;
+    border-radius: 5%;
+    width: 60%;
+    height: 50vh;
+    object-fit: cover;
 }
 .community_detail_posting_body{
     font-family: 'KoPubDotumMedium';

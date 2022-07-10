@@ -60,9 +60,16 @@ a{
 .community_new_post_posting_item_summary{
     width: 80%;
     margin-bottom: 5%;
+    font-size: 18px;
+}
+.community_new_post_item_footer{
+    width: 80%;
+    display: flex;
+    font-size: 14px;
+    opacity: 0.7;
+    justify-content: space-between;
 }
 .community_new_post_posting_item_date{
-    width: 80%;
 }
 
 /* 포스팅 관련 css */
@@ -89,11 +96,6 @@ a{
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 /* 1-2. 버튼 */
-.community_button_form{
-    width: 60%;
-    display: flex;
-    justify-content: center;
-}
 .community_button{
     width: 60%;
     display: flex;
@@ -106,22 +108,16 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #FFFFFF;
-    background-color: #3D3939;
     transition: all 0.5s;
 }
 .btn > div{
     font-size: 12px;
 }
 .community_button > .btn:hover{
-    color: #3D3939;
-    background-color: #FFFFFF;
     transition: all 0.5s;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 .community_button > .btn:active{
-    color: #3D3939;
-    background-color: #FFFFFF;
     box-shadow: none;
 }
 
