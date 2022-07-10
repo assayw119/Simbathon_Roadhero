@@ -1,6 +1,7 @@
 from tkinter.messagebox import NO
 from unicodedata import category
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 
 from main.forms import PostSearchForm, CommunitySearchForm
 from .models import Post, Comment, Community, CommunityComment
@@ -50,13 +51,16 @@ def search(request):
     search_keyword = request.GET.get('search_word','')
     posts = Post.objects.order_by('-view_users')
     context = {}
+    context['posts'] = posts
     if search_keyword:
         if len(search_keyword) > 1:
             search_posts = posts.filter(
                 Q(title__icontains=search_keyword) | Q(body__icontains=search_keyword)
             )
-    context['search_keyword'] = search_keyword
-    context['posts'] = search_posts
+            context['search_keyword'] = search_keyword
+            context['posts'] = search_posts
+        else:
+            messages.error(request, '검색어는 2글자 이상 입력해주세요.')
 
     return render(request, 'main/mainpage.html', context)
 
@@ -292,7 +296,7 @@ def community_comment_create(request, id):
         community = get_object_or_404(Community, pk=id)
         current_user = request.user
         community_comment_content = request.POST.get("comment")
-        if len(community_comment_content.strip() == 0):
+        if len(community_comment_content.strip()) != 0:
             CommunityComment.objects.create(
                 content=community_comment_content, writer=current_user, community=community)
     return redirect("main:community_detail", id)

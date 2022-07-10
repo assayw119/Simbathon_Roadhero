@@ -60,7 +60,7 @@
             <img class="community_detail_posting_img" src="{{community.image.url}}" alt="사진">
             {% endif %}
             <div style="margin-bottom: 50px;" class="community_detail_posting_body">
-                {{community.body}}
+                {{community.body|linebreaksbr}}
             </div>
             <!--문단 구분 안감!! post css를 community로 수정해야 함!!-->
             <!-- 좋아요 -->
