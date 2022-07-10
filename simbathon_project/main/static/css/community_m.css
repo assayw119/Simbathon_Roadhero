@@ -1,5 +1,6 @@
 @import "reset.css";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 @font-face {
     font-family: 'SUIT-Medium';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
@@ -70,6 +71,7 @@ a{
     justify-content: space-between;
 }
 .community_new_post_posting_item_date{
+    
 }
 
 /* 포스팅 관련 css */
@@ -223,4 +225,14 @@ a{
     position: fixed;
     bottom: 50px;
     right: 50px;
+}
+
+.community_post_not_found{
+    font-family: 'Hanna', sans-serif;
+    font-size: 20px;
+}
+
+.community_post_not_found_eng{
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
 }
