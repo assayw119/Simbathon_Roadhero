@@ -1,0 +1,222 @@
+:root{
+    --nav-color:#6F816F;
+    --back-color : #514C48;
+    --title-color: #FFFFFF;
+    --btn-color : #FFFFFF;
+    --btn-back-color : #3D3939;
+    --btn-hover-color : #3D3939;
+    --btn-hover-back-color : #FFFFFF;
+    --detail-back-color : #2D2A2A;
+    --detail-color : #FFFFFF;
+    --search-color: #656260;
+    --detail-comment-back-color : #4E4E4E;
+    --detail-comment-submit-back-color: #D9D9D9;
+    --detail-comment-color : #FFFFFF;
+    --detail-back-color : #2D2A2A;
+    --c-back-color : #EEEEEE;
+    --profile-color : #FEFEFE;
+    --profile-back-color : #d1d8e0;
+}
+
+.lightmode{
+    --nav-color: #EAE3DC;
+    --back-color: rgb(237,237,237);
+    --title-color: #4C4B49;
+    --btn-color : #4D4B49;
+    --btn-back-color : #D9D9D9;
+    --btn-hover-color : #EFEFEF;
+    --btn-hover-back-color : #4388A6;
+    --detail-back-color : #FFFFFF;
+    --detail-color : #4C4B49;
+    --search-color: #C8C8C8;
+    --detail-comment-back-color : rgb(237,237,237);
+    --detail-comment-submit-back-color: #D9D9D9;
+    --detail-comment-color : #4E4E4E;
+    --detail-back-color :#D9D9D9;
+    --c-back-color : #D9D9D9;
+    --profile-color : #2D2A2A;
+    --profile-back-color : #9f958e;
+}
+
+/* About 관련 */
+.about_back{
+    background-color: var(--detail-back-color);
+}
+.about_posting{
+    color:var(--btn-color);
+}
+.about_divider{
+    background-color:var(--btn-color);
+}
+.about_us{
+    color:var(--btn-color);
+}
+.about_us_profile_item{
+    background-color: var(--profile-color);
+    color :var(--detail-back-color);
+}
+.about_us_profile_item_img{
+    background-color: var(--profile-back-color);
+}
+.about_us_profile_item_footer > a,
+.about_us_profile_item_footer > a:hover{
+    color:var(--detail-back-color);
+}
+.about_github_page{
+    color:var(--btn-color);
+}
+.about_github_page_t_a, 
+.about_github_page_t_a:hover{
+    color:var(--btn-color);
+}
+
+/* Navbar 관련 */
+.navbar{
+    background-color: var(--nav-color);
+}
+.navbar_login i:hover, .navbar_menu_title:hover{
+    color:var( --btn-hover-back-color );
+}
+
+/* Mainpage 관련 */
+#background{
+    background-color: var(--back-color);
+}
+
+.title{
+    color: var(--title-color);
+}
+
+.button > .btn{
+    color: var(--btn-color);
+    background-color: var(--btn-back-color);
+    transition: all 0.5s;
+}
+
+.button > .btn:hover{
+    color: var(--btn-hover-color);
+    background-color: var(--btn-hover-back-color);
+    transition: all 0.5s;
+}
+
+.button > .btn:active{
+    color: var(--btn-hover-color);
+    background-color: var(--btn-hover-back-color);
+    transition: all 0.5s;
+}
+
+/* Community 관련 */
+.community_new_post_title, .community_posting_head_title{
+    color: var(--btn-color );
+}
+.community_new_post_posting_item{
+    background-color: var(--c-back-color);
+}
+.community_button > .btn{
+    color: var(--btn-color);
+    background-color: var(--btn-back-color);
+}
+.community_button > .btn:hover{
+    color: var(--btn-hover-color);
+    background-color: var(--btn-hover-back-color);
+}
+.community_button > .btn:active{
+    color: var(--btn-hover-color);
+    background-color: var(--btn-hover-back-color);
+}
+
+/* 버튼 넣기!! */
+
+
+/* Detail 관련 */
+.detail_posting_s{
+    background-color: var(--detail-back-color);
+    color: var(--detail-color);
+}
+.detail_posting_comment_write_input{
+    background-color: var(--detail-comment-back-color);
+    color : var(--detail-comment-color);
+}
+.detail_posting_comment_write_submit{
+    background-color: var(--detail-comment-submit-back-color);
+}
+
+.detail_posting_comment_write_edit_input{
+    background-color: var(--detail-comment-back-color);
+    color : var(--detail-comment-color);
+}
+
+.detail_posting_comment_write_edit_submit{
+    background-color: var(--detail-comment-submit-back-color);
+}
+
+.detail_posting_comment_items_item{
+    background-color: var(--detail-comment-back-color);;
+    color: var(--detail-comment-color);;
+}
+
+.detail_posting_comment_items_x, .detail_posting_comment_items_x:hover{
+    color: var(--btn-color);
+}
+
+.detail_posting_comment_edit{
+    background-color: var(--detail-comment-back-color);
+    color: var(--detail-comment-color);;
+}
+
+/* 커뮤니티 디테일 */
+.community_detail_category_change div a{
+    color: var(--btn-color);
+}
+.detail_back{
+    background: var(--detail-back-color);
+}
+.detail_back > a,  .detail_back > a:hover{
+    color : var(--btn-color );
+}
+
+
+/* Search bar */
+.search > form > input{
+    border : 1px solid var(--search-color);
+    background-color: var(--search-color);
+}
+
+.community_search > form > input{
+    border : 1px solid var(--search-color);
+    background-color:var(--search-color);
+}
+
+/* 로그인 페이지 */
+.login_structure{
+    background-color: var(--detail-back-color);
+    color : var(--btn-color);
+}
+
+.login_structure_form_item{
+    background: var(--detail-back-color);
+    border-bottom: 2px solid var(--btn-color);
+    color:var(--btn-color);
+}
+.login_structure_form_item::placeholder{
+    color:var(--btn-color);
+}
+.login_create_account{
+    color:var(--btn-color);
+}
+.login_structure_form_submit_google{
+    background-color:var(--btn-color);
+    color :var(--detail-back-color);
+}
+.login_structure_form_submit{
+    color :var(--detail-back-color);
+    background-color: var(--btn-color);
+}
+
+.myp_list {
+    color: var(--btn-color);
+}
+
+.editinfo_subtitle, .createinfo_subtitle{
+    color: var(--btn-color);
+}

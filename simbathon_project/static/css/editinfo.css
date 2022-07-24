@@ -1,0 +1,84 @@
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@700&display=swap');
+@font-face {
+    font-family: 'SUIT-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.editinfo_title{
+    font-family: 'MuseoModerno', cursive;
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.editinfo_subtitle{
+    font-family: 'SUIT-Medium';
+    margin-top: 4%;
+    width: 80%;
+    font-size: 33px;
+    font-weight: 800;
+}
+
+.editinfo_s{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
+}
+.editinfo_subtitle{
+    padding-left: 4%;
+    width: 60%;
+}
+.editinfo_box{
+    display: flex;
+    justify-content:flex-start;
+    width: 60%;
+    height: 60%;
+    background-color: #2D2A2A;
+    color: #FFFFFF;
+    border-radius: 15px;
+    margin-bottom: 5%;
+    margin-top: 1%;
+    padding: 2% 4%;
+    flex-direction: column;
+}
+
+.ei_content{
+    font-size: 18px;
+    font-weight: 450;
+    font-family: 'KoPubDotum Bold';
+    font-style: normal;
+    padding-left: 2%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+
+.ei_blank{
+    padding: 1% 0%;
+}
+
+.ei_bnt_s{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ei_bnt{
+    border: none;
+    justify-content: center;
+    display: flex;
+    width: 60px;
+    height: 40px;
+    background: #6F816F;
+    border-radius: 10px;
+    color: #FFFFFF;
+    align-items: center;
+}

@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'SUIT-Medium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+.navbar{
+  width: 100vw;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.navbar_logo_a{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.navbar_logo_img{
+  width: 45%;
+}
+.navbar_logo_imgs{
+  width: 70%;
+}
+
+.navbar_menu{
+  display: flex;
+  align-items: center;
+  width: 45%;
+  justify-content: space-between;
+}
+
+.nabvar_menu_category_one{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  line-height: 15px;
+}
+
+.navbar_menu_title{
+  font-family: 'SUIT-Medium';
+  font-size: 20px;
+  text-decoration: none;
+  color:black;
+  transition: color 0.7s;
+}
+.navbar_menu_title:hover{
+  color: white;
+  transition: color 0.7s;
+}
+
+.navbar_login{
+  display: flex;
+}
+
+.navbar_login i{
+  cursor: pointer;
+  color: black;
+  margin-right: 20px;
+  transition: color 0.7s;
+}
+.navbar_login i:hover{
+  color:white;
+  transition: color 0.7s;
+}

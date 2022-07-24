@@ -1,0 +1,238 @@
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+@font-face {
+    font-family: 'SUIT-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+a{
+    text-decoration:none;
+}
+
+/* 타이틀 과 배경은 전체에서 관리 css */
+
+/* 가장 최근 포스팅 관련 css */
+.community_new_post{
+    width: 80%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.community_new_post_title{
+    font-size: 38px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.community_new_post_posting{
+    color:#4D4B49;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 40%;
+}
+.community_new_post_posting_img{
+    width: 100%;
+    height: 100%;
+}
+.community_new_post_posting_item{
+    font-family: 'SUIT-Medium';
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.community_new_post_posting_item_title{
+    width: 80%;
+    color:#3C5F3B;
+    font-size: 30px;
+    margin-bottom: 1%;
+}
+.community_new_post_posting_item_major{
+    text-align: right;
+    width: 80%;
+    margin-bottom: 5%;
+}
+.community_new_post_posting_item_summary{
+    width: 80%;
+    margin-bottom: 5%;
+    font-size: 18px;
+}
+.community_new_post_item_footer{
+    width: 80%;
+    display: flex;
+    font-size: 14px;
+    opacity: 0.7;
+    justify-content: space-between;
+}
+.community_new_post_posting_item_date{
+    
+}
+
+/* 포스팅 관련 css */
+.community_posting{
+    font-family: 'SUIT-Medium';
+    margin-top: 8%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* 1.포스팅 head */
+.community_posting_head{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+/* 1-1. 타이틀 */
+.community_posting_head_title{
+    font-size: 38px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+/* 1-2. 버튼 */
+.community_button{
+    width: 60%;
+    display: flex;
+    align-items: center;
+}
+.community_button > .btn{
+    margin-right: 10px;
+    border-radius: 10px;
+    padding: 10px 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+}
+.btn > div{
+    font-size: 12px;
+}
+.community_button > .btn:hover{
+    transition: all 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.community_button > .btn:active{
+    box-shadow: none;
+}
+
+
+/* 1-3. 돋보기 부분 */
+.community_search{
+
+}
+.community_search > form{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.community_search > form > i{
+    margin-left: 5px;
+    position: absolute;
+}
+.community_search > form > input{
+    padding-left: 25px;
+    height: 30px;
+    border : 1px solid #656260;
+    border-radius: 7px;
+    background-color:#656260;
+}
+
+/* 1.포스팅 body */
+.community_posting_body{
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    width: 96%;
+}
+.community_posting_body_post_item{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 280px;
+    background-color: #D9D9D9;
+    margin-bottom: 5%;
+    border-radius: 20px;
+    transition: all 0.5s;
+}
+.community_posting_body_post_item:hover{
+    transition: all 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.community_posting_body_post_item_head{
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.community_posting_body_post_item_head > p:first-child{
+    color: #A05D5D;
+    font-weight: 800;
+    font-size: 25px;
+}
+.community_posting_body_post_item_head > p:last-child{
+    color:#6D6D6D;
+    font-size: 12px;
+}
+.community_posting_body_post_item_title{
+    color: #4E4E4E;
+    width: 85%;
+    font-weight: 800;
+    font-size: 30px;
+}
+.community_posting_body_post_item_summary{
+    color: #4E4E4E;
+    width: 85%;
+    font-weight: 800;
+    font-size: 20px;
+}
+.community_posting_body_post_item_footer{
+    display: flex;
+    width: 85%;
+    color: #6D6D6D;
+    justify-content: space-between;
+}
+.community_posting_body_post_item_footer_item{
+    display: flex;
+}
+.community_posting_body_post_item_footer_item >p:first-child{
+    margin-right: 20px;
+}
+.community_post_item_info_user{
+    display: flex;
+}
+.community_post_item_info_user > i{
+    margin-top: 4px;
+    margin-right: 5px;
+}
+.community_post_item_info_user:last-child{
+    margin-left: 10px;
+}
+.toWrite{
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+
+.community_post_not_found{
+    font-family: 'Hanna', sans-serif;
+    font-size: 20px;
+}
+
+.community_post_not_found_eng{
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+}

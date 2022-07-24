@@ -1,0 +1,188 @@
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@700&display=swap');
+@font-face {
+    font-family: 'SUIT-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.myp_background{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.profile_box_s{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 60%;
+    background-color: #2D2A2A;
+    color: #FFFFFF;
+    border-radius: 15px;
+    margin-bottom: 5%;
+    margin-top: 4%;
+    padding: 2% 0;
+}
+
+.profile_image{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    
+}
+
+.profile_items{
+    display: flex;
+    width: 100%;
+    margin-left: 20%;
+    justify-content: flex-start;
+    font-family: 'KoPubDotum Bold';
+    font-style: normal;
+    flex-direction: column;
+}
+
+.profile_item{
+    display: flex;
+    align-items: center;
+}
+.profile_item:nth-child(2){
+    margin: 10px 0px;
+}
+.profile_item_item{
+    width: 50%;
+    display: flex;
+}
+.profile_item_item > div:first-child{
+    width: 30%
+}
+
+.myp_title{
+    font-family: 'MuseoModerno', cursive;
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.profile_box{
+    display: flex;
+    align-items: center;
+    width: 90%;
+}
+
+
+
+.myp_edit{
+    width: 50px;
+    height: 30px;
+    background: #6F816F;
+    border-radius: 10px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.myp_edit:hover{
+    color: #FFFFFF;
+}
+.profile_item_edit{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile_user_box, .profile_name_box, .profile_univ_box, .profile_major_box, .profile_major2_box, .profile_register_box {
+    text-align: center;
+    background-color: #4E4E4E;
+    color: #FFFFFF;
+    margin-left: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+   
+}
+
+.myp_list {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 80%;
+    /* or 56px */
+    font-family: 'KoPubDotum Bold';
+    font-style: normal;
+    font-weight: 550;
+    margin-left: 7%;
+    margin-bottom: 2%;
+}
+
+.myp_all_box {
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    width: 100%;
+    background-color: #2D2A2A;
+    color: #FFFFFF;
+    border-radius: 15px;
+    margin-bottom: 0.2%;
+    margin-top: 0.2%;
+    align-content: center;
+    padding: 0.5% 0;
+}
+
+
+.myp_all_box::-webkit-scrollbar {
+    width: 12px;
+}
+
+.myp_all_box::-webkit-scrollbar-thumb {
+    background-color: darkgray;
+    border-radius: 15px;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+
+}
+.myp_all_box::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 15px;
+    
+}
+
+.myp_all_box::-webkit-scrollbar-thumb:hover {
+    background: gray;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+}
+
+.myp_set{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    margin-left: 7%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.mpy_type{
+    display: flex;
+    width: 100%;
+    margin-right: 3px;
+    align-items: center;
+}
+
+.myp_category{
+    display: flex;
+    width: 100%
+}
+
+.profile_other_s{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 60%;
+    margin-top: 5%;
+    margin-bottom: 4%;
+}
