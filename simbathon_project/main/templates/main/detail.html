@@ -116,7 +116,7 @@
                             <i onclick="showValue(this)" class="fa-solid fa-pen-to-square"
                                 id="detail_comment_{{comment.id}}" value="
                                 d"></i>
-                            <a class="detail_posting_comment_items_x"
+                            <a onclick="goBackScrollPoint();" class="detail_posting_comment_items_x"
                                 href="{% url 'main:comment_delete' comment.id %}"><i class="fa-solid fa-x"></i></a>
                             {% endif %}
                         </div>
@@ -159,6 +159,7 @@
     const like_form = document.querySelector(".detail_posting_like_form")
     like.addEventListener("click", function (event) {
         like_form.submit();
+        goBackScrollPoint();
     })
 
     const showValue = (target) => {
