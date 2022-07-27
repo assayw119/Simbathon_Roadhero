@@ -37,8 +37,7 @@ python manage.py runserver
 
 ## 실행 결과
 1. Intro Page
-<img width="1606" alt="스크린샷 2022-07-28 오전 2 08 05" src="https://user-images.githubusercontent.com/87521259/181307602-f553cfeb-c4c7-4bd9-ac9a![Uploading 스크린샷 2022-07-28 오전 2.08.18.png…]()
--2b7d15320238.png">
+<img width="1606" alt="스크린샷 2022-07-28 오전 2 08 05" src="https://user-images.githubusercontent.com/87521259/181307602-f553cfeb-c4c7-4bd9-ac9a-2b7d15320238.png">
 <img width="1600" alt="스크린샷 2022-07-28 오전 2 08 36" src="https://user-images.githubusercontent.com/87521259/181307692-3450e65e-408d-4c10-944a-37a25059d177.png">
 
 2. Magazine Page
